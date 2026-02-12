@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://b87m5rygs0rgt"]
+
+[ext_resource type="Script" uid="uid://cb6bj5li6nqxo" path="res://scenes/Lobby/lobby_manager.gd" id="1_2vvvf"]
+[ext_resource type="Script" uid="uid://khkdpeu8glxi" path="res://scenes/Lobby/lobby_grid_manager.gd" id="2_xb6ow"]
+[ext_resource type="PackedScene" uid="uid://77y3wry76wiw" path="res://scenes/Lobby/CharaSlot.tscn" id="3_eksp8"]
+[ext_resource type="PackedScene" uid="uid://cf6yr4sjsxrar" path="res://scenes/Lobby/cursor.tscn" id="4_hruur"]
+[ext_resource type="AudioStream" uid="uid://cxicgac4xrj2b" path="res://assets/music/lobby.ogg" id="5_ry2qp"]
+[ext_resource type="Script" uid="uid://chqvphrcofg7d" path="res://scenes/Lobby/player_panel.gd" id="7_12gv0"]
+[ext_resource type="Script" uid="uid://b2hxjf8gc38xd" path="res://scenes/#Shared/beat_pulse.gd" id="8_ogr8d"]
+[ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="9_ogr8d"]
+
+[node name="Lobby" type="Node" unique_id=1010518743 node_paths=PackedStringArray("grid_manager", "player_panels")]
+script = ExtResource("1_2vvvf")
+music = ExtResource("5_ry2qp")
+grid_manager = NodePath("GridManager")
+player_panels = [NodePath("PanelP1"), NodePath("PanelP2"), NodePath("PanelP3"), NodePath("PanelP4")]
+cursor_prefab = ExtResource("4_hruur")
+
+[node name="GridManager" type="Node2D" parent="." unique_id=25414212]
+position = Vector2(640, 360)
+script = ExtResource("2_xb6ow")
+row_length = 3
+row_offset = Vector2(-25, 130)
+column_offset = Vector2(200, -50)
+slot_prefab = ExtResource("3_eksp8")
+
+[node name="Control" type="Control" parent="." unique_id=1270048046]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelP1" type="Node2D" parent="." unique_id=1446159293 node_paths=PackedStringArray("_sprite")]
+position = Vector2(237, 266)
+script = ExtResource("7_12gv0")
+_sprite = NodePath("Pulse/Sprite2D")
+
+[node name="Pulse" type="Node2D" parent="PanelP1" unique_id=261853703]
+script = ExtResource("8_ogr8d")
+pulse_scale = Vector2(1.05, 0.9)
+scale_duration_pct = 0.25
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelP1/Pulse" unique_id=187254022]
+scale = Vector2(3, 3)
+texture = ExtResource("9_ogr8d")
+offset = Vector2(0, -40)
+
+[node name="PanelP2" type="Node2D" parent="." unique_id=2112297772 node_paths=PackedStringArray("_sprite")]
+position = Vector2(1027, 266)
+script = ExtResource("7_12gv0")
+_sprite = NodePath("Pulse/Sprite2D")
+
+[node name="Pulse" type="Node2D" parent="PanelP2" unique_id=177376533]
+script = ExtResource("8_ogr8d")
+pulse_scale = Vector2(1.05, 0.9)
+scale_duration_pct = 0.25
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelP2/Pulse" unique_id=1541344318]
+scale = Vector2(3, 3)
+texture = ExtResource("9_ogr8d")
+offset = Vector2(0, -40)
+flip_h = true
+
+[node name="PanelP3" type="Node2D" parent="." unique_id=1092971224 node_paths=PackedStringArray("_sprite")]
+position = Vector2(237, 643)
+script = ExtResource("7_12gv0")
+_sprite = NodePath("Pulse/Sprite2D")
+
+[node name="Pulse" type="Node2D" parent="PanelP3" unique_id=1959713375]
+script = ExtResource("8_ogr8d")
+pulse_scale = Vector2(1.05, 0.9)
+scale_duration_pct = 0.25
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelP3/Pulse" unique_id=270183766]
+scale = Vector2(3, 3)
+texture = ExtResource("9_ogr8d")
+offset = Vector2(0, -40)
+
+[node name="PanelP4" type="Node2D" parent="." unique_id=1150558832 node_paths=PackedStringArray("_sprite")]
+position = Vector2(1025, 643)
+script = ExtResource("7_12gv0")
+_sprite = NodePath("Pulse/Sprite2D")
+
+[node name="Pulse" type="Node2D" parent="PanelP4" unique_id=1087169765]
+script = ExtResource("8_ogr8d")
+pulse_scale = Vector2(1.05, 0.9)
+scale_duration_pct = 0.25
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelP4/Pulse" unique_id=267258678]
+scale = Vector2(3, 3)
+texture = ExtResource("9_ogr8d")
+offset = Vector2(0, -40)
+flip_h = true

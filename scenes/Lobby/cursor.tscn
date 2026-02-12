@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cf6yr4sjsxrar"]
+
+[ext_resource type="Texture2D" uid="uid://bwuao87f1ktl" path="res://assets/sprites/cursor/CharaCursor0.png" id="1_plr6x"]
+[ext_resource type="Script" uid="uid://vf12v8iqld7d" path="res://scenes/Lobby/cursor.gd" id="2_j58hf"]
+[ext_resource type="Script" uid="uid://b2hxjf8gc38xd" path="res://scenes/#Shared/beat_pulse.gd" id="2_t683u"]
+
+[node name="Cursor" type="Node2D" unique_id=679443129 node_paths=PackedStringArray("corners")]
+script = ExtResource("2_j58hf")
+corners = [NodePath("Node2D/Sprite2D1"), NodePath("Node2D/Sprite2D2"), NodePath("Node2D/Sprite2D3"), NodePath("Node2D/Sprite2D4")]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=714476664]
+script = ExtResource("2_t683u")
+pulse_scale = Vector2(1.1, 1.1)
+scale_duration_pct = 0.85
+
+[node name="Sprite2D1" type="Sprite2D" parent="Node2D" unique_id=1972966376]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_plr6x")
+offset = Vector2(-100, -60.75)
+region_enabled = true
+region_rect = Rect2(0, 0, 200, 121.5)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D" unique_id=2039310026]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_plr6x")
+offset = Vector2(100, -60.75)
+region_enabled = true
+region_rect = Rect2(200, 0, 200, 121.5)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D" unique_id=1109775126]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_plr6x")
+offset = Vector2(-100, 60.75)
+region_enabled = true
+region_rect = Rect2(0, 121.5, 200, 121.5)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D" unique_id=2093887173]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_plr6x")
+offset = Vector2(100, 60.75)
+region_enabled = true
+region_rect = Rect2(200, 121.5, 200, 121.5)

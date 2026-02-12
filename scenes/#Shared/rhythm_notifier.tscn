@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cfd5t1ixxvpyh"]
+
+[ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="1_28eix"]
+
+[node name="RhythmNotifier" type="Node" unique_id=222504872 node_paths=PackedStringArray("audio_stream_player")]
+script = ExtResource("1_28eix")
+audio_stream_player = NodePath("AudioStreamPlayer")
+metadata/_custom_type_script = "uid://dos3qhffr4v0a"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=773460413]
