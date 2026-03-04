@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cehvv4m2vvu6r"]
+
+[ext_resource type="Script" uid="uid://ff7sc7bijvlc" path="res://scenes/Minigames/minigame_base.gd" id="1_271ia"]
+[ext_resource type="PackedScene" uid="uid://cnj5qw7x1sxey" path="res://scenes/Minigames/BtnMasher/masher_player.tscn" id="2_47uwu"]
+[ext_resource type="AudioStream" uid="uid://cxicgac4xrj2b" path="res://assets/music/lobby.ogg" id="3_8uplv"]
+[ext_resource type="Script" uid="uid://du4w8dmq50bbc" path="res://scenes/Minigames/BtnMasher/button_masher.gd" id="4_ghdmc"]
+
+[node name="ButtonMasher" type="Node2D" unique_id=319501980 node_paths=PackedStringArray("player_spawns")]
+script = ExtResource("1_271ia")
+player_prefab = ExtResource("2_47uwu")
+player_spawns = [NodePath("Spawners/Spawn1"), NodePath("Spawners/Spawn2"), NodePath("Spawners/Spawn3"), NodePath("Spawners/Spawn4")]
+fixed_spawns = true
+music = ExtResource("3_8uplv")
+minigame_duration = 5
+
+[node name="ButtonMasherManager" type="Node" parent="." unique_id=826713093 node_paths=PackedStringArray("minigame")]
+script = ExtResource("4_ghdmc")
+minigame = NodePath("..")
+target_score = 60
+
+[node name="Spawners" type="Node2D" parent="." unique_id=451747632]
+position = Vector2(200, 540)
+
+[node name="Spawn1" type="Node2D" parent="Spawners" unique_id=1850746195]
+position = Vector2(0, 340)
+
+[node name="Spawn2" type="Node2D" parent="Spawners" unique_id=30439092]
+position = Vector2(0, 170)
+
+[node name="Spawn3" type="Node2D" parent="Spawners" unique_id=1723776947]
+
+[node name="Spawn4" type="Node2D" parent="Spawners" unique_id=617607757]
+position = Vector2(0, -170)

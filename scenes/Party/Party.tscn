@@ -1,0 +1,340 @@
+[gd_scene format=3 uid="uid://66bp3jmkfkpb"]
+
+[ext_resource type="Script" uid="uid://c4tm74o5k88x0" path="res://scenes/Party/party_scene_manager.gd" id="1_kcr7i"]
+[ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="2_fbl6d"]
+[ext_resource type="Script" uid="uid://dd4fqo0tx55rf" path="res://scenes/Party/score_panel.gd" id="2_kffgf"]
+[ext_resource type="PackedScene" uid="uid://b1r50r87sm1m8" path="res://scenes/Party/player_score_panel.tscn" id="3_8hvnx"]
+[ext_resource type="FontFile" uid="uid://cptlmfreyyfup" path="res://assets/fonts/Dish Out.ttf" id="3_xjrt0"]
+[ext_resource type="Texture2D" uid="uid://3vjtcr8xypx5" path="res://assets/sprites/btnHor.png" id="4_86x1l"]
+[ext_resource type="Texture2D" uid="uid://dl4yjp4eys814" path="res://assets/sprites/btnVert.png" id="5_8hvnx"]
+[ext_resource type="Script" uid="uid://jrywqlsjgpr5" path="res://scenes/Party/game_roulette.gd" id="5_kffgf"]
+[ext_resource type="Texture2D" uid="uid://do3hhpk6ktqut" path="res://assets/sprites/btnMove.png" id="6_kffgf"]
+[ext_resource type="Texture2D" uid="uid://brpvvm70pc2jy" path="res://assets/sprites/btn1.png" id="7_ggfcw"]
+[ext_resource type="Texture2D" uid="uid://jubwyaygu375" path="res://assets/sprites/btn2.png" id="8_1sccy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1xvbk"]
+font = ExtResource("2_fbl6d")
+font_size = 90
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.5803922)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j1a3o"]
+font = ExtResource("3_xjrt0")
+font_size = 40
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ifxeo"]
+font = ExtResource("2_fbl6d")
+font_size = 100
+font_color = Color(1, 0.7931667, 0.26999998, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pp5ej"]
+font = ExtResource("3_xjrt0")
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cnbk5"]
+font = ExtResource("2_fbl6d")
+font_size = 75
+font_color = Color(1, 0.75, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tlmxs"]
+font = ExtResource("2_fbl6d")
+font_size = 100
+font_color = Color(1, 0.75, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PartyScene" type="Node" unique_id=1758917780 node_paths=PackedStringArray("score_panel_mgr", "roulette", "minigame_holder", "party_ui", "minigame_ui")]
+script = ExtResource("1_kcr7i")
+score_panel_mgr = NodePath("PartyUI/Panel/Scores")
+roulette = NodePath("PartyUI/Panel/GameRoulette")
+minigame_holder = NodePath("CurrentGame/MinigameHolder")
+party_ui = NodePath("PartyUI")
+minigame_ui = NodePath("CurrentGame/SharedMinigameUI")
+
+[node name="PartyUI" type="Control" parent="." unique_id=1986730598]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="PartyUI" unique_id=1154849358]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scores" type="MarginContainer" parent="PartyUI/Panel" unique_id=1553927381 node_paths=PackedStringArray("player_score_panel_holder", "quote_text")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 500.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 20
+script = ExtResource("2_kffgf")
+maximum_points = 5
+player_score_panel_holder = NodePath("VBoxContainer/PlayerScorePanel/Holder")
+player_score_panel_prefab = ExtResource("3_8hvnx")
+quote_text = NodePath("VBoxContainer/Title")
+random_texts = Array[String](["Wololo", "Sqwalala", "STUNFEST !!!", "Allez c'est parti", "Vous avez perdu", "Okay"])
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PartyUI/Panel/Scores" unique_id=505770195]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PartyUI/Panel/Scores/VBoxContainer" unique_id=268576804]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "Bienvenue à la Stunfest Party !"
+label_settings = SubResource("LabelSettings_1xvbk")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="PlayerScorePanel" type="Panel" parent="PartyUI/Panel/Scores/VBoxContainer" unique_id=1428022717]
+custom_minimum_size = Vector2(0, 320)
+layout_mode = 2
+
+[node name="Holder" type="HBoxContainer" parent="PartyUI/Panel/Scores/VBoxContainer/PlayerScorePanel" unique_id=1260302624]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="GameRoulette" type="MarginContainer" parent="PartyUI/Panel" unique_id=1970322287 node_paths=PackedStringArray("roulette_root", "roulette_container", "game_name", "game_subtitle", "start_text", "panel_btn_hori", "panel_btn_vert", "panel_btn_move", "panel_btn_act1", "panel_btn_act2", "panel_txt_hori", "panel_txt_vert", "panel_txt_move", "panel_txt_act1", "panel_txt_act2")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -573.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("5_kffgf")
+roulette_root = NodePath("VBoxContainer")
+roulette_container = NodePath("VBoxContainer/Panel")
+game_name = NodePath("VBoxContainer/Panel/Label")
+game_subtitle = NodePath("VBoxContainer/Subtitle")
+start_text = NodePath("VBoxContainer/Control/Label")
+panel_btn_hori = NodePath("VBoxContainer/HBoxContainer/BtnHori")
+panel_btn_vert = NodePath("VBoxContainer/HBoxContainer/BtnVert")
+panel_btn_move = NodePath("VBoxContainer/HBoxContainer/BtnMove")
+panel_btn_act1 = NodePath("VBoxContainer/HBoxContainer/Btn1")
+panel_btn_act2 = NodePath("VBoxContainer/HBoxContainer/Btn2")
+panel_txt_hori = NodePath("VBoxContainer/HBoxContainer/BtnHori/Label")
+panel_txt_vert = NodePath("VBoxContainer/HBoxContainer/BtnVert/Label")
+panel_txt_move = NodePath("VBoxContainer/HBoxContainer/BtnMove/Label")
+panel_txt_act1 = NodePath("VBoxContainer/HBoxContainer/Btn1/Label")
+panel_txt_act2 = NodePath("VBoxContainer/HBoxContainer/Btn2/Label")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette" unique_id=1077487062]
+layout_mode = 2
+
+[node name="Jeu suivant" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer" unique_id=79731799]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+text = "Le jeu suivant est :"
+label_settings = SubResource("LabelSettings_j1a3o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="PartyUI/Panel/GameRoulette/VBoxContainer" unique_id=348510171]
+custom_minimum_size = Vector2(1200, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/Panel" unique_id=1204318905]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "JEU SUIVANT"
+label_settings = SubResource("LabelSettings_ifxeo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer" unique_id=1620619037]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+text = "sous-titre cool du jeu suivant avec un peu de texte"
+label_settings = SubResource("LabelSettings_j1a3o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer" unique_id=2060394907]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+alignment = 1
+
+[node name="BtnHori" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=1089419769]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnHori" unique_id=1855684681]
+self_modulate = Color(1, 1, 0.65, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("4_86x1l")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnHori" unique_id=323790508]
+layout_mode = 2
+text = "Beweggen"
+label_settings = SubResource("LabelSettings_pp5ej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnVert" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=103766856]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnVert" unique_id=266838841]
+self_modulate = Color(0.9125, 1, 0.65, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("5_8hvnx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnVert" unique_id=1840637777]
+layout_mode = 2
+text = "Beweggen"
+label_settings = SubResource("LabelSettings_pp5ej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnMove" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=1063744241]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnMove" unique_id=534955976]
+self_modulate = Color(1, 1, 0.65, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("6_kffgf")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnMove" unique_id=1705438493]
+layout_mode = 2
+text = "Beweggen"
+label_settings = SubResource("LabelSettings_pp5ej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Btn1" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=1145822250]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn1" unique_id=1331486297]
+self_modulate = Color(0.65, 0.88333327, 1, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("7_ggfcw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn1" unique_id=1195892309]
+layout_mode = 2
+text = "Beweggen"
+label_settings = SubResource("LabelSettings_pp5ej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Btn2" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=2031468768]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn2" unique_id=568049507]
+self_modulate = Color(1, 0.65, 0.65, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("8_1sccy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn2" unique_id=1698190596]
+layout_mode = 2
+text = "Beweggen"
+label_settings = SubResource("LabelSettings_pp5ej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="PartyUI/Panel/GameRoulette/VBoxContainer" unique_id=548351461]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/Control" unique_id=1601967944]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.5
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start pour commencer"
+label_settings = SubResource("LabelSettings_cnbk5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentGame" type="Node" parent="." unique_id=233741612]
+
+[node name="MinigameHolder" type="Node" parent="CurrentGame" unique_id=1044623604]
+
+[node name="SharedMinigameUI" type="Control" parent="CurrentGame" unique_id=2053910568]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Countdown" type="Label" parent="CurrentGame/SharedMinigameUI" unique_id=854371236]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 30.0
+offset_bottom = 127.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "23"
+label_settings = SubResource("LabelSettings_tlmxs")
+horizontal_alignment = 1

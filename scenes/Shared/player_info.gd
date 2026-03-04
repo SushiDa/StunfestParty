@@ -7,6 +7,9 @@ var player_number: int:
 var device_number: int
 var global_party_score: int
 
+func get_player_color() -> Color:
+	return get_color(player_index)
+
 static func get_color(index:int) -> Color :
 	match index:
 		0: return Color.CYAN

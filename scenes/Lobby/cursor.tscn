@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bwuao87f1ktl" path="res://assets/sprites/cursor/CharaCursor0.png" id="1_plr6x"]
 [ext_resource type="Script" uid="uid://vf12v8iqld7d" path="res://scenes/Lobby/cursor.gd" id="2_j58hf"]
-[ext_resource type="Script" uid="uid://b2hxjf8gc38xd" path="res://scenes/#Shared/beat_pulse.gd" id="2_t683u"]
+[ext_resource type="Script" uid="uid://b2hxjf8gc38xd" path="res://scenes/Shared/beat_pulse.gd" id="2_t683u"]
 
 [node name="Cursor" type="Node2D" unique_id=679443129 node_paths=PackedStringArray("corners")]
 script = ExtResource("2_j58hf")

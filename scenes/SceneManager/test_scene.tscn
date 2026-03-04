@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bp8thqtoudfdi"]
+
+[ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="1_ooe52"]
+[ext_resource type="Script" uid="uid://cg0lo3a8qnd56" path="res://scenes/SceneManager/test_scene.gd" id="1_ukssr"]
+[ext_resource type="Resource" uid="uid://3n7et4hn1nf1" path="res://scenes/Minigames/BtnMasher/btn_masher.tres" id="2_ooe52"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ukssr"]
+font = ExtResource("1_ooe52")
+font_size = 60
+font_color = Color(1, 0.796, 0.27999997, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="TestScene" type="Node2D" unique_id=719974136 node_paths=PackedStringArray("minigame_holder", "btn_players", "timer_label")]
+script = ExtResource("1_ukssr")
+minigame_holder = NodePath("MinigameHolder")
+current_game_info = ExtResource("2_ooe52")
+btn_players = NodePath("Control/VBoxContainer/Players")
+timer_label = NodePath("Control/Timer")
+
+[node name="Control" type="Control" parent="." unique_id=159482720]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 300.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=33274321]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 210.0
+offset_bottom = 210.0
+
+[node name="Load Game" type="Button" parent="Control/VBoxContainer" unique_id=1087055315]
+layout_mode = 2
+text = "Load / Init Minigame"
+
+[node name="Start Game" type="Button" parent="Control/VBoxContainer" unique_id=1729899087]
+layout_mode = 2
+text = "Start Minigame"
+
+[node name="Destroy Game" type="Button" parent="Control/VBoxContainer" unique_id=911497410]
+layout_mode = 2
+text = "Destroy Minigame"
+
+[node name="Players" type="Button" parent="Control/VBoxContainer" unique_id=2113441781]
+layout_mode = 2
+text = "Players : 1"
+
+[node name="Timer" type="Label" parent="Control" unique_id=1554604688]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 15.0
+offset_right = 350.0
+offset_bottom = 75.0
+text = "30"
+label_settings = SubResource("LabelSettings_ukssr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinigameHolder" type="Node" parent="." unique_id=1239996762]
+
+[connection signal="pressed" from="Control/VBoxContainer/Load Game" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Destroy Game" to="." method="_on_destroy_game_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Players" to="." method="_on_players_pressed"]

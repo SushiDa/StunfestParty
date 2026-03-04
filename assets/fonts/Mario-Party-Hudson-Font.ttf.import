@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c5yebixkb8b7i"
-path="res://.godot/imported/Mario-Party-Hudson-Font.ttf-b3f5430a15d09cd5ac6469f89fb2ec70.fontdata"
+uid="uid://k0fbsf50dhgc"
+path="res://.godot/imported/Mario-Party-Hudson-Font.ttf-56c24422b66c77c83ed4755340624a10.fontdata"
 
 [deps]
 
-source_file="res://assets/Mario-Party-Hudson-Font.ttf"
-dest_files=["res://.godot/imported/Mario-Party-Hudson-Font.ttf-b3f5430a15d09cd5ac6469f89fb2ec70.fontdata"]
+source_file="res://assets/fonts/Mario-Party-Hudson-Font.ttf"
+dest_files=["res://.godot/imported/Mario-Party-Hudson-Font.ttf-56c24422b66c77c83ed4755340624a10.fontdata"]
 
 [params]
 

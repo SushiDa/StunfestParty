@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://b1r50r87sm1m8"]
+
+[ext_resource type="Script" uid="uid://dkslaf4hu785a" path="res://scenes/Party/player_score_panel.gd" id="1_w2bgu"]
+[ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="2_7tirx"]
+[ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="3_86y1f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8hvnx"]
+font = ExtResource("3_86y1f")
+font_size = 60
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kffgf"]
+font = ExtResource("3_86y1f")
+font_size = 60
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ggfcw"]
+font = ExtResource("3_86y1f")
+font_size = 60
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PlayerScorePanel" type="Control" unique_id=513240173 node_paths=PackedStringArray("index_text", "score_text", "add_score_text", "portrait")]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_w2bgu")
+index_text = NodePath("PlayerLabel")
+score_text = NodePath("Score")
+add_score_text = NodePath("ScoreAdd")
+portrait = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1512847875]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -152.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7tirx")
+stretch_mode = 5
+
+[node name="PlayerLabel" type="Label" parent="." unique_id=1019856252]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.5
+offset_right = 32.5
+offset_bottom = 59.0
+grow_horizontal = 2
+text = "P1"
+label_settings = SubResource("LabelSettings_8hvnx")
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="." unique_id=1148347344]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -65.2
+offset_right = 58.0
+offset_bottom = -6.199646
+grow_horizontal = 2
+grow_vertical = 0
+text = "5"
+label_settings = SubResource("LabelSettings_kffgf")
+horizontal_alignment = 1
+
+[node name="ScoreAdd" type="Label" parent="." unique_id=405294057]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = 55.0
+offset_right = 58.0
+offset_bottom = 114.00037
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "+1"
+label_settings = SubResource("LabelSettings_ggfcw")
+horizontal_alignment = 1

@@ -19,7 +19,9 @@ func _load_characters() -> void:
 				else: if (cnt == 1): character.action1_sprite = texture
 				else: if(cnt == 2): character.action2_sprite = texture
 				cnt = cnt+1
+		chardir.list_dir_end()
 		if(cnt > 2): _characters.set(character.character_name, character)
+	dir.list_dir_end()
 
 func get_character(chara_name: String) -> CharacterInfo:
 	if _characters.is_empty(): _load_characters()
@@ -29,5 +31,3 @@ func get_character(chara_name: String) -> CharacterInfo:
 func get_all_characters() -> Array[CharacterInfo]:
 	if _characters.is_empty(): _load_characters()
 	return _characters.values()
-		
-	

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MinigameInfo" format=3 uid="uid://3n7et4hn1nf1"]
+
+[ext_resource type="Script" uid="uid://dkhmc06h3n7cg" path="res://scenes/Minigames/minigame_info.gd" id="1_bja5s"]
+[ext_resource type="PackedScene" uid="uid://cehvv4m2vvu6r" path="res://scenes/Minigames/BtnMasher/button_masher.tscn" id="1_nve7n"]
+
+[resource]
+script = ExtResource("1_bja5s")
+name = "Button Masher"
+subtitle = "C'est l'heure de détruire la manette"
+prefab = ExtResource("1_nve7n")
+action_btn1 = "Avancer"
+action_btn2 = "Avancer"
+metadata/_custom_type_script = "uid://dkhmc06h3n7cg"

@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://cb6bj5li6nqxo" path="res://scenes/Lobby/lobby_manager.gd" id="1_2vvvf"]
 [ext_resource type="Script" uid="uid://khkdpeu8glxi" path="res://scenes/Lobby/lobby_grid_manager.gd" id="2_xb6ow"]
 [ext_resource type="PackedScene" uid="uid://77y3wry76wiw" path="res://scenes/Lobby/CharaSlot.tscn" id="3_eksp8"]
+[ext_resource type="PackedScene" uid="uid://66bp3jmkfkpb" path="res://scenes/Party/Party.tscn" id="4_12gv0"]
 [ext_resource type="PackedScene" uid="uid://cf6yr4sjsxrar" path="res://scenes/Lobby/cursor.tscn" id="4_hruur"]
 [ext_resource type="AudioStream" uid="uid://cxicgac4xrj2b" path="res://assets/music/lobby.ogg" id="5_ry2qp"]
 [ext_resource type="Script" uid="uid://chqvphrcofg7d" path="res://scenes/Lobby/player_panel.gd" id="7_12gv0"]
-[ext_resource type="Script" uid="uid://b2hxjf8gc38xd" path="res://scenes/#Shared/beat_pulse.gd" id="8_ogr8d"]
+[ext_resource type="Script" uid="uid://b2hxjf8gc38xd" path="res://scenes/Shared/beat_pulse.gd" id="8_ogr8d"]
 [ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="9_ogr8d"]
 
 [node name="Lobby" type="Node" unique_id=1010518743 node_paths=PackedStringArray("grid_manager", "player_panels")]
@@ -15,6 +16,7 @@ music = ExtResource("5_ry2qp")
 grid_manager = NodePath("GridManager")
 player_panels = [NodePath("PanelP1"), NodePath("PanelP2"), NodePath("PanelP3"), NodePath("PanelP4")]
 cursor_prefab = ExtResource("4_hruur")
+party_scene = ExtResource("4_12gv0")
 
 [node name="GridManager" type="Node2D" parent="." unique_id=25414212]
 position = Vector2(640, 360)

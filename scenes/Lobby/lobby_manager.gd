@@ -5,6 +5,7 @@ extends Node
 @export var grid_manager: LobbyGridManager
 @export var player_panels: Array[PlayerPanel]
 @export var cursor_prefab: PackedScene
+@export var party_scene: PackedScene
 
 const MAX_PLAYERS = 4
 var player_data: Dictionary[int, PlayerInfo] = {}
@@ -24,7 +25,8 @@ func _process(_delta: float) -> void:
 		print("Start Game")
 		busy = true
 		SignalBus.lock_inputs.emit()
-		pass
+		PlayerManager.register_players(player_data.values())
+		SceneManager.swap_scenes(party_scene.resource_path,null,self)
 
 func join(device: int) -> void:
 	var player = next_player()
@@ -41,6 +43,7 @@ func join(device: int) -> void:
 	player_panels[player].assign_cursor(cursor)
 	cursor.device_number = device
 	cursor.player_number = player
+	cursor.player_info = info
 	cursor.player_left.connect(on_player_left)
 	cursor.character_selected.connect(on_player_ready)
 	cursor.grid_manager = grid_manager

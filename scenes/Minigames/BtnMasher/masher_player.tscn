@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cnj5qw7x1sxey"]
+
+[ext_resource type="Script" uid="uid://b117p85ypbh5d" path="res://scenes/Shared/player_hub.gd" id="1_p1emx"]
+[ext_resource type="Texture2D" uid="uid://dsqjch68hpcee" path="res://assets/characters/Axel/AxelP1.png" id="2_81i0n"]
+[ext_resource type="Script" uid="uid://bnu0i5eida78g" path="res://scenes/Minigames/BtnMasher/masher_player.gd" id="2_drp1k"]
+[ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="4_drp1k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_am8cf"]
+font = ExtResource("4_drp1k")
+font_size = 90
+
+[node name="MasherPlayer" type="Node2D" unique_id=1038774661]
+script = ExtResource("1_p1emx")
+
+[node name="MasherPlayerMgr" type="Node" parent="." unique_id=1877914502 node_paths=PackedStringArray("_hub", "_root", "_sprite", "_score_label")]
+unique_name_in_owner = true
+script = ExtResource("2_drp1k")
+_hub = NodePath("..")
+_root = NodePath("..")
+_sprite = NodePath("../Sprite")
+_score_label = NodePath("../Score")
+_step_distance = 5.0
+_angles = Array[float]([0.0, 10.0, 0.0, -10.0])
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1047735997]
+rotation = -6.2831855
+scale = Vector2(3, 3)
+texture = ExtResource("2_81i0n")
+offset = Vector2(0, -40)
+
+[node name="Score" type="Label" parent="." unique_id=45220833]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "10"
+label_settings = SubResource("LabelSettings_am8cf")
+horizontal_alignment = 1
+vertical_alignment = 1
