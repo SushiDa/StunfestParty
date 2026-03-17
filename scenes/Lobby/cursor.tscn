@@ -1,42 +1,79 @@
-[gd_scene format=3 uid="uid://cf6yr4sjsxrar"]
+[gd_scene format=3 uid="uid://cogpbjc0uohsq"]
 
-[ext_resource type="Texture2D" uid="uid://bwuao87f1ktl" path="res://assets/sprites/cursor/CharaCursor0.png" id="1_plr6x"]
 [ext_resource type="Script" uid="uid://vf12v8iqld7d" path="res://scenes/Lobby/cursor.gd" id="2_j58hf"]
 [ext_resource type="Script" uid="uid://b2hxjf8gc38xd" path="res://scenes/Shared/beat_pulse.gd" id="2_t683u"]
+[ext_resource type="Texture2D" uid="uid://ck8r5d08tyfw7" path="res://assets/sprites/selector.png" id="3_t683u"]
+[ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="4_gotrx"]
+[ext_resource type="AudioStream" uid="uid://6ot4mqerejdr" path="res://assets/sfx/lobby/Lobby_Move.wav" id="5_ohuxu"]
 
-[node name="Cursor" type="Node2D" unique_id=679443129 node_paths=PackedStringArray("corners")]
+[sub_resource type="LabelSettings" id="LabelSettings_dcred"]
+font = ExtResource("4_gotrx")
+font_size = 32
+
+[node name="Cursor" type="Node2D" unique_id=823080289 node_paths=PackedStringArray("corners", "player_label", "sfx_move")]
 script = ExtResource("2_j58hf")
 corners = [NodePath("Node2D/Sprite2D1"), NodePath("Node2D/Sprite2D2"), NodePath("Node2D/Sprite2D3"), NodePath("Node2D/Sprite2D4")]
+label_pos = Array[Vector2]([Vector2(26, -79), Vector2(28, 29), Vector2(-77, -78), Vector2(-78, 29)])
+player_label = NodePath("Node2D/Label")
+scale_multiplier = 3.35
+sfx_move = NodePath("AudioMove")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=714476664]
+[node name="Node2D" type="Node2D" parent="." unique_id=1625094175]
+rotation = -1.5707964
+skew = -0.13962634
 script = ExtResource("2_t683u")
 pulse_scale = Vector2(1.1, 1.1)
 scale_duration_pct = 0.85
 
-[node name="Sprite2D1" type="Sprite2D" parent="Node2D" unique_id=1972966376]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_plr6x")
-offset = Vector2(-100, -60.75)
+[node name="Sprite2D1" type="Sprite2D" parent="Node2D" unique_id=2002499575]
+position = Vector2(0.48834682, 0.02430732)
+rotation = 1.5707964
+scale = Vector2(1.31, 1.31)
+texture = ExtResource("3_t683u")
+offset = Vector2(-32, -32)
 region_enabled = true
-region_rect = Rect2(0, 0, 200, 121.5)
+region_rect = Rect2(0, 0, 64, 64)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Node2D" unique_id=2039310026]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_plr6x")
-offset = Vector2(100, -60.75)
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D" unique_id=1532962448]
+position = Vector2(0.48834682, 0.02430732)
+rotation = 1.5707964
+scale = Vector2(1.31, 1.31)
+texture = ExtResource("3_t683u")
+offset = Vector2(32, -32)
 region_enabled = true
-region_rect = Rect2(200, 0, 200, 121.5)
+region_rect = Rect2(64, 0, 64, 64)
 
-[node name="Sprite2D3" type="Sprite2D" parent="Node2D" unique_id=1109775126]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_plr6x")
-offset = Vector2(-100, 60.75)
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D" unique_id=1113829808]
+position = Vector2(0.48834682, 0.02430732)
+rotation = 1.5707964
+scale = Vector2(1.31, 1.31)
+texture = ExtResource("3_t683u")
+offset = Vector2(-32, 32)
 region_enabled = true
-region_rect = Rect2(0, 121.5, 200, 121.5)
+region_rect = Rect2(0, 64, 64, 64)
 
-[node name="Sprite2D4" type="Sprite2D" parent="Node2D" unique_id=2093887173]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_plr6x")
-offset = Vector2(100, 60.75)
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D" unique_id=4867786]
+position = Vector2(0.48834682, 0.02430732)
+rotation = 1.5707964
+scale = Vector2(1.31, 1.31)
+texture = ExtResource("3_t683u")
+offset = Vector2(32, 32)
 region_enabled = true
-region_rect = Rect2(200, 121.5, 200, 121.5)
+region_rect = Rect2(64, 64, 64, 64)
+
+[node name="Label" type="Label" parent="Node2D" unique_id=1571167593]
+custom_minimum_size = Vector2(50, 50)
+offset_left = -78.0
+offset_top = 29.0
+offset_right = -28.0
+offset_bottom = 79.0
+rotation = 1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "4"
+label_settings = SubResource("LabelSettings_dcred")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioMove" type="AudioStreamPlayer" parent="." unique_id=1106326431]
+stream = ExtResource("5_ohuxu")
+volume_db = -6.0

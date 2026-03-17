@@ -20,7 +20,7 @@ _root = NodePath("..")
 _sprite = NodePath("../Sprite")
 _score_label = NodePath("../Score")
 _step_distance = 5.0
-_angles = Array[float]([0.0, 10.0, 0.0, -10.0])
+_angles = Array[float]([0.0, 5.0, 0.0, -5.0])
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1047735997]
 rotation = -6.2831855

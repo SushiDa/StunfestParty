@@ -8,6 +8,12 @@ signal character_hovered(character:CharacterInfo)
 const corner_z = [[4,3,2,1],[3,4,1,2],[2,1,4,3],[1,2,3,4]]
 
 @export var corners: Array[Sprite2D]
+@export var label_pos: Array[Vector2]
+@export var player_label: Label
+@export var scale_multiplier: float
+
+@export var sfx_move: AudioStreamPlayer
+
 var player_number: int
 var device_number: int
 var grid_manager: LobbyGridManager
@@ -20,16 +26,21 @@ var player_info: PlayerInfo
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	scale = Vector2.ONE * grid_manager.offset_scale * scale_multiplier
 	SignalBus.lock_inputs.connect(func(): input_locked = true)
 	grid_manager.selection_changed.connect(on_selection_changed)
 	modulate = PlayerInfo.get_color(player_number)
-	selected_index = randi() % grid_manager.characters.size()
+	selected_index = randi_range(0, grid_manager.slot_count - 1)
 	for i in 4:
 		corners[i].z_index = corner_z[i][player_number]
-		
+	
+	player_label.text = str(player_number + 1)
+	player_label.position = label_pos[player_number]
+	
 	if(device_number >= 0):
 		Input.set_joy_light(device_number, PlayerInfo.get_color(player_number))
 	move_selection(0)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -68,6 +79,7 @@ func _process(_delta: float) -> void:
 			queue_free()
 
 func move_selection(delta: int) -> void:
+	if delta != 0: sfx_move.play()
 	selected_index = grid_manager.get_next_index(selected_index, delta)
 	position = grid_manager.get_slot_position(selected_index)
 	character_hovered.emit(grid_manager.get_character(selected_index))

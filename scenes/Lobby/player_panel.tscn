@@ -1,0 +1,339 @@
+[gd_scene format=3 uid="uid://3bwwor6h48tw"]
+
+[ext_resource type="Script" uid="uid://chqvphrcofg7d" path="res://scenes/Lobby/player_panel.gd" id="1_mixjw"]
+[ext_resource type="Texture2D" uid="uid://1xc2pxxnng1a" path="res://assets/sprites/hornet.png" id="3_6hv7v"]
+[ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="4_1coio"]
+[ext_resource type="Shader" uid="uid://bs4s2nyr0nfg3" path="res://assets/shaders/hue_shift_shake.gdshader" id="4_mixjw"]
+[ext_resource type="Script" uid="uid://b2hxjf8gc38xd" path="res://scenes/Shared/beat_pulse.gd" id="5_xyoyv"]
+[ext_resource type="Texture2D" uid="uid://8fhyeptkdvb8" path="res://assets/sprites/shapes/BGCircle.png" id="6_m2e41"]
+[ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="7_ib3yl"]
+[ext_resource type="FontFile" uid="uid://c1l872xkvd2up" path="res://assets/fonts/Stunfest2025.otf" id="8_87xhh"]
+
+[sub_resource type="Animation" id="Animation_mixjw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LabelContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1.1920949e-07, 52)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LabelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Car:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2000, -775)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Car:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7472e"]
+resource_name = "join"
+length = 0.25
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LabelContainer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.25),
+"transitions": PackedFloat32Array(1, 0.45062536),
+"update": 0,
+"values": [Vector2(-1.1920949e-07, 52), Vector2(0, 512)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LabelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Car:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0002, 0.00029999999, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 0.29730234, 1),
+"update": 0,
+"values": [Vector2(-2000, -775), Vector2(297, 186.5), Vector2(297, 186.5), Vector2(-2000, -775), Vector2(297, 186.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Car:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6hv7v"]
+resource_name = "leave"
+length = 0.25
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LabelContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 512), Vector2(-1.1920949e-07, 52)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LabelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(2, 1.5),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Car:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0002, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 0.29730234),
+"update": 0,
+"values": [Vector2(297, 186.5), Vector2(297, 186.5), Vector2(297, 186.5), Vector2(1932, 748)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Car:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1coio"]
+resource_name = "start"
+length = 0.75
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Car:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0002, 0.21666667, 0.75),
+"transitions": PackedFloat32Array(1, 1, 0.2, 3, 0.29730234),
+"update": 0,
+"values": [Vector2(297, 186.5), Vector2(297, 186.5), Vector2(297, 186.5), Vector2(197, 149), Vector2(1932, 748)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Car:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.51666665, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1coio"]
+_data = {
+&"RESET": SubResource("Animation_mixjw"),
+&"join": SubResource("Animation_7472e"),
+&"leave": SubResource("Animation_6hv7v"),
+&"start": SubResource("Animation_1coio")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_xyoyv"]
+font = ExtResource("8_87xhh")
+font_size = 60
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ll1h7"]
+shader = ExtResource("4_mixjw")
+shader_parameter/shift_amount = 65.0
+shader_parameter/shaking = false
+shader_parameter/amplitude = 4.0
+shader_parameter/noise_scale = 1.0
+shader_parameter/noise_speed = 50.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_dttyc"]
+font = ExtResource("7_ib3yl")
+font_size = 80
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.7176471)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ch4p"]
+font = ExtResource("8_87xhh")
+font_size = 56
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.6666667)
+shadow_offset = Vector2(1, 2)
+
+[node name="PlayerPanel" type="Node2D" unique_id=1300144085 node_paths=PackedStringArray("_car_sprite", "_player_number", "_player_name", "_sprite", "_animation")]
+script = ExtResource("1_mixjw")
+_car_sprite = NodePath("Car")
+_player_number = NodePath("Car/PlayerNumber")
+_player_name = NodePath("Car/Node2D/PlayerName")
+_sprite = NodePath("Car/BeatPulse2D/PlayerSprite")
+_animation = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2106539028]
+libraries/ = SubResource("AnimationLibrary_1coio")
+
+[node name="LabelContainer" type="Node2D" parent="." unique_id=514242627]
+position = Vector2(-1.1920949e-07, 52)
+rotation = -0.13962635
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="BeatPulse2D" type="Node2D" parent="LabelContainer" unique_id=209526836]
+position = Vector2(257.24487, 124.00842)
+scale = Vector2(1.0000001, 1.0000001)
+script = ExtResource("5_xyoyv")
+pulse_scale = Vector2(1.025, 1.1)
+metadata/_custom_type_script = "uid://b2hxjf8gc38xd"
+
+[node name="Label" type="Label" parent="LabelContainer/BeatPulse2D" unique_id=1035206757]
+custom_minimum_size = Vector2(500, 100)
+offset_left = -250.0
+offset_top = -50.0
+offset_right = 250.0
+offset_bottom = 50.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "start pour rejoindre"
+label_settings = SubResource("LabelSettings_xyoyv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Car" type="Sprite2D" parent="." unique_id=1060354798]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_ll1h7")
+position = Vector2(-2000, -775)
+texture = ExtResource("3_6hv7v")
+
+[node name="CarShadow" type="Sprite2D" parent="Car" unique_id=804251062]
+self_modulate = Color(0, 0, 0, 0.39215687)
+show_behind_parent = true
+material = SubResource("ShaderMaterial_ll1h7")
+position = Vector2(-11, -6.5)
+texture = ExtResource("3_6hv7v")
+
+[node name="PlayerShadow" type="Sprite2D" parent="Car" unique_id=1554825746]
+self_modulate = Color(0, 0, 0, 0.49019608)
+position = Vector2(136, -18.5)
+rotation = -0.3490658
+scale = Vector2(0.25, 0.25)
+skew = -0.85870224
+texture = ExtResource("6_m2e41")
+
+[node name="BeatPulse2D" type="Node2D" parent="Car" unique_id=2095677579]
+position = Vector2(136, -9.5)
+script = ExtResource("5_xyoyv")
+pulse_scale = Vector2(1.05, 0.9)
+scale_duration_pct = 0.25
+metadata/_custom_type_script = "uid://b2hxjf8gc38xd"
+
+[node name="PlayerSprite" type="Sprite2D" parent="Car/BeatPulse2D" unique_id=1030354813]
+scale = Vector2(3.75, 3.75)
+texture = ExtResource("4_1coio")
+offset = Vector2(0, -40)
+
+[node name="PlayerNumber" type="Label" parent="Car" unique_id=551587471]
+self_modulate = Color(1, 0, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -474.0
+offset_top = -222.0
+offset_right = -373.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.34906584
+text = "P1"
+label_settings = SubResource("LabelSettings_dttyc")
+horizontal_alignment = 1
+
+[node name="Node2D" type="Node2D" parent="Car" unique_id=1047195018]
+position = Vector2(-344, -57.845)
+rotation = 0.06632251
+scale = Vector2(1, 1.25)
+skew = -0.5235988
+
+[node name="PlayerName" type="Label" parent="Car/Node2D" unique_id=1657065831]
+custom_minimum_size = Vector2(500, 50)
+offset_top = 1.5258789e-05
+offset_right = 500.0
+offset_bottom = 50.000015
+rotation = 0.2443461
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "wuki chan in da place"
+label_settings = SubResource("LabelSettings_6ch4p")
+horizontal_alignment = 1
+vertical_alignment = 1

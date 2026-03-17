@@ -2,94 +2,270 @@
 
 [ext_resource type="Script" uid="uid://cb6bj5li6nqxo" path="res://scenes/Lobby/lobby_manager.gd" id="1_2vvvf"]
 [ext_resource type="Script" uid="uid://khkdpeu8glxi" path="res://scenes/Lobby/lobby_grid_manager.gd" id="2_xb6ow"]
-[ext_resource type="PackedScene" uid="uid://77y3wry76wiw" path="res://scenes/Lobby/CharaSlot.tscn" id="3_eksp8"]
 [ext_resource type="PackedScene" uid="uid://66bp3jmkfkpb" path="res://scenes/Party/Party.tscn" id="4_12gv0"]
-[ext_resource type="PackedScene" uid="uid://cf6yr4sjsxrar" path="res://scenes/Lobby/cursor.tscn" id="4_hruur"]
+[ext_resource type="PackedScene" uid="uid://cogpbjc0uohsq" path="res://scenes/Lobby/cursor.tscn" id="4_hruur"]
+[ext_resource type="Shader" uid="uid://dwr2l2dyndl8a" path="res://assets/shaders/texture_scroll.gdshader" id="5_32td6"]
 [ext_resource type="AudioStream" uid="uid://cxicgac4xrj2b" path="res://assets/music/lobby.ogg" id="5_ry2qp"]
-[ext_resource type="Script" uid="uid://chqvphrcofg7d" path="res://scenes/Lobby/player_panel.gd" id="7_12gv0"]
-[ext_resource type="Script" uid="uid://b2hxjf8gc38xd" path="res://scenes/Shared/beat_pulse.gd" id="8_ogr8d"]
-[ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="9_ogr8d"]
+[ext_resource type="Texture2D" uid="uid://c4got42wmu0n6" path="res://assets/Checker.png" id="6_nt74c"]
+[ext_resource type="PackedScene" uid="uid://drj04x2wmo0xp" path="res://scenes/Lobby/chara_slot.tscn" id="8_12gv0"]
+[ext_resource type="PackedScene" uid="uid://3bwwor6h48tw" path="res://scenes/Lobby/player_panel.tscn" id="9_12gv0"]
+[ext_resource type="FontFile" uid="uid://c1l872xkvd2up" path="res://assets/fonts/Stunfest2025.otf" id="10_47b42"]
+[ext_resource type="AudioStream" uid="uid://cdrl5ym7x6ocx" path="res://assets/sfx/lobby/Lobby_Join.wav" id="10_ll1h7"]
+[ext_resource type="AudioStream" uid="uid://c5qwwxp4gk2xa" path="res://assets/sfx/lobby/Lobby_Cancel.wav" id="11_47b42"]
+[ext_resource type="Script" uid="uid://dgsojmebkyaov" path="res://scenes/Shared/beat_pulse_control.gd" id="11_reyjo"]
+[ext_resource type="AudioStream" uid="uid://djfvh0jov6ijd" path="res://assets/sfx/lobby/Lobby_Select.wav" id="12_reyjo"]
+[ext_resource type="AudioStream" uid="uid://s2s1irj8nho6" path="res://assets/sfx/lobby/Lobby_Start2.wav" id="13_xtj6w"]
+[ext_resource type="AudioStream" uid="uid://ct2208b3andg7" path="res://assets/sfx/lobby/Lobby_Start.wav" id="14_fw2bl"]
 
-[node name="Lobby" type="Node" unique_id=1010518743 node_paths=PackedStringArray("grid_manager", "player_panels")]
+[sub_resource type="Animation" id="Animation_reyjo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1000)]
+}
+
+[sub_resource type="Animation" id="Animation_xtj6w"]
+resource_name = "hide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1000)]
+}
+
+[sub_resource type="Animation" id="Animation_fw2bl"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0, -1000), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dttyc"]
+_data = {
+&"RESET": SubResource("Animation_reyjo"),
+&"hide": SubResource("Animation_xtj6w"),
+&"show": SubResource("Animation_fw2bl")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xwpyw"]
+shader = ExtResource("5_32td6")
+shader_parameter/offset_x = 0.25
+shader_parameter/offset_y = 0.0
+shader_parameter/scroll_x = 0.0
+shader_parameter/scroll_y = -0.75
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_reyjo"]
+shader = ExtResource("5_32td6")
+shader_parameter/offset_x = 0.25
+shader_parameter/offset_y = 0.0
+shader_parameter/scroll_x = -0.75
+shader_parameter/scroll_y = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xtj6w"]
+shader = ExtResource("5_32td6")
+shader_parameter/offset_x = 0.25
+shader_parameter/offset_y = 0.0
+shader_parameter/scroll_x = 0.75
+shader_parameter/scroll_y = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_fw2bl"]
+font = ExtResource("10_47b42")
+font_size = 150
+font_color = Color(1, 0.827451, 0.28235295, 1)
+outline_size = 10
+outline_color = Color(0.33, 0.33, 0.33, 0.5882353)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[node name="Lobby" type="Node" unique_id=1010518743 node_paths=PackedStringArray("grid_manager", "player_panels", "animator", "sfx_join", "sfx_leave", "sfx_select", "sfx_start1", "sfx_start2")]
 script = ExtResource("1_2vvvf")
 music = ExtResource("5_ry2qp")
 grid_manager = NodePath("GridManager")
-player_panels = [NodePath("PanelP1"), NodePath("PanelP2"), NodePath("PanelP3"), NodePath("PanelP4")]
+player_panels = [NodePath("PlayerPanel1"), NodePath("PlayerPanel2"), NodePath("PlayerPanel3"), NodePath("PlayerPanel4")]
 cursor_prefab = ExtResource("4_hruur")
 party_scene = ExtResource("4_12gv0")
+animator = NodePath("AnimationPlayer")
+sfx_join = NodePath("SFXJoin")
+sfx_leave = NodePath("SFXLeave")
+sfx_select = NodePath("SFXSelect")
+sfx_start1 = NodePath("SFXStart1")
+sfx_start2 = NodePath("SFXStart2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=158811055]
+root_node = NodePath("../Begin")
+libraries/ = SubResource("AnimationLibrary_dttyc")
+
+[node name="Node" type="Node" parent="." unique_id=1674124348]
+
+[node name="ColorRect" type="ColorRect" parent="Node" unique_id=1920184008]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.827451, 0.28235295, 1)
+
+[node name="Node2D" type="Node2D" parent="Node" unique_id=872377941]
+position = Vector2(1920, 0)
+rotation = -1.5707963
+scale = Vector2(1, -1)
+skew = -0.13962634
+
+[node name="TextureRect" type="TextureRect" parent="Node/Node2D" unique_id=2003537455]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_xwpyw")
+offset_right = 384.0
+offset_bottom = 1600.0
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("6_nt74c")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Node/Node2D" unique_id=1038660764]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_xwpyw")
+offset_left = -1220.0001
+offset_top = -9.343515e-05
+offset_right = -836.0001
+offset_bottom = 1599.9999
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("6_nt74c")
+stretch_mode = 1
+flip_h = true
+flip_v = true
 
 [node name="GridManager" type="Node2D" parent="." unique_id=25414212]
-position = Vector2(640, 360)
+position = Vector2(36, 271)
 script = ExtResource("2_xb6ow")
-row_length = 3
-row_offset = Vector2(-25, 130)
-column_offset = Vector2(200, -50)
-slot_prefab = ExtResource("3_eksp8")
+row_length = 10
+row_offset = Vector2(0, 538)
+column_offset = Vector2(538, -75)
+offset_scale = 0.25
+slot_prefab = ExtResource("8_12gv0")
 
-[node name="Control" type="Control" parent="." unique_id=1270048046]
+[node name="PlayerPanel4" parent="." unique_id=1300144085 instance=ExtResource("9_12gv0")]
+position = Vector2(1358, 609)
+_player_index = 3
+
+[node name="PlayerPanel3" parent="." unique_id=944289631 instance=ExtResource("9_12gv0")]
+position = Vector2(905, 674)
+_player_index = 2
+
+[node name="PlayerPanel2" parent="." unique_id=454491138 instance=ExtResource("9_12gv0")]
+position = Vector2(452, 737)
+_player_index = 1
+
+[node name="PlayerPanel1" parent="." unique_id=823058714 instance=ExtResource("9_12gv0")]
+position = Vector2(0, 800)
+
+[node name="Begin" type="Control" parent="." unique_id=1270048046]
+z_index = 10
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1000.0
+offset_bottom = -1000.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="PanelP1" type="Node2D" parent="." unique_id=1446159293 node_paths=PackedStringArray("_sprite")]
-position = Vector2(237, 266)
-script = ExtResource("7_12gv0")
-_sprite = NodePath("Pulse/Sprite2D")
+[node name="CenterContainer" type="CenterContainer" parent="Begin" unique_id=606927402]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -296.0
+offset_top = -42.99999
+offset_right = 284.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.13962634
+pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Pulse" type="Node2D" parent="PanelP1" unique_id=261853703]
-script = ExtResource("8_ogr8d")
-pulse_scale = Vector2(1.05, 0.9)
-scale_duration_pct = 0.25
+[node name="ColorRect" type="ColorRect" parent="Begin/CenterContainer" unique_id=660601380]
+custom_minimum_size = Vector2(2200, 200)
+layout_mode = 2
+color = Color(0.41, 0.41, 0.41, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="PanelP1/Pulse" unique_id=187254022]
-scale = Vector2(3, 3)
-texture = ExtResource("9_ogr8d")
-offset = Vector2(0, -40)
+[node name="TextureRect" type="TextureRect" parent="Begin/CenterContainer/ColorRect" unique_id=1624006638]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_reyjo")
+custom_minimum_size = Vector2(2500, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+offset_right = 2800.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_nt74c")
+stretch_mode = 1
 
-[node name="PanelP2" type="Node2D" parent="." unique_id=2112297772 node_paths=PackedStringArray("_sprite")]
-position = Vector2(1027, 266)
-script = ExtResource("7_12gv0")
-_sprite = NodePath("Pulse/Sprite2D")
+[node name="TextureRect2" type="TextureRect" parent="Begin/CenterContainer/ColorRect" unique_id=1321499330]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_xtj6w")
+custom_minimum_size = Vector2(2500, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 168.0
+offset_right = 2800.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_nt74c")
+stretch_mode = 1
 
-[node name="Pulse" type="Node2D" parent="PanelP2" unique_id=177376533]
-script = ExtResource("8_ogr8d")
-pulse_scale = Vector2(1.05, 0.9)
-scale_duration_pct = 0.25
+[node name="Label" type="Label" parent="Begin/CenterContainer" unique_id=235383322]
+layout_mode = 2
+text = "Start pour commencer"
+label_settings = SubResource("LabelSettings_fw2bl")
+script = ExtResource("11_reyjo")
+pulse_scale = Vector2(1.1, 1.025)
 
-[node name="Sprite2D" type="Sprite2D" parent="PanelP2/Pulse" unique_id=1541344318]
-scale = Vector2(3, 3)
-texture = ExtResource("9_ogr8d")
-offset = Vector2(0, -40)
-flip_h = true
+[node name="SFXJoin" type="AudioStreamPlayer" parent="." unique_id=104111693]
+stream = ExtResource("10_ll1h7")
+volume_db = -3.0
 
-[node name="PanelP3" type="Node2D" parent="." unique_id=1092971224 node_paths=PackedStringArray("_sprite")]
-position = Vector2(237, 643)
-script = ExtResource("7_12gv0")
-_sprite = NodePath("Pulse/Sprite2D")
+[node name="SFXLeave" type="AudioStreamPlayer" parent="." unique_id=521456324]
+stream = ExtResource("11_47b42")
 
-[node name="Pulse" type="Node2D" parent="PanelP3" unique_id=1959713375]
-script = ExtResource("8_ogr8d")
-pulse_scale = Vector2(1.05, 0.9)
-scale_duration_pct = 0.25
+[node name="SFXSelect" type="AudioStreamPlayer" parent="." unique_id=1200906495]
+stream = ExtResource("12_reyjo")
 
-[node name="Sprite2D" type="Sprite2D" parent="PanelP3/Pulse" unique_id=270183766]
-scale = Vector2(3, 3)
-texture = ExtResource("9_ogr8d")
-offset = Vector2(0, -40)
+[node name="SFXStart1" type="AudioStreamPlayer" parent="." unique_id=1521791631]
+stream = ExtResource("13_xtj6w")
 
-[node name="PanelP4" type="Node2D" parent="." unique_id=1150558832 node_paths=PackedStringArray("_sprite")]
-position = Vector2(1025, 643)
-script = ExtResource("7_12gv0")
-_sprite = NodePath("Pulse/Sprite2D")
-
-[node name="Pulse" type="Node2D" parent="PanelP4" unique_id=1087169765]
-script = ExtResource("8_ogr8d")
-pulse_scale = Vector2(1.05, 0.9)
-scale_duration_pct = 0.25
-
-[node name="Sprite2D" type="Sprite2D" parent="PanelP4/Pulse" unique_id=267258678]
-scale = Vector2(3, 3)
-texture = ExtResource("9_ogr8d")
-offset = Vector2(0, -40)
-flip_h = true
+[node name="SFXStart2" type="AudioStreamPlayer" parent="." unique_id=1682388827]
+stream = ExtResource("14_fw2bl")

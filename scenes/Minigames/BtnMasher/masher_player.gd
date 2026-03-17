@@ -20,7 +20,6 @@ func initialize_display() -> void :
 	# _score_label.text = str(int(target_score - _hub.score))
 	_score_label.text = "0"
 	_sprite.texture = _hub.get_character().idle_sprite
-	
 
 func _on_btn_pressed() -> void :
 	_hub.score += 1
@@ -28,9 +27,5 @@ func _on_btn_pressed() -> void :
 	_score_label.text = str(int(_hub.score))
 	# if _hub.score >= target_score: _hub.win();
 	_root.position.x = _hub.score * _step_distance
-	var pose:int = int(_hub.score) % 3
-	match pose :
-		0: _sprite.texture = _hub.get_character().idle_sprite
-		1: _sprite.texture = _hub.get_character().action1_sprite
-		2: _sprite.texture = _hub.get_character().action2_sprite
+	_sprite.texture = _hub.get_character().get_random_sprite([_sprite.texture])
 	_sprite.rotation_degrees = _angles[int(_hub.score) % _angles.size()]

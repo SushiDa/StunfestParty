@@ -17,6 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="StunfestParty"
 run/main_scene="uid://b87m5rygs0rgt"
 config/features=PackedStringArray("4.6", "Forward Plus")
+run/max_fps=240
 config/icon="res://icon.svg"
 
 [autoload]
@@ -41,6 +42,10 @@ window/stretch/aspect="keep_height"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/multiplayer_input/plugin.cfg")
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 

@@ -6,11 +6,20 @@ extends Node
 @export var player_panels: Array[PlayerPanel]
 @export var cursor_prefab: PackedScene
 @export var party_scene: PackedScene
+@export var animator: AnimationPlayer
 
+@export var sfx_join: AudioStreamPlayer
+@export var sfx_leave: AudioStreamPlayer
+@export var sfx_select: AudioStreamPlayer
+@export var sfx_start1: AudioStreamPlayer
+@export var sfx_start2: AudioStreamPlayer
+
+const MIN_PLAYERS = 2
 const MAX_PLAYERS = 4
 var player_data: Dictionary[int, PlayerInfo] = {}
 
 var _num_ready:int = 0
+var _all_ready:bool = false
 var busy:bool
 
 # Called when the node enters the scene tree for the first time.
@@ -21,11 +30,18 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if busy: return
 	handle_join_input()
-	if someone_wants_to_start() && get_player_count() == _num_ready:
-		print("Start Game")
+	if someone_wants_to_start() && _all_ready:
+		sfx_start1.play()
+		sfx_start2.play()
 		busy = true
 		SignalBus.lock_inputs.emit()
 		PlayerManager.register_players(player_data.values())
+		for p in player_panels:
+			if p.has_player:
+				p.start_animation()
+				await get_tree().create_timer(.15).timeout
+		
+		await get_tree().create_timer(.5).timeout
 		SceneManager.swap_scenes(party_scene.resource_path,null,self)
 
 func join(device: int) -> void:
@@ -37,6 +53,7 @@ func join(device: int) -> void:
 	info.player_index = player
 	info.character_info = null
 	player_data[player] = info
+	sfx_join.play()
 	
 	# Spawn cursor here
 	var cursor:LobbyCursor = cursor_prefab.instantiate()
@@ -48,17 +65,32 @@ func join(device: int) -> void:
 	cursor.character_selected.connect(on_player_ready)
 	cursor.grid_manager = grid_manager
 	grid_manager.add_child(cursor)
+	update_ready_status()
 
 func on_player_ready(is_ready:bool):
-	if(is_ready): _num_ready += 1
-	else: _num_ready -= 1
-	# update all ready status
+	if(is_ready): 
+		_num_ready += 1
+		sfx_select.play()
+	else: 
+		_num_ready -= 1
+		sfx_leave.play()
+	update_ready_status()
+
+func update_ready_status() -> void:
+	var new_all_ready = get_player_count() == _num_ready && get_player_count() >= MIN_PLAYERS
+	if new_all_ready != _all_ready:
+		var anim = "hide"
+		if new_all_ready: anim = "show"
+		animator.play(anim)
+	_all_ready = new_all_ready
 
 func on_player_left(cursor: LobbyCursor):
 	var player = cursor.player_number
 	if player_data.has(player):
 		player_data.erase(player)
 	cursor.player_left.disconnect(on_player_left)
+	update_ready_status()
+	
 
 func get_player_count():
 	return player_data.size()

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://drj04x2wmo0xp"]
+
+[ext_resource type="Texture2D" uid="uid://ecxjlqsxtpip" path="res://assets/sprites/shapes/BGSquare.png" id="1_uouv1"]
+[ext_resource type="Script" uid="uid://bfp87bq6acn3m" path="res://scenes/Lobby/lobby_chara_slot.gd" id="2_wv2wd"]
+[ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="3_qwjal"]
+
+[node name="CharaSlot" type="Sprite2D" unique_id=1723828037 node_paths=PackedStringArray("background", "portrait")]
+self_modulate = Color(0, 0, 0, 1)
+rotation = -1.5707964
+scale = Vector2(0.25, 0.25)
+skew = -0.13962634
+texture = ExtResource("1_uouv1")
+script = ExtResource("2_wv2wd")
+background = NodePath("BG")
+portrait = NodePath("Mask/Sprite2D")
+default_color = Color(0.35, 0.35, 0.35, 1)
+selected_color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1183212165]
+self_modulate = Color(0.67, 0.67, 0.67, 1)
+scale = Vector2(0.79999995, 0.8)
+texture = ExtResource("1_uouv1")
+
+[node name="Mask" type="Sprite2D" parent="." unique_id=1456399248]
+self_modulate = Color(0.32941177, 0.32941177, 0.32941177, 1)
+clip_children = 1
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_uouv1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mask" unique_id=1028396600]
+position = Vector2(-100, 0)
+rotation = 1.5707964
+scale = Vector2(14, 14)
+texture = ExtResource("3_qwjal")
