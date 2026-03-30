@@ -14,7 +14,7 @@ extends Node
 @export var sfx_start1: AudioStreamPlayer
 @export var sfx_start2: AudioStreamPlayer
 
-const MIN_PLAYERS = 2
+const MIN_PLAYERS = 1
 const MAX_PLAYERS = 4
 var player_data: Dictionary[int, PlayerInfo] = {}
 

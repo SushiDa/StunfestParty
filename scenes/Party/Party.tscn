@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://do3hhpk6ktqut" path="res://assets/sprites/btnMove.png" id="6_kffgf"]
 [ext_resource type="Texture2D" uid="uid://brpvvm70pc2jy" path="res://assets/sprites/btn1.png" id="7_ggfcw"]
 [ext_resource type="Texture2D" uid="uid://jubwyaygu375" path="res://assets/sprites/btn2.png" id="8_1sccy"]
+[ext_resource type="Script" uid="uid://5uenlwxv47aj" path="res://scenes/Party/shared_minigame_ui.gd" id="12_1sccy"]
+[ext_resource type="Script" uid="uid://b8lbiyexetigc" path="res://scenes/Party/minigame_timer.gd" id="12_ggfcw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1xvbk"]
 font = ExtResource("2_fbl6d")
@@ -326,6 +328,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("12_1sccy")
 
 [node name="Countdown" type="Label" parent="CurrentGame/SharedMinigameUI" unique_id=854371236]
 layout_mode = 1
@@ -338,3 +341,4 @@ pivot_offset_ratio = Vector2(0.5, 0)
 text = "23"
 label_settings = SubResource("LabelSettings_tlmxs")
 horizontal_alignment = 1
+script = ExtResource("12_ggfcw")

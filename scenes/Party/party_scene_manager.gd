@@ -6,7 +6,7 @@ class_name PartySceneManager
 @export var minigame_holder: Node
 
 @export var party_ui: Control
-@export var minigame_ui: Control
+@export var minigame_ui: SharedMinigameUI;
 
 var _current_minigame: MinigameBase
 var _current_winners: Array[int] = []
@@ -38,6 +38,7 @@ func _on_minigame_loaded(scene: Node, _loading)-> void:
 		minigame_ui.visible = true
 		_current_minigame = minigame
 		_current_minigame.game_ended.connect(_on_minigame_end)
+		minigame_ui.assign_minigame(_current_minigame)
 		_current_minigame.init_game()
 		await get_tree().create_timer(1.5).timeout
 		_current_minigame.start_game()
@@ -51,6 +52,7 @@ func _on_minigame_unloaded(_scene, _loading) -> void:
 	SceneManager.scene_added.disconnect(_on_minigame_unloaded)
 	party_ui.visible = true
 	minigame_ui.visible = false
+	minigame_ui.disconnect_minigame()
 	_current_minigame = null
 	await get_tree().create_timer(0.5).timeout
 	_start_intermission(_current_winners)

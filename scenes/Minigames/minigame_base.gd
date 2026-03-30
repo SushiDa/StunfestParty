@@ -3,7 +3,10 @@ class_name MinigameBase
 
 signal game_initialized()
 signal game_started()
+signal game_timer_started()
+signal game_timer_preshow(time: int)
 signal game_timer_timeout()
+signal game_finish_requested()
 signal game_ended(winners: Array[int])
 signal players_spawned()
 
@@ -52,11 +55,9 @@ func end_game(winners: Array[int]) -> void:
 	if _minigame_running: show_finish_and_lock()
 	if winners.size() == players.size() && winners.size() != 1 : winners.clear()
 	game_ended.emit(winners)
-	print("Winners : " + str(winners))
 
 func show_finish_and_lock() -> void:
-	#TODO FINISH!
-	print("FINISH !")
+	game_finish_requested.emit()
 	for player in players:
 		player.controls_enabled = false
 	_minigame_running = false
@@ -80,10 +81,14 @@ func _spawn_players() ->void:
 
 func _reset_indexes() -> void:
 	_spawn_indexes = range(player_spawns.size()) as Array[int]
-	
+
+func preshow_game_timer(time: int)-> void:
+	game_timer_preshow.emit(time);
+
 func start_game_timer(time: float) -> void:
 	if time > 0:
 		game_timer.start(time)
+		game_timer_started.emit()
 
 func _on_player_won(player_info:PlayerInfo) -> void:
 	print("Player " + str(player_info.player_number) + " Won !")
@@ -95,8 +100,8 @@ func get_winners_from_score(most_points_wins:bool) -> Array[int] :
 		players.sort_custom(func(a,b): 
 			if most_points_wins : return a.score > b.score
 			else : return a.score < b.score)
-		#TODO finir la fonction
 		var top_value:float = players[0].score;
-		for i in players.size():
-			if players[i].score == top_value: winners.append(players[i].get_player_index())
+		if players.size() > 1 && players[players.size() - 1].score != top_value:
+			for i in players.size():
+				if players[i].score == top_value: winners.append(players[i].get_player_index())
 	return winners
