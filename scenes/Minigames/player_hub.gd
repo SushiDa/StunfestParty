@@ -1,8 +1,11 @@
 extends Node
+## Classe de base d'un joueur de minijeu.
+##
+## Contient des fonctions toutes prêtes qui gèrent les input
+## Les signaux émettent pour une pression ponctuelle, les variables donnent l'état continu
 class_name PlayerHub
 
 var score: float
-#TODO var embedded_score_panel
 
 var movement: Vector2
 signal move_left
@@ -31,19 +34,19 @@ func get_character() -> CharacterInfo:
 	else :
 		return CharacterRepository.get_all_characters()[0]
 
-func get_player_index() -> int:
+func get_player_index() -> int: ## Index du joueur ( 0 .. 3 )
 	if _player_info != null: return _player_info.player_index
 	return 0;
 	
-func get_player_number() -> int:
+func get_player_number() -> int: ## Numéro du joueur ( 1 .. 4 )
 	if _player_info != null: return _player_info.player_number
 	return 1;
 
-func get_player_color() -> Color:
+func get_player_color() -> Color: ## Couleur du joueur
 	if _player_info != null: return _player_info.get_player_color()
 	else : return Color.CYAN
 
-func win() -> void:
+func win() -> void: ## Termine instantanément le minijeu
 	player_won.emit(_player_info)
 
 func _process(_delta: float) -> void:

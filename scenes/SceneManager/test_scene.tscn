@@ -8,8 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://dsxglxiph4m0y" path="res://assets/sfx/shared/Don.wav" id="5_hcjeq"]
 [ext_resource type="AudioStream" uid="uid://dx8m6et5ov4jw" path="res://assets/sfx/shared/Start.ogg" id="6_u7u6n"]
 [ext_resource type="AudioStream" uid="uid://cp8b6tltt8epm" path="res://assets/sfx/shared/Finish.wav" id="7_c4u3c"]
-[ext_resource type="AudioStream" uid="uid://dkmpelmacm1rk" path="res://assets/sfx/shared/Fanfares.tres" id="8_r5vog"]
-[ext_resource type="AudioStream" uid="uid://cffyjucbcyacr" path="res://assets/sfx/shared/Draw.ogg" id="9_0g2ix"]
+[ext_resource type="AudioStream" uid="uid://dkmpelmacm1rk" path="res://assets/sfx/shared/MinigameVictory.tres" id="8_r5vog"]
+[ext_resource type="AudioStream" uid="uid://cffyjucbcyacr" path="res://assets/sfx/shared/MinigameTie/Draw.ogg" id="9_0g2ix"]
 [ext_resource type="Script" uid="uid://b8lbiyexetigc" path="res://scenes/Party/minigame_timer.gd" id="11_lv0rg"]
 
 [sub_resource type="Animation" id="Animation_1sccy"]

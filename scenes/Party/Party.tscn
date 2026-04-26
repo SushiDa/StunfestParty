@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c4tm74o5k88x0" path="res://scenes/Party/party_scene_manager.gd" id="1_kcr7i"]
 [ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="2_fbl6d"]
 [ext_resource type="Script" uid="uid://dd4fqo0tx55rf" path="res://scenes/Party/score_panel.gd" id="2_kffgf"]
-[ext_resource type="AudioStream" uid="uid://7fo76a55t7e2" path="res://assets/music/eurobeat.ogg" id="2_mb05c"]
+[ext_resource type="AudioStream" uid="uid://7fo76a55t7e2" path="res://assets/music/Party/eurobeat.ogg" id="2_mb05c"]
 [ext_resource type="PackedScene" uid="uid://b1r50r87sm1m8" path="res://scenes/Party/player_score_panel.tscn" id="3_8hvnx"]
 [ext_resource type="FontFile" uid="uid://cptlmfreyyfup" path="res://assets/fonts/Dish Out.ttf" id="3_xjrt0"]
 [ext_resource type="Texture2D" uid="uid://3vjtcr8xypx5" path="res://assets/sprites/btnHor.png" id="4_86x1l"]
@@ -18,8 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://bbkebvu0jfsh" path="res://scenes/Party/player_win_panel.tscn" id="13_onasy"]
 [ext_resource type="AudioStream" uid="uid://dx8m6et5ov4jw" path="res://assets/sfx/shared/Start.ogg" id="14_onasy"]
 [ext_resource type="AudioStream" uid="uid://cp8b6tltt8epm" path="res://assets/sfx/shared/Finish.wav" id="15_mb05c"]
-[ext_resource type="AudioStream" uid="uid://dkmpelmacm1rk" path="res://assets/sfx/shared/Fanfares.tres" id="16_v5gsv"]
-[ext_resource type="AudioStream" uid="uid://cffyjucbcyacr" path="res://assets/sfx/shared/Draw.ogg" id="17_x60e8"]
+[ext_resource type="AudioStream" uid="uid://dkmpelmacm1rk" path="res://assets/sfx/shared/MinigameVictory.tres" id="16_v5gsv"]
+[ext_resource type="AudioStream" uid="uid://cffyjucbcyacr" path="res://assets/sfx/shared/MinigameTie/Draw.ogg" id="17_x60e8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1xvbk"]
 font = ExtResource("2_fbl6d")
