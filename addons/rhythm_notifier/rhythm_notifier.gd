@@ -195,6 +195,7 @@ signal beat(current_beat: int)
 		_silent_running = val
 		_position = 0.0
 
+
 ## The current beat, indexed from [code]0[/code].
 var current_beat: int:
 	get: return int(floor(_position / beat_length))
@@ -223,6 +224,7 @@ var _invalidate_cached_output_latency_by := 0
 var _silent_running: bool
 var _rhythms: Array[_Rhythm] = []
 
+var fade_tween: Tween
 
 func _ready():
 	# NB: Without this, the user's unique beats() signals would fire in registration order.
@@ -232,6 +234,8 @@ func _ready():
 	# the user needs order consistency they should use .beats(1).connect instead of .beat.connect.
 	# NB using "func()" to support 4.2 which can't connect directly to beat.emit
 	beats(1.0).connect(func(current_interval): beat.emit(current_interval))
+
+
 
 
 # If not stopped, recalculate track position and emit any appropriate signals.
@@ -304,12 +308,46 @@ func play(stream:AudioStream) -> void:
 		else:
 			var wav = stream as AudioStreamWAV
 			if wav: bpm = wav.bpm
+	#_stop_player()
+	kill_fade_tween()
 	_play(stream, bpm)
 	
 func _play(stream:AudioStream, in_bpm:float) -> void:
 	bpm = in_bpm
 	audio_stream_player.stream = stream
 	audio_stream_player.play()
+	audio_stream_player.volume_db = 0
 
 func _stream_is_playing():
 	return audio_stream_player != null and audio_stream_player.playing
+
+func pause() -> void:
+	audio_stream_player.pause()
+
+func resume() -> void:
+	audio_stream_player.play()
+
+@export var fade_duration = 1.0
+
+func stop(fade = true) -> void:
+	if fade :
+		kill_fade_tween()
+		fade_tween = get_tree().create_tween().bind_node(self)
+		fade_tween.finished.connect(_stop_player)
+		fade_tween.tween_property(audio_stream_player, "volume_db", -80, fade_duration)
+	else :
+		_stop_player()
+
+
+func _stop_player():
+	# stop the music -- otherwise it continues to run at silent volume
+	audio_stream_player.stop()
+	audio_stream_player.volume_db = 0 # reset volume
+
+func kill_fade_tween():
+	if fade_tween != null: 
+			fade_tween.finished.disconnect(_stop_player)
+			fade_tween.kill()
+			_stop_player()
+			fade_tween = null
+		

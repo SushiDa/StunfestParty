@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bbkebvu0jfsh"]
+
+[ext_resource type="Script" uid="uid://ce40lh3vtg834" path="res://scenes/Party/player_win_panel.gd" id="1_vciqh"]
+[ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="2_hyxes"]
+[ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="3_5s6v5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8hvnx"]
+font = ExtResource("3_5s6v5")
+font_size = 60
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kffgf"]
+font = ExtResource("3_5s6v5")
+font_size = 60
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PlayerWinPanel" type="Control" unique_id=513240173 node_paths=PackedStringArray("index_text", "name_text", "portrait")]
+custom_minimum_size = Vector2(350, 250)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vciqh")
+index_text = NodePath("PlayerLabel")
+name_text = NodePath("CharacterName")
+portrait = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1512847875]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -110.0
+offset_right = 150.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hyxes")
+stretch_mode = 5
+
+[node name="PlayerLabel" type="Label" parent="." unique_id=1019856252]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -21.0
+offset_right = 33.0
+offset_bottom = 38.0
+grow_horizontal = 2
+text = "P1"
+label_settings = SubResource("LabelSettings_8hvnx")
+horizontal_alignment = 1
+
+[node name="CharacterName" type="Label" parent="." unique_id=1148347344]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -34.0
+offset_right = 129.0
+offset_bottom = 25.000366
+grow_horizontal = 2
+grow_vertical = 0
+text = "Wuki-Chan"
+label_settings = SubResource("LabelSettings_kffgf")
+horizontal_alignment = 1

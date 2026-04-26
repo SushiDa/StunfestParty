@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://b87m5rygs0rgt"]
 
 [ext_resource type="Script" uid="uid://cb6bj5li6nqxo" path="res://scenes/Lobby/lobby_manager.gd" id="1_2vvvf"]
+[ext_resource type="AudioStream" uid="uid://dilqybq7mji3s" path="res://assets/music/Lobby.ogg" id="2_reyjo"]
 [ext_resource type="Script" uid="uid://khkdpeu8glxi" path="res://scenes/Lobby/lobby_grid_manager.gd" id="2_xb6ow"]
 [ext_resource type="PackedScene" uid="uid://66bp3jmkfkpb" path="res://scenes/Party/Party.tscn" id="4_12gv0"]
 [ext_resource type="PackedScene" uid="uid://cogpbjc0uohsq" path="res://scenes/Lobby/cursor.tscn" id="4_hruur"]
 [ext_resource type="Shader" uid="uid://dwr2l2dyndl8a" path="res://assets/shaders/texture_scroll.gdshader" id="5_32td6"]
-[ext_resource type="AudioStream" uid="uid://cxicgac4xrj2b" path="res://assets/music/lobby.ogg" id="5_ry2qp"]
 [ext_resource type="Texture2D" uid="uid://c4got42wmu0n6" path="res://assets/Checker.png" id="6_nt74c"]
 [ext_resource type="PackedScene" uid="uid://drj04x2wmo0xp" path="res://scenes/Lobby/chara_slot.tscn" id="8_12gv0"]
 [ext_resource type="PackedScene" uid="uid://3bwwor6h48tw" path="res://scenes/Lobby/player_panel.tscn" id="9_12gv0"]
@@ -104,7 +104,7 @@ shadow_offset = Vector2(5, 5)
 
 [node name="Lobby" type="Node" unique_id=1010518743 node_paths=PackedStringArray("grid_manager", "player_panels", "animator", "sfx_join", "sfx_leave", "sfx_select", "sfx_start1", "sfx_start2")]
 script = ExtResource("1_2vvvf")
-music = ExtResource("5_ry2qp")
+music = ExtResource("2_reyjo")
 grid_manager = NodePath("GridManager")
 player_panels = [NodePath("PlayerPanel1"), NodePath("PlayerPanel2"), NodePath("PlayerPanel3"), NodePath("PlayerPanel4")]
 cursor_prefab = ExtResource("4_hruur")

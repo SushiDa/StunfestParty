@@ -7,6 +7,7 @@ class_name PlayerMasher
 @export var _score_label: Label
 @export var _step_distance: float
 @export var _angles: Array[float]
+@export var _steps: AudioStream
 
 var target_score: int
 
@@ -23,6 +24,7 @@ func initialize_display() -> void :
 
 func _on_btn_pressed() -> void :
 	_hub.score += 1
+	SFXPlayer.play(_steps)
 	# _score_label.text = str(int(target_score - _hub.score))
 	_score_label.text = str(int(_hub.score))
 	# if _hub.score >= target_score: _hub.win();

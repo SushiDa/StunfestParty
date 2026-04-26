@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://dkmpelmacm1rk"]
+
+[ext_resource type="AudioStream" uid="uid://b2hhdcsn8l0dv" path="res://assets/sfx/shared/Fanfares/chrono.ogg" id="1_ovn66"]
+[ext_resource type="AudioStream" uid="uid://44b3bqjc3oe5" path="res://assets/sfx/shared/Fanfares/ff7.ogg" id="2_dhkq5"]
+[ext_resource type="AudioStream" uid="uid://b546xus5jnft0" path="res://assets/sfx/shared/Fanfares/item.ogg" id="3_k76gb"]
+[ext_resource type="AudioStream" uid="uid://b7r304gn2mdv1" path="res://assets/sfx/shared/Fanfares/lucky-channel.ogg" id="4_xu2ok"]
+[ext_resource type="AudioStream" uid="uid://cwc8f3dr1nhyo" path="res://assets/sfx/shared/Fanfares/mario.ogg" id="5_aqcxh"]
+[ext_resource type="AudioStream" uid="uid://cp54ka5w8dkrv" path="res://assets/sfx/shared/Fanfares/zelda.ogg" id="6_u3k85"]
+
+[resource]
+streams_count = 6
+stream_0/stream = ExtResource("1_ovn66")
+stream_1/stream = ExtResource("2_dhkq5")
+stream_2/stream = ExtResource("3_k76gb")
+stream_3/stream = ExtResource("4_xu2ok")
+stream_4/stream = ExtResource("5_aqcxh")
+stream_5/stream = ExtResource("6_u3k85")

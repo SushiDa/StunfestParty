@@ -3,26 +3,413 @@
 [ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="1_ooe52"]
 [ext_resource type="Script" uid="uid://cg0lo3a8qnd56" path="res://scenes/SceneManager/test_scene.gd" id="1_ukssr"]
 [ext_resource type="Resource" uid="uid://3n7et4hn1nf1" path="res://scenes/Minigames/BtnMasher/btn_masher.tres" id="2_ooe52"]
+[ext_resource type="Script" uid="uid://5uenlwxv47aj" path="res://scenes/Party/shared_minigame_ui.gd" id="3_marmh"]
+[ext_resource type="PackedScene" uid="uid://bbkebvu0jfsh" path="res://scenes/Party/player_win_panel.tscn" id="4_psj6b"]
+[ext_resource type="AudioStream" uid="uid://dsxglxiph4m0y" path="res://assets/sfx/shared/Don.wav" id="5_hcjeq"]
+[ext_resource type="AudioStream" uid="uid://dx8m6et5ov4jw" path="res://assets/sfx/shared/Start.ogg" id="6_u7u6n"]
+[ext_resource type="AudioStream" uid="uid://cp8b6tltt8epm" path="res://assets/sfx/shared/Finish.wav" id="7_c4u3c"]
+[ext_resource type="AudioStream" uid="uid://dkmpelmacm1rk" path="res://assets/sfx/shared/Fanfares.tres" id="8_r5vog"]
+[ext_resource type="AudioStream" uid="uid://cffyjucbcyacr" path="res://assets/sfx/shared/Draw.ogg" id="9_0g2ix"]
+[ext_resource type="Script" uid="uid://b8lbiyexetigc" path="res://scenes/Party/minigame_timer.gd" id="11_lv0rg"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ukssr"]
+[sub_resource type="Animation" id="Animation_1sccy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartFinish:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StartFinish:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StartFinish:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WinnersPanel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2000, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1xvbk"]
+resource_name = "finish"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartFinish:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["FINISH !", ""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StartFinish:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.8),
+"transitions": PackedFloat32Array(2.5, 5, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1.75, 1.75), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StartFinish:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_finish_audio"
+}, {
+"args": [],
+"method": &"emit_finish_callback"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_cnbk5"]
+resource_name = "game_end"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WinnersPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 2.75),
+"transitions": PackedFloat32Array(0.2, 1, 1, 0.2),
+"update": 0,
+"values": [Vector2(2000, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-2000, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_fanfare_sound"
+}, {
+"args": [],
+"method": &"emit_end_banner_callback"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_j1a3o"]
+resource_name = "start_cd"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartFinish:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["3", "2", "1", "START !", ""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StartFinish:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.9, 1, 1.4, 1.4999999, 1.5666667, 2),
+"transitions": PackedFloat32Array(0.1, 0, 0.1, 0, 0.1, 0, 2.5, 5, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1), Vector2(2, 2), Vector2(1, 1), Vector2(2, 2), Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1.75, 1.75), Vector2(0.25, 0.25)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 1.5666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_countdown_sound"
+}, {
+"args": [],
+"method": &"play_countdown_sound"
+}, {
+"args": [],
+"method": &"play_countdown_sound"
+}, {
+"args": [],
+"method": &"play_start_audio"
+}, {
+"args": [],
+"method": &"emit_start_callback"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartFinish:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ifxeo"]
+resource_name = "start_no_cd"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartFinish:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["START !", ""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StartFinish:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.5),
+"transitions": PackedFloat32Array(2.5, 5, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1.75, 1.75), Vector2(0.25, 0.25)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_start_audio"
+}, {
+"args": [],
+"method": &"emit_start_callback"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartFinish:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6j1bj"]
+_data = {
+&"RESET": SubResource("Animation_1sccy"),
+&"finish": SubResource("Animation_1xvbk"),
+&"game_end": SubResource("Animation_cnbk5"),
+&"start_cd": SubResource("Animation_j1a3o"),
+&"start_no_cd": SubResource("Animation_ifxeo")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_5dhmi"]
 font = ExtResource("1_ooe52")
-font_size = 60
-font_color = Color(1, 0.796, 0.27999997, 1)
+font_size = 100
+font_color = Color(1, 0.75, 0, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="TestScene" type="Node2D" unique_id=719974136 node_paths=PackedStringArray("minigame_holder", "btn_players", "timer_label")]
+[sub_resource type="LabelSettings" id="LabelSettings_cniod"]
+font = ExtResource("1_ooe52")
+font_size = 250
+font_color = Color(1, 0.75, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iebcn"]
+font = ExtResource("1_ooe52")
+font_size = 42
+
+[node name="TestScene" type="Node" unique_id=1836343042 node_paths=PackedStringArray("minigame_holder", "btn_players", "minigame_ui")]
 script = ExtResource("1_ukssr")
 minigame_holder = NodePath("MinigameHolder")
 current_game_info = ExtResource("2_ooe52")
 btn_players = NodePath("Control/VBoxContainer/Players")
-timer_label = NodePath("Control/Timer")
+minigame_ui = NodePath("SharedMinigameUI")
+
+[node name="MinigameHolder" type="Node" parent="." unique_id=1239996762]
+
+[node name="SharedMinigameUI" type="Control" parent="." unique_id=543156785 node_paths=PackedStringArray("minigame_timer", "minigame_start_finish", "animation_player", "end_label", "end_winner_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_marmh")
+minigame_timer = NodePath("Timer")
+minigame_start_finish = NodePath("StartFinish")
+animation_player = NodePath("AnimationPlayer")
+end_label = NodePath("WinnersPanel/CenterContainer/Label")
+end_winner_container = NodePath("WinnersPanel/CenterContainer/HBoxContainer")
+end_winner_scene = ExtResource("4_psj6b")
+sfx_countdown = ExtResource("5_hcjeq")
+sfx_start = ExtResource("6_u7u6n")
+sfx_finish = ExtResource("7_c4u3c")
+sfx_fanfares = ExtResource("8_r5vog")
+sfx_draws = ExtResource("9_0g2ix")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SharedMinigameUI" unique_id=1399605536]
+libraries/ = SubResource("AnimationLibrary_6j1bj")
+
+[node name="Timer" type="Label" parent="SharedMinigameUI" unique_id=1090378782]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 30.0
+offset_bottom = 127.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "00"
+label_settings = SubResource("LabelSettings_5dhmi")
+horizontal_alignment = 1
+script = ExtResource("11_lv0rg")
+
+[node name="StartFinish" type="Label" parent="SharedMinigameUI" unique_id=1310162119]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -48.5
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+label_settings = SubResource("LabelSettings_cniod")
+horizontal_alignment = 1
+script = ExtResource("11_lv0rg")
+
+[node name="WinnersPanel" type="Control" parent="SharedMinigameUI" unique_id=1003460928]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2000.0
+offset_right = 1999.9995
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="SharedMinigameUI/WinnersPanel" unique_id=457210009]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="SharedMinigameUI/WinnersPanel/CenterContainer" unique_id=769373071]
+custom_minimum_size = Vector2(1920, 400)
+layout_mode = 2
+color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="SharedMinigameUI/WinnersPanel/CenterContainer" unique_id=960762196]
+custom_minimum_size = Vector2(1920, 300)
+layout_mode = 2
+color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SharedMinigameUI/WinnersPanel/CenterContainer" unique_id=1077905969]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SharedMinigameUI/WinnersPanel/CenterContainer" unique_id=884372278]
+custom_minimum_size = Vector2(200, 390)
+layout_mode = 2
+text = "Gagnants"
+label_settings = SubResource("LabelSettings_iebcn")
+horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="." unique_id=159482720]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 300.0
 offset_bottom = 300.0
+mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=33274321]
 layout_mode = 0
@@ -33,11 +420,7 @@ offset_bottom = 210.0
 
 [node name="Load Game" type="Button" parent="Control/VBoxContainer" unique_id=1087055315]
 layout_mode = 2
-text = "Load / Init Minigame"
-
-[node name="Start Game" type="Button" parent="Control/VBoxContainer" unique_id=1729899087]
-layout_mode = 2
-text = "Start Minigame"
+text = "Load Minigame"
 
 [node name="Destroy Game" type="Button" parent="Control/VBoxContainer" unique_id=911497410]
 layout_mode = 2
@@ -47,20 +430,6 @@ text = "Destroy Minigame"
 layout_mode = 2
 text = "Players : 1"
 
-[node name="Timer" type="Label" parent="Control" unique_id=1554604688]
-layout_mode = 0
-offset_left = 250.0
-offset_top = 15.0
-offset_right = 350.0
-offset_bottom = 75.0
-text = "30"
-label_settings = SubResource("LabelSettings_ukssr")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MinigameHolder" type="Node" parent="." unique_id=1239996762]
-
 [connection signal="pressed" from="Control/VBoxContainer/Load Game" to="." method="_on_load_game_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Destroy Game" to="." method="_on_destroy_game_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Players" to="." method="_on_players_pressed"]

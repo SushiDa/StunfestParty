@@ -31,6 +31,7 @@ func _process(_delta: float) -> void:
 	if busy: return
 	handle_join_input()
 	if someone_wants_to_start() && _all_ready:
+		MusicPlayer.stop()
 		sfx_start1.play()
 		sfx_start2.play()
 		busy = true

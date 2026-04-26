@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b117p85ypbh5d" path="res://scenes/Shared/player_hub.gd" id="1_p1emx"]
 [ext_resource type="Texture2D" uid="uid://dsqjch68hpcee" path="res://assets/characters/Axel/AxelP1.png" id="2_81i0n"]
 [ext_resource type="Script" uid="uid://bnu0i5eida78g" path="res://scenes/Minigames/BtnMasher/masher_player.gd" id="2_drp1k"]
+[ext_resource type="AudioStream" uid="uid://b8umyrwy0143u" path="res://scenes/Minigames/BtnMasher/steps/steps.tres" id="3_am8cf"]
 [ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="4_drp1k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_am8cf"]
@@ -21,6 +22,7 @@ _sprite = NodePath("../Sprite")
 _score_label = NodePath("../Score")
 _step_distance = 5.0
 _angles = Array[float]([0.0, 5.0, 0.0, -5.0])
+_steps = ExtResource("3_am8cf")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1047735997]
 rotation = -6.2831855

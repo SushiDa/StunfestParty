@@ -2,6 +2,7 @@ extends Node
 class_name MinigameBase
 
 signal game_initialized()
+signal game_start_request()
 signal game_started()
 signal game_timer_started()
 signal game_timer_preshow(time: int)
@@ -14,6 +15,8 @@ signal players_spawned()
 @export var player_spawns: Array[Node]
 @export var fixed_spawns: bool
 @export var music: AudioStream
+@export var auto_start: bool = true
+@export var start_countdown: bool = true
 @export var minigame_duration: int = -1
 
 #TODO @export var minigame_scoreboard: MinigameScoreboard
@@ -36,10 +39,15 @@ func _process(delta: float) -> void:
 	
 func init_game() -> void:
 	# Spawn Players
-	#TODO Play music
 	_spawn_players()
 	game_initialized.emit()
-	
+	if music != null:
+		MusicPlayer.play(music)
+
+
+func request_game_start() -> void :
+	game_start_request.emit()
+
 func start_game() -> void: 
 	_minigame_running = true
 	start_game_timer(minigame_duration)
@@ -57,11 +65,12 @@ func end_game(winners: Array[int]) -> void:
 	game_ended.emit(winners)
 
 func show_finish_and_lock() -> void:
-	game_finish_requested.emit()
+	MusicPlayer.stop()
 	for player in players:
 		player.controls_enabled = false
 	_minigame_running = false
 	game_timer.stop()
+	game_finish_requested.emit()
 
 func _spawn_players() ->void:
 	players = []
@@ -91,7 +100,6 @@ func start_game_timer(time: float) -> void:
 		game_timer_started.emit()
 
 func _on_player_won(player_info:PlayerInfo) -> void:
-	print("Player " + str(player_info.player_number) + " Won !")
 	end_game([player_info.player_index])
 	
 func get_winners_from_score(most_points_wins:bool) -> Array[int] :

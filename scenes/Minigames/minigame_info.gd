@@ -3,6 +3,7 @@ class_name MinigameInfo
 
 @export var name:String
 @export var subtitle:String
+@export_multiline var authors:String
 @export var prefab:PackedScene
 
 @export var action_btn1:String

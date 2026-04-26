@@ -20,6 +20,10 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=240
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://dcuu02iv618c"
+
 [autoload]
 
 MultiplayerInput="*uid://bijyx5cqhyjg0"
@@ -29,6 +33,7 @@ PlayerManager="*uid://d3c57xsurjiks"
 SignalBus="*uid://c6blg6dq5280i"
 SceneManager="*uid://xyvae7t5bj7q"
 MinigameRepository="*uid://ci128thxdnmh4"
+SFXPlayer="*uid://da3qyg25o6w7y"
 
 [display]
 

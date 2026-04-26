@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://da3qyg25o6w7y"]
+
+[ext_resource type="Script" uid="uid://ctichyuwttqj0" path="res://scenes/Shared/sfx_player.gd" id="1_ot0jn"]
+
+[node name="SfxPlayer" type="Node" unique_id=1378500867]
+script = ExtResource("1_ot0jn")
+metadata/_custom_type_script = "uid://ctichyuwttqj0"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2078201234]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1917474976]
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="." unique_id=2006360523]
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="." unique_id=638434629]
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="." unique_id=412704899]
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="." unique_id=1804276025]
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="." unique_id=1862763437]
+
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="." unique_id=1633912142]
+
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="." unique_id=735820576]
+
+[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="." unique_id=1848995263]
+
+[node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="." unique_id=2016266350]
+
+[node name="AudioStreamPlayer12" type="AudioStreamPlayer" parent="." unique_id=1486654989]
+
+[node name="AudioStreamPlayer13" type="AudioStreamPlayer" parent="." unique_id=1395383011]
+
+[node name="AudioStreamPlayer14" type="AudioStreamPlayer" parent="." unique_id=2033949694]
+
+[node name="AudioStreamPlayer15" type="AudioStreamPlayer" parent="." unique_id=1418648811]
+
+[node name="AudioStreamPlayer16" type="AudioStreamPlayer" parent="." unique_id=1547660132]

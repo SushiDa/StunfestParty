@@ -8,3 +8,4 @@ audio_stream_player = NodePath("AudioStreamPlayer")
 metadata/_custom_type_script = "uid://dos3qhffr4v0a"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=773460413]
+bus = &"Music"

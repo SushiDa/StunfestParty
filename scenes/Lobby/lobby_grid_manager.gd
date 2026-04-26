@@ -30,9 +30,7 @@ func _build_grid() -> void:
 	var dummy_character := CharacterInfo.new()
 	
 	var emptySlots:int = (row_length - chara_local.size() % row_length) % row_length
-	print("Length : " + str(row_length))
-	print("Characters : " + str(characters.size()))
-	print("Empty slots : " + str(emptySlots))
+
 	#if(emptySlots == 2 && row_length == 3):
 	#	chara_local.insert(2, dummy_character)
 	#	chara_local.insert(characters.size() - 2, dummy_character);
@@ -41,7 +39,6 @@ func _build_grid() -> void:
 	#	characters.insert(row_length - 1, dummy_character);
 	@warning_ignore("integer_division")
 	for i in emptySlots:
-		print("dummy added")
 		characters.append(dummy_character);
 	
 	_start_position = column_offset * offset_scale / 2.0 + row_offset * offset_scale / 2.0
