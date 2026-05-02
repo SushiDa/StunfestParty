@@ -95,11 +95,12 @@ func _on_minigame_unloaded(_scene, _loading) -> void:
 	minigame_ui.visible = false
 	minigame_ui.disconnect_minigame()
 	_current_minigame = null
+	MusicPlayer.play(music)
 	await get_tree().create_timer(0.5).timeout
 	_start_intermission(_current_winners)
 
 func _start_intermission(winners:Array[int]) -> void:
-	MusicPlayer.play(music)
+	
 	score_panel_mgr.start_intermission(winners)
 
 func _on_intermission_end(max_score_reached:bool) -> void:

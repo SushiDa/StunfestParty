@@ -174,7 +174,7 @@ tracks/0/path = NodePath("WinnersPanel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 2.5, 2.75),
+"times": PackedFloat32Array(0, 0.5, 2.6666667, 2.9166667),
 "transitions": PackedFloat32Array(0.2, 1, 1, 0.2),
 "update": 0,
 "values": [Vector2(2000, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-2000, 0)]
@@ -186,7 +186,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.5),
+"times": PackedFloat32Array(0, 2.6000001),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -668,7 +668,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 2000.0
-offset_right = 1999.9995
+offset_right = 2000.0005
 grow_horizontal = 2
 grow_vertical = 2
 
