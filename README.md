@@ -43,7 +43,7 @@ D'autres éléments pratiques arriveront après, j'essaierai d'informer si je ra
 
 **Comment tester efficacement un mini-jeu ?**
 Pour tester un mini-jeu, ouvrez la scène scenes/SceneManager/test_scene.gd
-Dans les propriétés du nœud TestScene, renseignez le champ CurrentGameInfo, et utilisez les boutons pour charger le jeu, qui correspondra à la méthode utilisée pour charger le jeu dans une partie normale.
+Dans les propriétés du nœud TestScene, renseignez le champ CurrentGameInfo, démarrez la scène courante avec F6, et utilisez les boutons pour charger le jeu, qui correspondra à la méthode utilisée pour charger le jeu dans une partie normale.
 
 ## Créer un personnage
 Un personnage est juste une collection de sprites et un nom. Il faut minimum 3 sprites :
