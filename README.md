@@ -63,21 +63,22 @@ Exemple :
 ![Exemple de personnage](https://i.imgur.com/kXzD3Yh.png)
 
 Pour créer le personnage en lui même, il suffit de créer un dossier avec son nom dans le dossier **assets/characters** (Exemple, "assets/characters/JeanGérard/") et y mettre les différents sprite.
-Si vous voulez juste transmettre le personnage sans forcément être sur github, envoyez le moi par DM sur discord.
+Si vous voulez juste transmettre le personnage sans forcément être sur github, passez par le [dépot d'assets sur Gdrive](https://drive.google.com/drive/folders/1xrpGpprre0H9xOEGu1JU-YF2cZhCAjVI?usp=sharing)
+(Demandez-moi un accès, + un DM sur discord pour confirmer que c'est vous)
 
 **TODO** une possibilité de "décaler" la preview du personnage dans la sélection sera rajoutée dans le futur
 
 ## Contribuer à un mini-jeu
 Pour contribuer directement à un mini-jeu, n'hésitez pas à contacter le créateur du mini-jeu pour fournir différents fichiers ou autres éléments. 
-Pour soumettre des idées on pourra passer par les différents channels discord
-**TODO** : Un dépôt global d'assets sera mis en place si l'on veut juste fournir des assets partagés (comme par exemple des boucles de musique, des éléments de décor, etc.)
+Pour soumettre des idées on pourra passer par les différents channels discord, et/ou le [dépot d'assets sur Gdrive](https://drive.google.com/drive/folders/1xrpGpprre0H9xOEGu1JU-YF2cZhCAjVI?usp=sharing)
+(Demandez-moi un accès, + un DM sur discord pour confirmer que c'est vous)
 
 ## Contribuer à un mini-jeu
 Pour contribuer directement à un mini-jeu, n'hésitez pas à contacter le créateur du mini-jeu pour fournir différents fichiers ou autres éléments. 
 Pour soumettre des idées on pourra passer par les différents channels discord
 
 ## Contribuer au jeu global
-Un peu comme la contribution, à part que là ce serait en contactant les personnes qui travailleront sur le moteur de jeu global (pour le moment, ce sera moi, Sushi)
+Un peu comme la contribution à un mini jeu, à part que là ce serait en contactant les personnes qui travailleront sur le moteur de jeu global (pour le moment, ce sera moi, Sushi)
 
 ## Améliorer le moteur
-Contactez-moi (Sushi) pour que l'on travaille ensemble sur le moteur. 
+Contactez-moi (Sushi) pour que l'on travaille ensemble sur le moteur.
