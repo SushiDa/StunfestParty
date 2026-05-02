@@ -11,7 +11,7 @@ func _load_minigames() -> void :
 		game_dir.list_dir_begin()
 		for file: String in game_dir.get_files():
 			if(file.ends_with(".tres")):
-				var info:MinigameInfo = ResourceLoader.load("res://scenes/Minigames/" + game_str + "/" + file, "MinigameInfo")
+				var info:MinigameInfo = ResourceLoader.load("res://scenes/Minigames/" + game_str + "/" + file) as MinigameInfo
 				if info != null: _minigames.append(info)
 		game_dir.list_dir_end()
 	dir.list_dir_end()

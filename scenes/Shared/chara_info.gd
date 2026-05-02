@@ -1,8 +1,8 @@
 class_name CharacterInfo
 
-var character_name: String = ""
-var idle_sprite: Texture2D
-var action1_sprite: Texture2D
+var character_name: String = "" ## Nom du personnage
+var idle_sprite: Texture2D ## Sprite d'idle
+var action1_sprite: Texture2D ## Sprite 
 var action2_sprite: Texture2D:
 	get: return action2_sprites[_rng.randi_range(0, action2_sprites.size() - 1 )]
 var action2_sprites: Array[Texture2D] = []
@@ -13,6 +13,7 @@ var _rng = RandomNumberGenerator.new()
 func is_dummy() -> bool:
 	return character_name == ""
 
+## permet de récupérer un sprite random en excluant d'autres sprite. Ex: récupérer un sprite différent du sprite courant
 func get_random_sprite(exclusion :Array[Texture2D] = []) -> Texture2D :
 	var texs: Array[Texture2D] = []
 	texs.append(idle_sprite)

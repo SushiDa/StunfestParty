@@ -1,0 +1,25 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://7g7ylhutlr6h"]
+
+[ext_resource type="AudioStream" uid="uid://bt1niiydolc4p" path="res://scenes/Minigames/BtnMasher/steps/step1.ogg" id="1_c8gre"]
+[ext_resource type="AudioStream" uid="uid://y8jojctw3fen" path="res://scenes/Minigames/BtnMasher/steps/step2.ogg" id="2_d0hl6"]
+[ext_resource type="AudioStream" uid="uid://cpdadhisa86bh" path="res://scenes/Minigames/BtnMasher/steps/step3.ogg" id="3_fifdd"]
+[ext_resource type="AudioStream" uid="uid://btomulywthmq3" path="res://scenes/Minigames/BtnMasher/steps/step4.ogg" id="4_lto2u"]
+[ext_resource type="AudioStream" uid="uid://dxctw05rhmbdf" path="res://scenes/Minigames/BtnMasher/steps/step5.ogg" id="5_khpuf"]
+[ext_resource type="AudioStream" uid="uid://cfm8m2ihj8prk" path="res://scenes/Minigames/BtnMasher/steps/step6.ogg" id="6_tvgdw"]
+[ext_resource type="AudioStream" uid="uid://cowidre7du4s2" path="res://scenes/Minigames/BtnMasher/steps/step7.ogg" id="7_v5kq0"]
+[ext_resource type="AudioStream" uid="uid://d37744cfi0uin" path="res://scenes/Minigames/BtnMasher/steps/step8.ogg" id="8_dxy3w"]
+[ext_resource type="AudioStream" uid="uid://ds6p5rhf866mp" path="res://scenes/Minigames/BtnMasher/steps/step9.ogg" id="9_pivr3"]
+[ext_resource type="AudioStream" uid="uid://cmx32fu6ai2qf" path="res://scenes/Minigames/BtnMasher/steps/step10.ogg" id="10_td0eq"]
+
+[resource]
+streams_count = 10
+stream_0/stream = ExtResource("1_c8gre")
+stream_1/stream = ExtResource("2_d0hl6")
+stream_2/stream = ExtResource("3_fifdd")
+stream_3/stream = ExtResource("4_lto2u")
+stream_4/stream = ExtResource("5_khpuf")
+stream_5/stream = ExtResource("6_tvgdw")
+stream_6/stream = ExtResource("7_v5kq0")
+stream_7/stream = ExtResource("8_dxy3w")
+stream_8/stream = ExtResource("9_pivr3")
+stream_9/stream = ExtResource("10_td0eq")

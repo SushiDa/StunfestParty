@@ -5,26 +5,33 @@ extends Node
 ## Les signaux émettent pour une pression ponctuelle, les variables donnent l'état continu
 class_name PlayerHub
 
-var score: float
+var score: float ## Score du jeu courant
 
+signal player_won(player: PlayerInfo)
+
+## signaux et variables pour le déplacement
 var movement: Vector2
 signal move_left
 signal move_right
 signal move_up
 signal move_down
 
+## signal et variable pour le bouton 1 (bouton sud)
 signal btn1_pressed
 var btn1_hold: bool
 
+## signal et variable pour le bouton 2 (bouton est)
 signal btn2_pressed
 var btn2_hold: bool
 
-var controls_enabled: bool = false
-var minigame_controls_enabled: bool = true
+var _global_controls_enabled: bool = false ## active / désactive les controles. Utilisé par le jeu global (ne pas utiliser)
 
-var _player_info: PlayerInfo
 
-signal player_won(player: PlayerInfo)
+var controls_enabled: bool = true ## active / désactive les controles. Utilisé par les minijeu
+
+var _player_info: PlayerInfo ## PlayerInfo rattachée au joueur.
+
+
 
 func set_player_info(info:PlayerInfo) -> void:
 	_player_info = info
@@ -50,7 +57,7 @@ func win() -> void: ## Termine instantanément le minijeu
 	player_won.emit(_player_info)
 
 func _process(_delta: float) -> void:
-	if controls_enabled && minigame_controls_enabled :
+	if _global_controls_enabled && controls_enabled :
 		var device = -1
 		if _player_info != null: device = _player_info.device_number
 		var input_movement: Vector2 = MultiplayerInput.get_vector(device,"move_left","move_right","move_down","move_up")
@@ -79,3 +86,7 @@ func _process(_delta: float) -> void:
 		movement = Vector2.ZERO
 		btn1_hold = false
 		btn2_hold = false
+
+## ne pas utiliser. Uniquement pour l'utilisation globale. Utiliser la variable controls_enabled
+func change_global_control_status(enable: bool) -> void : 
+	_global_controls_enabled = enable

@@ -1,11 +1,11 @@
 class_name PlayerInfo
 
-var character_info: CharacterInfo
-var player_index: int
-var player_number: int:
+var character_info: CharacterInfo ## infos du personnage
+var player_index: int ## index du joueur (0..3)
+var player_number: int: ## numéro du joueur (1..4)
 	get: return player_index + 1
-var device_number: int
-var global_party_score: int
+var device_number: int ## numero de device pour la gestion des inputs.
+var global_party_score: int ## score global
 
 func get_player_color() -> Color:
 	return get_color(player_index)

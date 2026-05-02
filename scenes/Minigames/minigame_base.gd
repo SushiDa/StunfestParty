@@ -83,7 +83,7 @@ func end_game(winners: Array[int]) -> void:
 func show_finish_and_lock() -> void:
 	MusicPlayer.stop()
 	for player in players:
-		player.controls_enabled = false
+		player.change_global_control_status(false)
 	_minigame_running = false
 	game_timer.stop()
 	game_finish_requested.emit()
@@ -116,7 +116,7 @@ func start_game() -> void:
 	start_game_timer(minigame_duration)
 	game_started.emit()
 	for player in players:
-		player.controls_enabled = true
+		player.change_global_control_status(true)
 
 func init_game() -> void:
 	# Spawn Players
