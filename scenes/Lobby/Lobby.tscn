@@ -161,7 +161,7 @@ flip_v = true
 [node name="GridManager" type="Node2D" parent="." unique_id=25414212]
 position = Vector2(36, 271)
 script = ExtResource("2_xb6ow")
-row_length = 10
+row_length = 13
 row_offset = Vector2(0, 538)
 column_offset = Vector2(538, -75)
 offset_scale = 0.25
