@@ -59,7 +59,11 @@ Pourquoi ces dimensions étranges ? Pensez à un personnage de 32x64 (32 de larg
 Le personnage doit être centré, et regarder vers la droite ou vers la caméra.  Les pieds (ou tout autre élément qui touche le sol) touchent le bas du sprite.
 Vous pouvez utiliser tout l'espace mais garder la partie principale du corps du personnage dans la partie centrale est recommandé
 
+Exemple : 
+![Exemple de personnage](https://i.imgur.com/kXzD3Yh.png)
+
 Pour créer le personnage en lui même, il suffit de créer un dossier avec son nom dans le dossier **assets/characters** (Exemple, "assets/characters/JeanGérard/") et y mettre les différents sprite.
+Si vous voulez juste transmettre le personnage sans forcément être sur github, envoyez le moi par DM sur discord.
 
 **TODO** une possibilité de "décaler" la preview du personnage dans la sélection sera rajoutée dans le futur
 
