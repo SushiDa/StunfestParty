@@ -14,8 +14,7 @@ Les différentes manières de contribuer :
 ## Créer un mini-jeu
 
  1. **Créer une branche pour votre mini-jeu**, et rajoutez un dossier pour le mini-jeu dans scenes/Minigames
- NE COMMITEZ PAS SUR LA BRANCHE MAIN.
- Globalement votre branche sera votre espace de travail pour faire votre jeu.
+ NE COMMITEZ PAS SUR LA BRANCHE MAIN. Globalement votre branche sera votre espace de travail pour faire votre jeu. Pour "valider" votre jeu dans le jeu complet, il faudra faire une pull request et on fera un merge si tout est ok
 
  3. **Créer la scène du mini-jeu**
 Créez une scène avec le nœud de base que vous voulez, et attachez au noeud racine le script "MinigameBase"
