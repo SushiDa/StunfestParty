@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cnj5qw7x1sxey"]
 
 [ext_resource type="Script" uid="uid://bagfxqurfa4bv" path="res://scenes/Minigames/player_hub.gd" id="1_am8cf"]
-[ext_resource type="Texture2D" uid="uid://dsqjch68hpcee" path="res://assets/characters/Axel/AxelP1.png" id="2_81i0n"]
 [ext_resource type="Script" uid="uid://bnu0i5eida78g" path="res://scenes/Minigames/BtnMasher/masher_player.gd" id="2_drp1k"]
 [ext_resource type="AudioStream" uid="uid://b8umyrwy0143u" path="res://scenes/Minigames/BtnMasher/steps/steps.tres" id="3_am8cf"]
+[ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="4_am8cf"]
 [ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="4_drp1k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_am8cf"]
@@ -27,7 +27,7 @@ _steps = ExtResource("3_am8cf")
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1047735997]
 rotation = -6.2831855
 scale = Vector2(3, 3)
-texture = ExtResource("2_81i0n")
+texture = ExtResource("4_am8cf")
 offset = Vector2(0, -40)
 
 [node name="Score" type="Label" parent="." unique_id=45220833]
