@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dmhosg5movicg"]
+
+[ext_resource type="Script" uid="uid://bagfxqurfa4bv" path="res://scenes/Minigames/player_hub.gd" id="1_8so6y"]
+[ext_resource type="Script" uid="uid://cskot1f61nxaa" path="res://scenes/Minigames/Maze3D/Scripts/maze_player.gd" id="1_ujjdm"]
+[ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="2_8so6y"]
+[ext_resource type="PackedScene" uid="uid://fd2s8ut1jwa4" path="res://scenes/Minigames/Maze3D/Prefabs/maze_bullet.tscn" id="3_yauor"]
+[ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="5_rhoo1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rhoo1"]
+sky_top_color = Color(0.17911538, 0.56226784, 1, 1)
+sky_horizon_color = Color(0.12823886, 0.6920727, 0.99999994, 1)
+sky_curve = 11.027484
+ground_bottom_color = Color(0.66, 0.66, 0.66, 1)
+ground_horizon_color = Color(0.67542076, 0.7405178, 0.9983241, 1)
+
+[sub_resource type="Sky" id="Sky_q78hn"]
+sky_material = SubResource("ProceduralSkyMaterial_rhoo1")
+
+[sub_resource type="Environment" id="Environment_rhoo1"]
+background_mode = 2
+sky = SubResource("Sky_q78hn")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wxs55"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q78hn"]
+font = ExtResource("5_rhoo1")
+font_size = 200
+font_color = Color(1, 1, 0, 1)
+
+[node name="Player" type="Node3D" unique_id=165007964]
+script = ExtResource("1_8so6y")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1044873704]
+
+[node name="PlayerMgr" type="Node3D" parent="CharacterBody3D" unique_id=1538762378 node_paths=PackedStringArray("_hub", "_sprite", "_charaBody", "_camera", "_deadLabel")]
+script = ExtResource("1_ujjdm")
+_hub = NodePath("../..")
+_sprite = NodePath("../Sprite3D")
+_charaBody = NodePath("..")
+_camera = NodePath("../Camera3D")
+_bulletSpeed = 20.0
+_turningSpeed = 7.0
+_shootCooldown = 0.3
+_bulletPrefab = ExtResource("3_yauor")
+_deadLabel = NodePath("../Label")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=1222838013]
+environment = SubResource("Environment_rhoo1")
+fov = 60.0
+
+[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D" unique_id=1636876278]
+offset = Vector2(0, -10)
+pixel_size = 0.02
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_8so6y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1986139822]
+shape = SubResource("CapsuleShape3D_wxs55")
+
+[node name="Label" type="Label" parent="CharacterBody3D" unique_id=1784380269]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_q78hn")
+horizontal_alignment = 1
+vertical_alignment = 1

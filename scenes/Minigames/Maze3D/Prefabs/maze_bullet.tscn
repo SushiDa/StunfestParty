@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://fd2s8ut1jwa4"]
+
+[ext_resource type="Script" uid="uid://gi4giomhr1ll" path="res://scenes/Minigames/Maze3D/Scripts/maze_bullet.gd" id="1_iv2gs"]
+[ext_resource type="Texture2D" uid="uid://8fhyeptkdvb8" path="res://assets/sprites/shapes/BGCircle.png" id="2_iv2gs"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_l5vmu"]
+
+[node name="Bullet" type="Node3D" unique_id=171105403 node_paths=PackedStringArray("_rigidbody")]
+script = ExtResource("1_iv2gs")
+_rigidbody = NodePath("RigidBody3D")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1844234496]
+collision_layer = 2
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp_mode = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D" unique_id=1133526996]
+modulate = Color(0.82258296, 0.84947944, 0, 0.5882353)
+pixel_size = 0.0012
+billboard = 2
+texture_filter = 2
+texture = ExtResource("2_iv2gs")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RigidBody3D/Sprite3D" unique_id=652416047]
+light_color = Color(0.9051964, 0.90194505, 1.540184e-06, 1)
+light_energy = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1764136610]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_l5vmu")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MinigameInfo" format=3 uid="uid://cjfmnonjbllo1"]
+
+[ext_resource type="PackedScene" uid="uid://dcd037gq6l6h4" path="res://scenes/Minigames/Maze3D/maze_3d.tscn" id="1_5e01r"]
+[ext_resource type="Script" uid="uid://dkhmc06h3n7cg" path="res://scenes/Minigames/minigame_info.gd" id="1_8hdxo"]
+
+[resource]
+script = ExtResource("1_8hdxo")
+name = "Stun Maze"
+subtitle = "Tirez vous dessus"
+authors = "Garywiss"
+prefab = ExtResource("1_5e01r")
+action_btn1 = "Tirer"
+action_btn2 = "Pas de coté"
+action_movement = "Bouger"
+metadata/_custom_type_script = "uid://dkhmc06h3n7cg"
