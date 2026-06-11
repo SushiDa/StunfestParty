@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MinigameInfo" format=3 uid="uid://b3yis4tcyucmy"]
+
+[ext_resource type="Script" uid="uid://dkhmc06h3n7cg" path="res://scenes/Minigames/minigame_info.gd" id="1_8xi7l"]
+[ext_resource type="PackedScene" uid="uid://cytiomcjt2ete" path="res://scenes/Minigames/jumpRace/jump_race.tscn" id="1_ebcwb"]
+
+[resource]
+script = ExtResource("1_8xi7l")
+name = "Jump Race"
+subtitle = "Va le plus haut possible"
+prefab = ExtResource("1_ebcwb")
+action_btn1 = "Sauter"
+action_movement = "Se déplacer"
+metadata/_custom_type_script = "uid://dkhmc06h3n7cg"

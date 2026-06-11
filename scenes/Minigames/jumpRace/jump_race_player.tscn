@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bvreqr3w4ncve"]
+
+[ext_resource type="Script" uid="uid://bagfxqurfa4bv" path="res://scenes/Minigames/player_hub.gd" id="1_ngtlc"]
+[ext_resource type="Script" uid="uid://dqykn34enygy5" path="res://scenes/Minigames/jumpRace/jump_race_player.gd" id="2_i0gnt"]
+[ext_resource type="AudioStream" uid="uid://b8umyrwy0143u" path="res://scenes/Minigames/BtnMasher/steps/steps.tres" id="3_frfj6"]
+[ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="3_rfd8x"]
+[ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="4_frfj6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bb48"]
+font = ExtResource("4_frfj6")
+font_size = 90
+
+[node name="JumpRacePlayer" type="Node2D" unique_id=667682652]
+script = ExtResource("1_ngtlc")
+
+[node name="JumpRacePlayerMgr" type="Node" parent="." unique_id=2123266907 node_paths=PackedStringArray("_hub", "_root", "_sprite", "_score_label")]
+unique_name_in_owner = true
+script = ExtResource("2_i0gnt")
+_hub = NodePath("..")
+_root = NodePath("..")
+_sprite = NodePath("../Sprite")
+_score_label = NodePath("../Score")
+_angles = Array[float]([0.0, 0.0, 0.0, 0.0])
+_steps = ExtResource("3_frfj6")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=187330654]
+rotation = -6.2831855
+scale = Vector2(3, 3)
+texture = ExtResource("3_rfd8x")
+offset = Vector2(0, -40)
+
+[node name="Score" type="Label" parent="." unique_id=1583519552]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "10"
+label_settings = SubResource("LabelSettings_1bb48")
+horizontal_alignment = 1
+vertical_alignment = 1

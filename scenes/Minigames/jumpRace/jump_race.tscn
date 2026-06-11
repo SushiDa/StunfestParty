@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cytiomcjt2ete"]
+
+[ext_resource type="Script" uid="uid://ff7sc7bijvlc" path="res://scenes/Minigames/minigame_base.gd" id="1_fapg7"]
+[ext_resource type="PackedScene" uid="uid://bvreqr3w4ncve" path="res://scenes/Minigames/jumpRace/jump_race_player.tscn" id="2_eynrd"]
+[ext_resource type="Script" uid="uid://bbvkwjltx8wfk" path="res://scenes/Minigames/jumpRace/jump_race_manager.gd" id="2_l5me6"]
+
+[node name="JumpRace" type="Node2D" unique_id=681903814 node_paths=PackedStringArray("player_spawns")]
+script = ExtResource("1_fapg7")
+player_prefab = ExtResource("2_eynrd")
+player_spawns = [NodePath("Spawners/Spawn1"), NodePath("Spawners/Spawn1"), NodePath("Spawners/Spawn1"), NodePath("Spawners/Spawn1")]
+fixed_spawns = true
+
+[node name="JumpRaceManager" type="Node" parent="." unique_id=2085192397 node_paths=PackedStringArray("minigame")]
+script = ExtResource("2_l5me6")
+minigame = NodePath("..")
+
+[node name="Spawners" type="Node2D" parent="." unique_id=1195721253]
+position = Vector2(200, 540)
+
+[node name="Spawn1" type="Node2D" parent="Spawners" unique_id=1324691452]
+position = Vector2(0, 340)
+
+[node name="Spawn2" type="Node2D" parent="Spawners" unique_id=1500811904]
+position = Vector2(0, 340)
+
+[node name="Spawn3" type="Node2D" parent="Spawners" unique_id=1755119059]
+position = Vector2(0, 340)
+
+[node name="Spawn4" type="Node2D" parent="Spawners" unique_id=1464538761]
+position = Vector2(0, 340)
