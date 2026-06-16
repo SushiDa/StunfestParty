@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="1_ooe52"]
 [ext_resource type="Script" uid="uid://cg0lo3a8qnd56" path="res://scenes/SceneManager/test_scene.gd" id="1_ukssr"]
-[ext_resource type="Resource" uid="uid://3n7et4hn1nf1" path="res://scenes/Minigames/BtnMasher/btn_masher.tres" id="2_ooe52"]
+[ext_resource type="Resource" uid="uid://b3yis4tcyucmy" path="res://scenes/Minigames/jumpRace/jump_race.tres" id="2_marmh"]
 [ext_resource type="Script" uid="uid://5uenlwxv47aj" path="res://scenes/Party/shared_minigame_ui.gd" id="3_marmh"]
 [ext_resource type="PackedScene" uid="uid://bbkebvu0jfsh" path="res://scenes/Party/player_win_panel.tscn" id="4_psj6b"]
 [ext_resource type="AudioStream" uid="uid://dsxglxiph4m0y" path="res://assets/sfx/shared/Don.wav" id="5_hcjeq"]
@@ -306,11 +306,9 @@ font_size = 42
 [node name="TestScene" type="Node" unique_id=1836343042 node_paths=PackedStringArray("minigame_holder", "btn_players", "minigame_ui")]
 script = ExtResource("1_ukssr")
 minigame_holder = NodePath("MinigameHolder")
-current_game_info = ExtResource("2_ooe52")
+current_game_info = ExtResource("2_marmh")
 btn_players = NodePath("Control/VBoxContainer/Players")
 minigame_ui = NodePath("SharedMinigameUI")
-
-[node name="MinigameHolder" type="Node" parent="." unique_id=1239996762]
 
 [node name="SharedMinigameUI" type="Control" parent="." unique_id=543156785 node_paths=PackedStringArray("minigame_timer", "minigame_start_finish", "animation_player", "end_label", "end_winner_container")]
 layout_mode = 3
@@ -429,6 +427,8 @@ text = "Destroy Minigame"
 [node name="Players" type="Button" parent="Control/VBoxContainer" unique_id=2113441781]
 layout_mode = 2
 text = "Players : 1"
+
+[node name="MinigameHolder" type="Node" parent="." unique_id=1239996762]
 
 [connection signal="pressed" from="Control/VBoxContainer/Load Game" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Destroy Game" to="." method="_on_destroy_game_pressed"]

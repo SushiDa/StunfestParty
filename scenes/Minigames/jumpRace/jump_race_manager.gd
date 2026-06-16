@@ -21,6 +21,4 @@ func _on_players_spawned() -> void:
 		p.initialize_display()
 
 func _on_game_timeout() -> void:
-	# minigame.show_finish_and_lock()
-	# await get_tree().create_timer(3).timeout
 	minigame.end_game(minigame.get_winners_from_score(true))

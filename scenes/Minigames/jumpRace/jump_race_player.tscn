@@ -2,32 +2,26 @@
 
 [ext_resource type="Script" uid="uid://bagfxqurfa4bv" path="res://scenes/Minigames/player_hub.gd" id="1_ngtlc"]
 [ext_resource type="Script" uid="uid://dqykn34enygy5" path="res://scenes/Minigames/jumpRace/jump_race_player.gd" id="2_i0gnt"]
-[ext_resource type="AudioStream" uid="uid://b8umyrwy0143u" path="res://scenes/Minigames/BtnMasher/steps/steps.tres" id="3_frfj6"]
 [ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="3_rfd8x"]
 [ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="4_frfj6"]
+[ext_resource type="Script" uid="uid://v64x6oest8wn" path="res://scenes/Minigames/jumpRace/player_body.gd" id="5_1bb48"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1bb48"]
 font = ExtResource("4_frfj6")
 font_size = 90
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frfj6"]
+size = Vector2(24, 75)
+
 [node name="JumpRacePlayer" type="Node2D" unique_id=667682652]
 script = ExtResource("1_ngtlc")
 
-[node name="JumpRacePlayerMgr" type="Node" parent="." unique_id=2123266907 node_paths=PackedStringArray("_hub", "_root", "_sprite", "_score_label")]
+[node name="JumpRacePlayerMgr" type="Node" parent="." unique_id=2123266907 node_paths=PackedStringArray("_hub", "_sprite", "_score_label")]
 unique_name_in_owner = true
 script = ExtResource("2_i0gnt")
 _hub = NodePath("..")
-_root = NodePath("..")
-_sprite = NodePath("../Sprite")
+_sprite = NodePath("../PlayerBody/Sprite")
 _score_label = NodePath("../Score")
-_angles = Array[float]([0.0, 0.0, 0.0, 0.0])
-_steps = ExtResource("3_frfj6")
-
-[node name="Sprite" type="Sprite2D" parent="." unique_id=187330654]
-rotation = -6.2831855
-scale = Vector2(3, 3)
-texture = ExtResource("3_rfd8x")
-offset = Vector2(0, -40)
 
 [node name="Score" type="Label" parent="." unique_id=1583519552]
 anchors_preset = 6
@@ -46,3 +40,17 @@ text = "10"
 label_settings = SubResource("LabelSettings_1bb48")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PlayerBody" type="CharacterBody2D" parent="." unique_id=320220926]
+collision_layer = 0
+script = ExtResource("5_1bb48")
+
+[node name="Sprite" type="Sprite2D" parent="PlayerBody" unique_id=187330654]
+position = Vector2(-1.194218e-05, 0)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_rfd8x")
+offset = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody" unique_id=1802350940]
+position = Vector2(0, -38.5)
+shape = SubResource("RectangleShape2D_frfj6")
