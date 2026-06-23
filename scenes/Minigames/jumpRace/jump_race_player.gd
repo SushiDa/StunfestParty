@@ -9,7 +9,7 @@ class_name PlayerJumpRace
 
 var target_score: int
 const JUMP_VELOCITY = -300.0
-const SPEED = 300.0
+const SPEED = 150.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,6 +32,10 @@ func _on_btn_pressed() -> void :
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	
+	var hauteur = 992 - _playerBody.global_position.y
+	_hub.score = hauteur
+	_score_label.text = str(int(_hub.score))
 	
 	if _hub.movement.x:
 		_playerBody.velocity.x = _hub.movement.x * SPEED
