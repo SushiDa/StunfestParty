@@ -23,3 +23,7 @@ func _on_players_spawned() -> void:
 
 func _on_game_timeout() -> void:
 	minigame.end_game(minigame.get_winners_from_score(true))
+	
+	
+func _on_finish_line_area_body_entered(body: Node2D) -> void:
+	minigame.end_game(minigame.get_winners_from_score(true))

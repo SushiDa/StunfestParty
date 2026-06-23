@@ -129,6 +129,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.827451, 0.28235295, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Node2D" type="Node2D" parent="Node" unique_id=872377941]
 position = Vector2(1920, 0)
@@ -144,6 +145,7 @@ offset_bottom = 1600.0
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("6_nt74c")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="Node/Node2D" unique_id=1038660764]
 texture_repeat = 2
