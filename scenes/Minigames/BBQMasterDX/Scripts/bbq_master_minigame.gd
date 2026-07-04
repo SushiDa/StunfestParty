@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _on_players_spawned() -> void:
 	for player in minigame.players:
-		var bbq_player:BBQMasterPlayer = player.get_node("%BBQPlayerMgr") as BBQMasterPlayer
+		var bbq_player: BBQMasterPlayer = player.get_node("%BBQPlayerMgr") as BBQMasterPlayer
 		bbq_player.initialize_display()
 		var bbq_spawn = bbq_player.get_parent().get_node("../BBQSpawn") as Node;
 		var bbq_instance = bbq_prefab.instantiate() as BBQMaster_BBQ
