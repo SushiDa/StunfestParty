@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="StunfestParty"
-run/main_scene="uid://b87m5rygs0rgt"
+run/main_scene="uid://bp8thqtoudfdi"
 config/features=PackedStringArray("4.7", "Forward Plus")
 run/max_fps=240
 config/icon="res://icon.svg"
