@@ -87,7 +87,7 @@ _data = {
 size = Vector2(60.5, 184)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dh88x"]
-radius = 59.03389
+radius = 62.1289
 
 [node name="BBQPlayerBase" type="CharacterBody2D" unique_id=641911429]
 script = ExtResource("1_xeycl")
@@ -114,7 +114,7 @@ shape = SubResource("RectangleShape2D_dh88x")
 [node name="Area2D" type="Area2D" parent="." unique_id=118892794]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=181238674]
-position = Vector2(-2, -39)
+position = Vector2(1, -28)
 shape = SubResource("CircleShape2D_dh88x")
 
 [connection signal="area_entered" from="Area2D" to="BBQPlayerMgr" method="_on_area_2d_area_entered"]

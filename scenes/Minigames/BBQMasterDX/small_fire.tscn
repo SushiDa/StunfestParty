@@ -124,4 +124,9 @@ shape = SubResource("CircleShape2D_nskya")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1910141429]
 sprite_frames = SubResource("SpriteFrames_707uw")
 autoplay = "default"
-frame_progress = 0.30752206
+frame_progress = 0.35249114
+
+[node name="Timer" type="Timer" parent="." unique_id=1627904769]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

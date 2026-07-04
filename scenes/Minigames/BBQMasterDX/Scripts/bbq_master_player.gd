@@ -37,7 +37,10 @@ func on_button_pressed(type):
 			flame_spawn.emit(1, _root.global_position)
 		2:
 			if colliding_fire_area != null:
-				extinct_fire(colliding_fire_area)
+				_sprite.texture = _root.get_character().get_random_sprite()
+				_root.get_node("AnimationPlayer").play("RESET")
+				_root.get_node("AnimationPlayer").play("extinguish_fire")
+				try_to_extinct_fire(colliding_fire_area)
 			#print("button 2 pressed")
 			#extinct_fire.emit(_root.global_position)
 	pass
@@ -48,22 +51,32 @@ func _physics_process(delta: float) -> void:
 	#_root.velocity = _hub.movement
 	_root.velocity = _hub.movement * speed
 	_root.move_and_slide()
-	if _root.velocity != Vector2.ZERO:
+	if _root.velocity != Vector2.ZERO and !_root.get_node("AnimationPlayer").is_playing():
+		_root.get_node("AnimationPlayer").play("RESET")
 		_root.get_node("AnimationPlayer").play("sautiller")
-	else:
+	elif _root.velocity == Vector2.ZERO and _root.get_node("AnimationPlayer").is_playing() and _root.get_node("AnimationPlayer").current_animation == "sautiller":
 		_root.get_node("AnimationPlayer").stop()
+	#else:
+		#if !_root.get_node("AnimationPlayer").is_playing():
+			#_root.get_node("AnimationPlayer").stop()
 	pass
 
 # Function that allows the player to throw a saussage or a match
 func throw_item(item, start_pos:Vector2, end_pos:Vector2):
 	pass
 	
-func extinct_fire(fire_to_extinguish):
-	fire_to_extinguish.queue_free()
+func try_to_extinct_fire(fire_to_extinguish):
+	fire_to_extinguish.take_damage(1)
 	pass
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("fire"):
+	if area.is_in_group("fire") and colliding_fire_area == null:
 		colliding_fire_area = area.get_parent()
+	pass # Replace with function body.
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group("fire"):
+		colliding_fire_area = null
 	pass # Replace with function body.
