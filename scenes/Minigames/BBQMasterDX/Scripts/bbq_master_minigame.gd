@@ -1,6 +1,7 @@
 extends Node
 
 @export var minigame: MinigameBase
+@export var bbq_prefab: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +14,10 @@ func _ready() -> void:
 func _on_players_spawned() -> void:
 	for player in minigame.players:
 		var p:BBQMasterPlayer = player.get_node("%BBQPlayerMgr") as BBQMasterPlayer
+		var bbq_spawn = p.get_parent().get_node("../BBQSpawn") as Node;
+		var bbq_instance = bbq_prefab.instantiate() as BBQMaster_BBQ
+		bbq_instance.initialize(player, minigame);
+		bbq_spawn.add_child(bbq_instance);
 		p.initialize_display()
 
 

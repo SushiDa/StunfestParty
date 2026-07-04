@@ -3,24 +3,41 @@
 [ext_resource type="Script" uid="uid://ff7sc7bijvlc" path="res://scenes/Minigames/minigame_base.gd" id="1_bd2v0"]
 [ext_resource type="PackedScene" uid="uid://bkcqpqlhkwil5" path="res://scenes/Minigames/BBQMasterDX/bbq_master_player.tscn" id="2_gk4nu"]
 [ext_resource type="Script" uid="uid://tuv3lunn4mdk" path="res://scenes/Minigames/BBQMasterDX/Scripts/bbq_master_minigame.gd" id="3_o8c3j"]
+[ext_resource type="PackedScene" uid="uid://crl0odaruwhi2" path="res://scenes/Minigames/BBQMasterDX/bbq_scene.tscn" id="4_gk4nu"]
 
 [node name="BBQMasterBase" type="Node2D" unique_id=1223414802 node_paths=PackedStringArray("player_spawns")]
 script = ExtResource("1_bd2v0")
 player_prefab = ExtResource("2_gk4nu")
-player_spawns = [NodePath("BBQMasterMgr/Spawn1"), NodePath("BBQMasterMgr/Spawn2"), NodePath("BBQMasterMgr/Spawn3"), NodePath("BBQMasterMgr/Spawn4")]
+player_spawns = [NodePath("BBQMasterMgr/Spawns/Spawn1"), NodePath("BBQMasterMgr/Spawns/Spawn2"), NodePath("BBQMasterMgr/Spawns/Spawn3"), NodePath("BBQMasterMgr/Spawns/Spawn4")]
+minigame_duration = 45
 
 [node name="BBQMasterMgr" type="Node" parent="." unique_id=1747680110 node_paths=PackedStringArray("minigame")]
 script = ExtResource("3_o8c3j")
 minigame = NodePath("..")
+bbq_prefab = ExtResource("4_gk4nu")
 
-[node name="Spawn1" type="Node2D" parent="BBQMasterMgr" unique_id=1858373808]
-position = Vector2(1820, 980)
+[node name="Spawns" type="Node2D" parent="BBQMasterMgr" unique_id=77636162]
 
-[node name="Spawn2" type="Node2D" parent="BBQMasterMgr" unique_id=991309943]
-position = Vector2(100, 980)
+[node name="Spawn1" type="Node2D" parent="BBQMasterMgr/Spawns" unique_id=1858373808]
+position = Vector2(1620, 780)
 
-[node name="Spawn3" type="Node2D" parent="BBQMasterMgr" unique_id=32333320]
-position = Vector2(1820, 200)
+[node name="BBQSpawn" type="Node2D" parent="BBQMasterMgr/Spawns/Spawn1" unique_id=1381648968]
+position = Vector2(150, 150)
 
-[node name="Spawn4" type="Node2D" parent="BBQMasterMgr" unique_id=174773195]
-position = Vector2(100, 200)
+[node name="Spawn2" type="Node2D" parent="BBQMasterMgr/Spawns" unique_id=991309943]
+position = Vector2(300, 780)
+
+[node name="BBQSpawn" type="Node2D" parent="BBQMasterMgr/Spawns/Spawn2" unique_id=1808768080]
+position = Vector2(-150, 150)
+
+[node name="Spawn3" type="Node2D" parent="BBQMasterMgr/Spawns" unique_id=32333320]
+position = Vector2(1620, 400)
+
+[node name="BBQSpawn" type="Node2D" parent="BBQMasterMgr/Spawns/Spawn3" unique_id=439748522]
+position = Vector2(150, -150)
+
+[node name="Spawn4" type="Node2D" parent="BBQMasterMgr/Spawns" unique_id=174773195]
+position = Vector2(300, 400)
+
+[node name="BBQSpawn" type="Node2D" parent="BBQMasterMgr/Spawns/Spawn4" unique_id=854299833]
+position = Vector2(-150, -150)
