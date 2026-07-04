@@ -60,7 +60,7 @@ func _process(_delta: float) -> void:
 	if _global_controls_enabled && controls_enabled :
 		var device = -1
 		if _player_info != null: device = _player_info.device_number
-		var input_movement: Vector2 = MultiplayerInput.get_vector(device,"move_left","move_right","move_down","move_up")
+		var input_movement: Vector2 = MultiplayerInput.get_vector(device,"move_left","move_right","move_up","move_down")
 		var input_btn1: bool = MultiplayerInput.is_action_pressed(device, "action_one")
 		var input_btn2: bool = MultiplayerInput.is_action_pressed(device, "action_two")
 		

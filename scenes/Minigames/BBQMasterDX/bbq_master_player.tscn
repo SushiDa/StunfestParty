@@ -1,10 +1,72 @@
 [gd_scene format=3 uid="uid://bkcqpqlhkwil5"]
 
-[ext_resource type="Script" path="res://scenes/Minigames/player_hub.gd" id="1_xeycl"]
+[ext_resource type="Script" uid="uid://bagfxqurfa4bv" path="res://scenes/Minigames/player_hub.gd" id="1_xeycl"]
 [ext_resource type="Script" uid="uid://h37pmyvng5fc" path="res://scenes/Minigames/BBQMasterDX/Scripts/bbq_master_player.gd" id="2_44pq0"]
 [ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="3_wc6m0"]
 
-[node name="BBQPlayerBase" type="Node2D" unique_id=195839548]
+[sub_resource type="Animation" id="Animation_n4s0s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.7484554e-07]
+}
+
+[sub_resource type="Animation" id="Animation_qptk4"]
+resource_name = "sautiller"
+length = 0.39999999999999997
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.092333175, 0.20594938, 0.29828256),
+"transitions": PackedFloat32Array(0.12074207, 0.12940815, 0.18946458, 0.12940815),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20), Vector2(0, 0), Vector2(0, -25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.14865091, 0.088388346, 0.16493852, 0.14865094),
+"update": 0,
+"values": [-1.7484554e-07, 0.10814972, 0.0, -0.08520241]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qgvgb"]
+_data = {
+&"RESET": SubResource("Animation_n4s0s"),
+&"sautiller": SubResource("Animation_qptk4")
+}
+
+[node name="BBQPlayerBase" type="CharacterBody2D" unique_id=641911429]
 script = ExtResource("1_xeycl")
 
 [node name="BBQPlayerMgr" type="Node" parent="." unique_id=1582068448 node_paths=PackedStringArray("_hub", "_root", "_sprite")]
@@ -15,7 +77,9 @@ _root = NodePath("..")
 _sprite = NodePath("../Sprite")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=725159180]
-rotation = -6.2831855
 scale = Vector2(3, 3)
 texture = ExtResource("3_wc6m0")
 offset = Vector2(0, -40)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1926035604]
+libraries/ = SubResource("AnimationLibrary_qgvgb")
