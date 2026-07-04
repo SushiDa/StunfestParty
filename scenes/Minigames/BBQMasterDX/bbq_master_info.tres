@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MinigameInfo" format=3 uid="uid://c4iusouo40k8a"]
+
+[ext_resource type="PackedScene" uid="uid://v21015mkk4x3" path="res://scenes/Minigames/BBQMasterDX/bbq_master_minigame.tscn" id="1_df5je"]
+[ext_resource type="Script" uid="uid://dkhmc06h3n7cg" path="res://scenes/Minigames/minigame_info.gd" id="1_ukumf"]
+
+[resource]
+script = ExtResource("1_ukumf")
+name = "Super BBQ Master DX"
+subtitle = "Faites griller vos meilleures saucisses"
+authors = "Sushi, Jordan, Azelia"
+prefab = ExtResource("1_df5je")
+action_btn1 = "Saucisse"
+action_btn2 = "Feu"
+action_movement = "Se déplacer"
+metadata/_custom_type_script = "uid://dkhmc06h3n7cg"
