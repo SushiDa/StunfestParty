@@ -9,7 +9,7 @@ class_name BBQMasterPlayer
 @export var match_file : PackedScene
 var match_thrown_count = 0
 var last_movement = Vector2.ZERO
-var throw_force = Vector2(500,500)
+var throw_force = 500
 
 signal flame_spawn(size, position)
 signal flame_extincted(position)
@@ -96,15 +96,27 @@ func throw_match(start_pos:Vector2, end_pos:Vector2):
 	var bbq_match_instance = match_file.instantiate()
 	bbq_match_instance.global_position = start_pos
 	add_child(bbq_match_instance)
-	#print("Start pos : ", start_pos)
-	#print("end pos : ", end_pos)
-	bbq_match_instance.set_destination(end_pos)
+	
+	bbq_match_instance.origin = start_pos
+	#bbq_match_instance.destination = end_pos
+	bbq_match_instance.dist_max = throw_force
+	bbq_match_instance.direction = bbq_match_instance.global_position.direction_to(end_pos)
+	bbq_match_instance.perpendicular = bbq_match_instance.direction.rotated(-PI / 2).normalized()
+	if bbq_match_instance.perpendicular.y > 0:
+		bbq_match_instance.perpendicular = -bbq_match_instance.perpendicular
+	#var dist = bbq_match_instance.global_position.distance_to(end_pos)
+	var dist = bbq_match_instance.origin.distance_to(bbq_match_instance.global_position)
+	bbq_match_instance.reached_destination.connect(start_fire)
+	
 	return bbq_match_instance
 	
+func start_fire(pos):
+	flame_spawn.emit(1, pos)
+	pass
+
 func try_to_extinct_fire(fire_to_extinguish):
 	fire_to_extinguish.take_damage(1)
 	pass
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("fire"):
