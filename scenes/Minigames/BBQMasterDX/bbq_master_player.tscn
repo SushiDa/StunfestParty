@@ -34,7 +34,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_qgvgb"]
 resource_name = "extinguish_fire"
-length = 0.39999999999999997
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -50,7 +50,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_qptk4"]
 resource_name = "sautiller"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -93,13 +93,15 @@ radius = 41.303753
 [node name="BBQPlayerBase" type="CharacterBody2D" unique_id=641911429]
 script = ExtResource("1_xeycl")
 
-[node name="BBQPlayerMgr" type="Node" parent="." unique_id=1582068448 node_paths=PackedStringArray("_hub", "_root", "_sprite")]
+[node name="BBQPlayerMgr" type="Node" parent="." unique_id=1582068448 node_paths=PackedStringArray("_hub", "_root", "_sprite", "_ui_inventory")]
 unique_name_in_owner = true
 script = ExtResource("2_44pq0")
 _hub = NodePath("..")
 _root = NodePath("..")
 _sprite = NodePath("../Sprite")
 match_file = ExtResource("3_qptk4")
+_max_slot_space = 10
+_ui_inventory = NodePath("../Label")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=725159180]
 scale = Vector2(3, 3)
@@ -118,6 +120,17 @@ shape = SubResource("RectangleShape2D_dh88x")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=181238674]
 position = Vector2(0, -25)
 shape = SubResource("CircleShape2D_dh88x")
+
+[node name="Label" type="Label" parent="." unique_id=781783271]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_right = 28.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "0s / 0m"
+horizontal_alignment = 1
 
 [connection signal="area_entered" from="Area2D" to="BBQPlayerMgr" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="BBQPlayerMgr" method="_on_area_2d_area_exited"]

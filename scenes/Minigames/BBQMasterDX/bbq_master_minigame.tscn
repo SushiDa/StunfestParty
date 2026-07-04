@@ -4,6 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://bkcqpqlhkwil5" path="res://scenes/Minigames/BBQMasterDX/bbq_master_player.tscn" id="2_gk4nu"]
 [ext_resource type="Script" uid="uid://tuv3lunn4mdk" path="res://scenes/Minigames/BBQMasterDX/Scripts/bbq_master_minigame.gd" id="3_o8c3j"]
 [ext_resource type="PackedScene" uid="uid://crl0odaruwhi2" path="res://scenes/Minigames/BBQMasterDX/bbq_scene.tscn" id="4_gk4nu"]
+[ext_resource type="Texture2D" uid="uid://8fhyeptkdvb8" path="res://assets/sprites/shapes/BGCircle.png" id="5_b6ciu"]
+[ext_resource type="Texture2D" uid="uid://bg18ywp05vq2r" path="res://scenes/Minigames/BBQMasterDX/Assets/match.png" id="7_kh2af"]
+[ext_resource type="Texture2D" uid="uid://cw0bflxg205ux" path="res://scenes/Minigames/BBQMasterDX/Sprites/cooked.png" id="11_8hx2t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wmq7q"]
+radius = 75.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wti3a"]
+radius = 150.0
 
 [node name="BBQMasterBase" type="Node2D" unique_id=1223414802 node_paths=PackedStringArray("player_spawns")]
 script = ExtResource("1_bd2v0")
@@ -41,3 +50,40 @@ position = Vector2(300, 400)
 
 [node name="BBQSpawn" type="Node2D" parent="BBQMasterMgr/Spawns/Spawn4" unique_id=854299833]
 position = Vector2(-150, -150)
+
+[node name="CollectZone" type="StaticBody2D" parent="." unique_id=396677138]
+position = Vector2(960, 615)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectZone" unique_id=750639349]
+shape = SubResource("CircleShape2D_wmq7q")
+
+[node name="Area2D" type="Area2D" parent="CollectZone" unique_id=347788778 groups=["collect"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectZone/Area2D" unique_id=942548842]
+shape = SubResource("CircleShape2D_wti3a")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CollectZone" unique_id=1074102838]
+self_modulate = Color(1, 1, 1, 0.19215687)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("5_b6ciu")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollectZone" unique_id=959727347]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_b6ciu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CollectZone" unique_id=735090441]
+position = Vector2(5, -20.999998)
+scale = Vector2(0.16231886, 0.16231884)
+texture = ExtResource("11_8hx2t")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CollectZone" unique_id=1018899756]
+position = Vector2(-14.000004, 27.000002)
+rotation = -0.39095375
+scale = Vector2(0.55555815, 0.5555581)
+texture = ExtResource("7_kh2af")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CollectZone" unique_id=1172353829]
+position = Vector2(7.999996, 16)
+rotation = 0.4171337
+scale = Vector2(0.55555815, 0.5555581)
+texture = ExtResource("7_kh2af")
