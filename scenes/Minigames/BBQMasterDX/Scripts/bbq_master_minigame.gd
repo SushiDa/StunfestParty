@@ -48,5 +48,5 @@ func spawn_fire(size, position:Vector2):
 	add_child(fire)
 	pass
 	
-	
+
 	
