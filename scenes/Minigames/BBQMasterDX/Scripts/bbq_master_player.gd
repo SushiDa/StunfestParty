@@ -6,7 +6,10 @@ class_name BBQMasterPlayer
 @export var _sprite: Sprite2D
 @export var speed = 500
 
-var match_file = "uid://ch13x2co2mh5j"
+@export var match_file : PackedScene
+var match_thrown_count = 0
+var last_movement = Vector2.ZERO
+var throw_force = Vector2(500,500)
 
 signal flame_spawn(size, position)
 signal flame_extincted(position)
@@ -28,15 +31,15 @@ func initialize_display() -> void :
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#for i in _root.get_slide_collision_count():
-		#var collision = _root.get_slide_collision(i)
-		#print("Entré en collision avec : ", collision.get_collider().name)
-	pass
+	if _root.movement != Vector2.ZERO:
+		last_movement = _root.movement
+
+
 
 func on_fire_button_pressed() :
 	match get_player_state() :
 		FieldStatusEnum.FIELD:
-			throw_item("match", _root.global_position, Vector2(0,0))
+			var match_thrown = throw_match(_root.global_position, _root.global_position+last_movement * throw_force)
 		
 		FieldStatusEnum.BBQ:
 			if _current_bbq && _current_bbq.get_player_index() == _hub.get_player_index() :
@@ -55,6 +58,7 @@ func on_sausage_button_pressed() :
 				var dist:float = 999.0;
 				var fire_to_extinguish = null
 				for f in _fires:
+					if !f : continue
 					var tmp_dist =_root.global_position.distance_squared_to(f.global_position)
 					if tmp_dist < dist :
 						dist = tmp_dist
@@ -87,13 +91,15 @@ func _physics_process(delta: float) -> void:
 			#_root.get_node("AnimationPlayer").stop()
 	pass
 
-# Function that allows the player to throw a saussage or a match
-func throw_item(item, start_pos:Vector2, end_pos:Vector2):
-	if item == "match":
-		var bbq_match_instance = load(match_file).instantiate()
-		bbq_match_instance.global_position = start_pos
-		add_child(bbq_match_instance)
-	pass
+# Function that allows the player to throw a match
+func throw_match(start_pos:Vector2, end_pos:Vector2):
+	var bbq_match_instance = match_file.instantiate()
+	bbq_match_instance.global_position = start_pos
+	add_child(bbq_match_instance)
+	#print("Start pos : ", start_pos)
+	#print("end pos : ", end_pos)
+	bbq_match_instance.set_destination(end_pos)
+	return bbq_match_instance
 	
 func try_to_extinct_fire(fire_to_extinguish):
 	fire_to_extinguish.take_damage(1)
