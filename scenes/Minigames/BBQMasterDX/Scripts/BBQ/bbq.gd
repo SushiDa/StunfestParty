@@ -101,7 +101,7 @@ func _get_current_sausage_state() -> BBQMaster_SausageState:
 	return result;
 
 func _update_graphics() -> void:
-	_ui_sausage_count.text = "x" + str(_sausage_count) + " " + str(_current_sausage_status)
+	_ui_sausage_count.text = "x" + str(_sausage_count)
 	_sprite.texture = _get_current_temp_state().sprite
 	_sausage_sprite.texture = _get_current_sausage_state().sprite
 	if _player: _points_label.text = str(_player.score) + " pts"
