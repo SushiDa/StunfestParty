@@ -7,6 +7,12 @@ class_name BBQMasterPlayer
 @export var speed = 500
 
 @export var match_file : PackedScene
+
+@export var _max_slot_space : int
+@export var _matches_per_slot: int = 3
+
+@export var _ui_inventory: Label
+
 var match_thrown_count = 0
 var last_movement = Vector2.ZERO
 var throw_force = 500
@@ -17,6 +23,10 @@ signal flame_extincted(position)
 var _fires: Array[Fire] = []
 var _current_bbq: BBQMaster_BBQ = null
 var _collect_point: Node = null
+
+var _sausage_count: int = 0;
+var _match_count: int = 0;
+
 enum FieldStatusEnum {BBQ, FIELD, COLLECT}
 
 # Called when the node enters the scene tree for the first time.
@@ -34,19 +44,27 @@ func _process(delta: float) -> void:
 	if _root.movement != Vector2.ZERO:
 		last_movement = _root.movement
 
-
-
 func on_fire_button_pressed() :
 	match get_player_state() :
 		FieldStatusEnum.FIELD:
-			var match_thrown = throw_match(_root.global_position, _root.global_position+last_movement * throw_force)
+			if _match_count > 0:
+				_match_count -= 1
+				var match_thrown = throw_match(_root.global_position, _root.global_position+last_movement * throw_force)
+				update_ui()
 		
 		FieldStatusEnum.BBQ:
-			if _current_bbq && _current_bbq.get_player_index() == _hub.get_player_index() :
-				_current_bbq.fire_up()
+			if _match_count > 0:
+				_match_count -= 1
+				if _current_bbq && _current_bbq.get_player_index() == _hub.get_player_index():
+					_current_bbq.fire_up()
 
 		FieldStatusEnum.COLLECT:
-			pass
+			if _can_collect_stuff(): _match_count += _matches_per_slot
+			else :
+				_match_count = ceil(_match_count * 1.0 / _matches_per_slot) * _matches_per_slot
+				# event can't collect ?
+				pass
+			update_ui()
 
 func on_sausage_button_pressed() :
 	match get_player_state() :
@@ -70,7 +88,13 @@ func on_sausage_button_pressed() :
 				_current_bbq.stop_current_sausage()
 
 		FieldStatusEnum.COLLECT:
-			pass
+			if _can_collect_stuff(): _sausage_count += 1
+			else : pass # event can't collect ?
+			update_ui()
+
+
+func _can_collect_stuff()->bool : 
+	return _sausage_count + ceil(_match_count * 1.0 / _matches_per_slot) < _max_slot_space;
 
 func get_player_state() -> FieldStatusEnum :
 	if _current_bbq && _current_bbq.get_player_index() == _hub.get_player_index(): return FieldStatusEnum.BBQ
@@ -124,6 +148,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			_fires.append(area.get_parent() as Fire)
 	elif area.is_in_group("bbq"):
 		_current_bbq = area.get_parent() as BBQMaster_BBQ
+		if _current_bbq.get_player_index() == _hub.get_player_index() : 
+			_current_bbq.add_sausages(_sausage_count)
+			_sausage_count = 0
+			update_ui()
 	elif area.is_in_group("collect"):
 		_collect_point = area.get_parent() as Node
 
@@ -135,4 +163,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		_current_bbq = null
 	elif area.is_in_group("collect"):
 		_collect_point = null
-			
+
+func update_ui() -> void:
+	_ui_inventory.text = str(_sausage_count) + "s / " + str(_match_count) + "m"
+	pass
