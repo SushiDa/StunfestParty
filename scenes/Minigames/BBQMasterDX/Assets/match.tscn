@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ch13x2co2mh5j"]
+
+[ext_resource type="Texture2D" uid="uid://bg18ywp05vq2r" path="res://scenes/Minigames/BBQMasterDX/Assets/match.png" id="1_taive"]
+[ext_resource type="Script" uid="uid://chilsfbp3vmho" path="res://scenes/Minigames/BBQMasterDX/Scripts/match.gd" id="1_v75lp"]
+
+[node name="match" type="CharacterBody2D" unique_id=1235334929]
+script = ExtResource("1_v75lp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=325795668]
+texture = ExtResource("1_taive")

@@ -6,6 +6,8 @@ class_name BBQMasterPlayer
 @export var _sprite: Sprite2D
 @export var speed = 500
 
+var match_file = "uid://ch13x2co2mh5j"
+
 signal flame_spawn(size, position)
 signal flame_extincted(position)
 
@@ -30,11 +32,11 @@ func _process(delta: float) -> void:
 	
 	pass
 	
-	
 func on_button_pressed(type):
 	match type:
 		1:
-			flame_spawn.emit(1, _root.global_position)
+			throw_item("match", _root.global_position, Vector2(0,0))
+			#flame_spawn.emit(1, _root.global_position)
 		2:
 			if colliding_fire_area != null:
 				_sprite.texture = _root.get_character().get_random_sprite()
@@ -63,6 +65,10 @@ func _physics_process(delta: float) -> void:
 
 # Function that allows the player to throw a saussage or a match
 func throw_item(item, start_pos:Vector2, end_pos:Vector2):
+	if item == "match":
+		var bbq_match_instance = load(match_file).instantiate()
+		bbq_match_instance.global_position = start_pos
+		add_child(bbq_match_instance)
 	pass
 	
 func try_to_extinct_fire(fire_to_extinguish):

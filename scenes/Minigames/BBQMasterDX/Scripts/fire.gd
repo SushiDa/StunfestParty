@@ -18,9 +18,7 @@ func take_damage(value):
 	pv=pv-value
 	if pv <= 0:
 		queue_free()
-	print(pv)
 
 func _on_timer_timeout() -> void:
 	pv +=1
-	print(pv)
 	pass # Replace with function body.
