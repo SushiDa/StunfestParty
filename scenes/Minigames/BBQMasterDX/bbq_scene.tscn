@@ -76,7 +76,13 @@ font_size = 180
 font = ExtResource("10_2yqkm")
 font_size = 48
 
-[node name="BBQ" type="Node2D" unique_id=1245635271 node_paths=PackedStringArray("_sprite", "_sausage_sprite", "_ui_sausage_count", "_ui_sausage_count_zero", "_points_label")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_wmq7q"]
+radius = 193.09325
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s6vqd"]
+radius = 63.788715
+
+[node name="BBQ" type="Node2D" unique_id=1245635271 node_paths=PackedStringArray("_sprite", "_sausage_sprite", "_ui_sausage_count", "_ui_sausage_count_zero", "_points_label") groups=["bbq"]]
 script = ExtResource("1_th6b3")
 _temp_decrease_rate = 0.04
 _temp_increase_value = 0.1
@@ -136,3 +142,13 @@ offset_bottom = 51.0
 text = "25 pts"
 label_settings = SubResource("LabelSettings_wti3a")
 metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1328691022 groups=["bbq"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=342148960]
+shape = SubResource("CircleShape2D_wmq7q")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2039291035]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=339304674]
+shape = SubResource("CircleShape2D_s6vqd")

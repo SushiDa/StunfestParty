@@ -16,7 +16,7 @@ class_name BBQMaster_BBQ
 @export var _points_label: Label
 
 
-var _player: PlayerHub;
+var _player: PlayerHub; 
 var _minigame: MinigameBase;
 
 var _temperature:float = 0
@@ -104,5 +104,8 @@ func _update_graphics() -> void:
 	_ui_sausage_count.text = "x" + str(_sausage_count)
 	_sprite.texture = _get_current_temp_state().sprite
 	_sausage_sprite.texture = _get_current_sausage_state().sprite
-	if _player: _points_label.text = str(_player.score) + " pts"
-	else: _points_label.text = str(_debug_score) + " pts"
+	if _player: _points_label.text = str(_player.score) + ""
+	else: _points_label.text = str(_debug_score) + ""
+
+func get_player_index() -> int:
+	return _player.get_player_index()
