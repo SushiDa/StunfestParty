@@ -66,6 +66,12 @@ _data = {
 &"sautiller": SubResource("Animation_qptk4")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dh88x"]
+size = Vector2(60.5, 184)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dh88x"]
+radius = 62.1289
+
 [node name="BBQPlayerBase" type="CharacterBody2D" unique_id=641911429]
 script = ExtResource("1_xeycl")
 
@@ -83,3 +89,15 @@ offset = Vector2(0, -40)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1926035604]
 libraries/ = SubResource("AnimationLibrary_qgvgb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=52420395]
+position = Vector2(-2, -94)
+shape = SubResource("RectangleShape2D_dh88x")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=118892794]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=181238674]
+position = Vector2(1, -28)
+shape = SubResource("CircleShape2D_dh88x")
+
+[connection signal="area_entered" from="Area2D" to="BBQPlayerMgr" method="_on_area_2d_area_entered"]
