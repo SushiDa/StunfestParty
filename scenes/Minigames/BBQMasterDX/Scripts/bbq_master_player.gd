@@ -69,18 +69,19 @@ func on_fire_button_pressed() :
 func on_sausage_button_pressed() :
 	match get_player_state() :
 		FieldStatusEnum.FIELD:
+			_fires = _fires.filter(func(element): return element!=null)
 			if _fires.size() > 0:
 				_sprite.texture = _root.get_character().get_random_sprite()
 				_root.get_node("AnimationPlayer").play("RESET")
 				_root.get_node("AnimationPlayer").play("extinguish_fire")
-				var dist:float = 999.0;
+				var dist:float = 9999999.0
 				var fire_to_extinguish = null
 				for f in _fires:
-					if !f : continue
-					var tmp_dist =_root.global_position.distance_squared_to(f.global_position)
-					if tmp_dist < dist :
-						dist = tmp_dist
-						fire_to_extinguish = f
+					if f != null: 
+						var tmp_dist =_root.global_position.distance_squared_to(f.global_position)
+						if tmp_dist < dist :
+							dist = tmp_dist
+							fire_to_extinguish = f
 				if fire_to_extinguish: try_to_extinct_fire(fire_to_extinguish)
 		
 		FieldStatusEnum.BBQ:
@@ -144,7 +145,7 @@ func try_to_extinct_fire(fire_to_extinguish):
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("fire"):
-		if !_fires.find(area.get_parent() as Fire) :
+		if _fires.find(area.get_parent() as Fire) < 0 :
 			_fires.append(area.get_parent() as Fire)
 	elif area.is_in_group("bbq"):
 		_current_bbq = area.get_parent() as BBQMaster_BBQ
@@ -158,7 +159,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("fire"):
 		var index = _fires.find(area.get_parent())
-		if index : _fires.remove_at(index)
+		if index >= 0 : _fires.remove_at(index)
 	elif area.is_in_group("bbq"):
 		_current_bbq = null
 	elif area.is_in_group("collect"):
