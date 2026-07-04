@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 
 	_ui_sausage_count_zero.visible = _sausage_count <= 0
 
-	update_graphics()
+	_update_graphics()
 
 
 func initialize(player: PlayerHub, minigame: MinigameBase) -> void:
@@ -82,7 +82,6 @@ func stop_current_sausage() -> void:
 	else: _debug_score += sausage_state.score
 	print("Score +" + str(sausage_state.score))
 
-
 func _get_current_temp_state() -> BBQMaster_TemperatureState:
 	var result = _temp_states[0];
 	
@@ -101,7 +100,7 @@ func _get_current_sausage_state() -> BBQMaster_SausageState:
 
 	return result;
 
-func update_graphics() -> void:
+func _update_graphics() -> void:
 	_ui_sausage_count.text = "x" + str(_sausage_count) + " " + str(_current_sausage_status)
 	_sprite.texture = _get_current_temp_state().sprite
 	_sausage_sprite.texture = _get_current_sausage_state().sprite
