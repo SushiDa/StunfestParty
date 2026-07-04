@@ -2,19 +2,21 @@
 
 [ext_resource type="Script" uid="uid://bifn02d76j2s0" path="res://scenes/Minigames/BBQMasterDX/Scripts/BBQ/bbq.gd" id="1_th6b3"]
 [ext_resource type="Script" uid="uid://t6o2bs7osg3d" path="res://scenes/Minigames/BBQMasterDX/Scripts/BBQ/bbq_temp_state.gd" id="2_e2ktv"]
-[ext_resource type="Texture2D" uid="uid://bwcoo2eve7h3p" path="res://assets/sprites/shapes/BGTriangle.png" id="3_j67ti"]
-[ext_resource type="Texture2D" uid="uid://cwlfxxawtth3s" path="res://assets/sprites/shapes/BGStar.png" id="4_ro3hk"]
-[ext_resource type="Texture2D" uid="uid://duk5g43oqyfct" path="res://assets/sprites/shapes/BG10Points.png" id="5_kwisx"]
+[ext_resource type="Texture2D" uid="uid://d317o5k1glqbq" path="res://scenes/Minigames/BBQMasterDX/Assets/bbq_2.png" id="4_s6vqd"]
+[ext_resource type="Texture2D" uid="uid://f14clfsminc2" path="res://scenes/Minigames/BBQMasterDX/Assets/bbq_3.png" id="5_dlp6f"]
 [ext_resource type="Script" uid="uid://d4elx5oqxh78u" path="res://scenes/Minigames/BBQMasterDX/Scripts/BBQ/bbq_sausage_state.gd" id="6_d5q6c"]
-[ext_resource type="Texture2D" uid="uid://cu4rcsaruyoge" path="res://scenes/Minigames/BBQMasterDX/Sprites/raw.png" id="7_c8786"]
+[ext_resource type="Texture2D" uid="uid://cbegohd703i6y" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_raw.png" id="7_2hev0"]
+[ext_resource type="Texture2D" uid="uid://ymjlj7cg5any" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_overcooked.png" id="7_dlp6f"]
+[ext_resource type="Texture2D" uid="uid://bsbk6mnh6ejxx" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_cooked.png" id="8_2hev0"]
 [ext_resource type="Texture2D" uid="uid://cw0bflxg205ux" path="res://scenes/Minigames/BBQMasterDX/Sprites/cooked.png" id="8_2uwqr"]
-[ext_resource type="Texture2D" uid="uid://cjg5cqbbc32sb" path="res://scenes/Minigames/BBQMasterDX/Sprites/perfect.png" id="9_0h5h5"]
+[ext_resource type="Texture2D" uid="uid://c55amif8hetf0" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_perfect.png" id="9_40h74"]
 [ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="10_2yqkm"]
+[ext_resource type="Texture2D" uid="uid://bhshythmnllur" path="res://scenes/Minigames/BBQMasterDX/Assets/bbq.png" id="10_dlp6f"]
 
 [sub_resource type="Resource" id="Resource_wti3a"]
 script = ExtResource("2_e2ktv")
 cook_speed = 0.05
-sprite = ExtResource("3_j67ti")
+sprite = ExtResource("10_dlp6f")
 metadata/_custom_type_script = "uid://t6o2bs7osg3d"
 
 [sub_resource type="Resource" id="Resource_3gcot"]
@@ -23,7 +25,7 @@ threshold = 0.2
 status = 1
 fire_spawn_rate = 0.1
 cook_speed = 0.25
-sprite = ExtResource("4_ro3hk")
+sprite = ExtResource("4_s6vqd")
 metadata/_custom_type_script = "uid://t6o2bs7osg3d"
 
 [sub_resource type="Resource" id="Resource_735yp"]
@@ -32,12 +34,12 @@ threshold = 0.6
 status = 2
 fire_spawn_rate = 0.65
 cook_speed = 0.75
-sprite = ExtResource("5_kwisx")
+sprite = ExtResource("5_dlp6f")
 metadata/_custom_type_script = "uid://t6o2bs7osg3d"
 
 [sub_resource type="Resource" id="Resource_mu2mt"]
 script = ExtResource("6_d5q6c")
-sprite = ExtResource("7_c8786")
+sprite = ExtResource("7_2hev0")
 metadata/_custom_type_script = "uid://d4elx5oqxh78u"
 
 [sub_resource type="Resource" id="Resource_1ay7x"]
@@ -45,7 +47,7 @@ script = ExtResource("6_d5q6c")
 threshold = 0.75
 status = 1
 score = 1
-sprite = ExtResource("8_2uwqr")
+sprite = ExtResource("8_2hev0")
 metadata/_custom_type_script = "uid://d4elx5oqxh78u"
 
 [sub_resource type="Resource" id="Resource_s04e1"]
@@ -53,7 +55,7 @@ script = ExtResource("6_d5q6c")
 threshold = 0.9
 status = 2
 score = 3
-sprite = ExtResource("9_0h5h5")
+sprite = ExtResource("9_40h74")
 metadata/_custom_type_script = "uid://d4elx5oqxh78u"
 
 [sub_resource type="Resource" id="Resource_cghp5"]
@@ -61,7 +63,7 @@ script = ExtResource("6_d5q6c")
 threshold = 0.95
 status = 3
 score = 1
-sprite = ExtResource("8_2uwqr")
+sprite = ExtResource("7_dlp6f")
 metadata/_custom_type_script = "uid://d4elx5oqxh78u"
 
 [sub_resource type="LabelSettings" id="LabelSettings_wmq7q"]
@@ -95,8 +97,9 @@ _ui_sausage_count_zero = NodePath("SausageNOPE")
 _points_label = NodePath("Points")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1443118496]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_j67ti")
+position = Vector2(-3, 13)
+scale = Vector2(0.6171875, 0.6171875)
+texture = ExtResource("10_dlp6f")
 
 [node name="SausageCount" type="Label" parent="." unique_id=1042894304]
 offset_top = -207.0

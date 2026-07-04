@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bagfxqurfa4bv" path="res://scenes/Minigames/player_hub.gd" id="1_xeycl"]
 [ext_resource type="Script" uid="uid://h37pmyvng5fc" path="res://scenes/Minigames/BBQMasterDX/Scripts/bbq_master_player.gd" id="2_44pq0"]
-[ext_resource type="PackedScene" uid="uid://ch13x2co2mh5j" path="res://scenes/Minigames/BBQMasterDX/Assets/match.tscn" id="3_qptk4"]
+[ext_resource type="PackedScene" uid="uid://ch13x2co2mh5j" path="res://scenes/Minigames/BBQMasterDX/match.tscn" id="3_qptk4"]
 [ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="3_wc6m0"]
 
 [sub_resource type="Animation" id="Animation_n4s0s"]
