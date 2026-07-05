@@ -3,6 +3,23 @@
 [ext_resource type="Texture2D" uid="uid://cno5t0x7kpnxf" path="res://scenes/Minigames/BBQMasterDX/Assets/bear_zzz.png" id="1_gct4d"]
 [ext_resource type="Script" uid="uid://bgif3ftk1gnav" path="res://scenes/Minigames/BBQMasterDX/Scripts/smoky_movement.gd" id="1_onflv"]
 [ext_resource type="Texture2D" uid="uid://bk0j2wpvbay8i" path="res://scenes/Minigames/BBQMasterDX/Assets/Sprite-0003.png" id="2_y7jqw"]
+[ext_resource type="Texture2D" uid="uid://bb83kdi3mdeac" path="res://scenes/Minigames/BBQMasterDX/Assets/BearWithMe70x50.png" id="3_oblnq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1f5c"]
+atlas = ExtResource("3_oblnq")
+region = Rect2(0, 0, 70, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyv62"]
+atlas = ExtResource("3_oblnq")
+region = Rect2(70, 0, 70, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jk78"]
+atlas = ExtResource("3_oblnq")
+region = Rect2(140, 0, 70, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm6rc"]
+atlas = ExtResource("3_oblnq")
+region = Rect2(210, 0, 70, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7jqw"]
 atlas = ExtResource("1_gct4d")
@@ -10,6 +27,23 @@ region = Rect2(0, 0, 72, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d30vs"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1f5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyv62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jk78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sm6rc")
+}],
+"loop": 1,
+"name": &"moving",
+"speed": 9.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y7jqw")
@@ -99,6 +133,7 @@ position = Vector2(8.000008, 11.000008)
 scale = Vector2(4.76, 4.76)
 sprite_frames = SubResource("SpriteFrames_d30vs")
 animation = &"sleep"
+frame_progress = 0.4109537
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=907423891]
 libraries/ = SubResource("AnimationLibrary_oblnq")

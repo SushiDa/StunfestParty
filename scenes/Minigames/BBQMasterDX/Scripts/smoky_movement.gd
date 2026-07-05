@@ -25,6 +25,10 @@ func _process(delta: float) -> void:
 			status = SmokeyStatus.SLEEP
 		else :
 			var direction = (target_bbq.global_position - global_position).normalized()
+			if direction.x <0:
+				if get_node("AnimatedSprite2D").flip_h !=true:get_node("AnimatedSprite2D").flip_h = true
+			elif direction.x >0:
+				if get_node("AnimatedSprite2D").flip_h !=false:get_node("AnimatedSprite2D").flip_h = false
 			global_position = global_position + direction * base_speed * delta
 			if global_position.distance_squared_to(target_bbq.global_position) < (bbq_min_distance * bbq_min_distance) :
 				status = SmokeyStatus.ATTACKING
@@ -44,6 +48,9 @@ func _process(delta: float) -> void:
 
 func wake_up():
 	status = SmokeyStatus.AWAKE
+	get_node("AnimatedSprite2D").animation = "moving"
+	get_node("AnimatedSprite2D").play()
+	get_node("Sprite2D").visible = false
 	pass
 
 func is_awake() -> bool:
