@@ -19,11 +19,9 @@ func _on_players_spawned() -> void:
 		var bbq_instance = bbq_prefab.instantiate() as BBQMaster_BBQ
 		bbq_instance.initialize(player, minigame);
 		bbq_spawn.add_child(bbq_instance);
-
-		
 		bbq_player.flame_spawn.connect(spawn_fire)
-	
-
+		bbq_player.throw_match.connect(throw_item)
+		bbq_instance.throw_coal.connect(throw_item)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -34,7 +32,7 @@ func _on_game_timeout() -> void:
 	# await get_tree().create_timer(3).timeout
 	minigame.end_game(minigame.get_winners_from_score(true))
 
-func spawn_fire(size, position:Vector2):
+func spawn_fire(position:Vector2, size:int=1):
 	#print("spawn_fire function called. Position of fire : ", position)
 	var uid : String = ""
 	match size:
@@ -48,5 +46,21 @@ func spawn_fire(size, position:Vector2):
 	add_child(fire)
 	pass
 	
-
+# Function that allows the player to throw a match
+func throw_item(start_pos:Vector2, end_pos:Vector2, dist:int, item:PackedScene):
+	var bbq_match_instance = item.instantiate()
+	bbq_match_instance.global_position = start_pos
+	add_child(bbq_match_instance)
 	
+	bbq_match_instance.origin = start_pos
+	#bbq_match_instance.destination = end_pos
+	bbq_match_instance.dist_max = dist
+	bbq_match_instance.direction = bbq_match_instance.global_position.direction_to(end_pos)
+	bbq_match_instance.perpendicular = bbq_match_instance.direction.rotated(-PI / 2).normalized()
+	if bbq_match_instance.perpendicular.y > 0:
+		bbq_match_instance.perpendicular = -bbq_match_instance.perpendicular
+	#var dist = bbq_match_instance.global_position.distance_to(end_pos)
+	var dist2 = bbq_match_instance.origin.distance_to(bbq_match_instance.global_position)
+	bbq_match_instance.reached_destination.connect(spawn_fire)
+	
+	return bbq_match_instance

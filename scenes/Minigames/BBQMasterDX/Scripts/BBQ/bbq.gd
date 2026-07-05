@@ -26,6 +26,9 @@ var _current_fire_spawn_timer: float = 1
 var _sausage_count: int = 0
 
 var _debug_score: int = 0;
+signal throw_coal(start_pos:Vector2, end_pos:Vector2, throw_force:int, item_to_throw:PackedScene)
+@export var coal_file : PackedScene
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -50,13 +53,23 @@ func _process(delta: float) -> void:
 		_current_fire_spawn_timer -= temp_state.fire_spawn_rate * delta
 		if _current_fire_spawn_timer <= 0:
 			# Spawn fire here
-			print("FAYA !!!")
+			
+			throw_coal.emit(global_position, compute_arrival_pos(200, 500), compute_throw_force(), coal_file)
 			_current_fire_spawn_timer += 1;
 
 	_ui_sausage_count_zero.visible = _sausage_count <= 0
 
 	_update_graphics()
 
+func compute_arrival_pos(min_throw_radius, max_throw_radius) -> Vector2:
+	var angle = randf_range(0.0, TAU) # TAU = 2*PI, donc direction sur 360°
+	var direction = Vector2.RIGHT.rotated(angle)
+	var distance = randf_range(min_throw_radius, max_throw_radius)
+	return global_position + direction * distance
+	
+func compute_throw_force():
+	var rand_force = randf_range(100, 500)
+	return rand_force
 
 func initialize(player: PlayerHub, minigame: MinigameBase) -> void:
 	_player = player;

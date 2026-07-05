@@ -100,10 +100,10 @@ script = ExtResource("2_44pq0")
 _hub = NodePath("..")
 _root = NodePath("..")
 _sprite = NodePath("../Sprite")
-match_file = ExtResource("3_qptk4")
 _max_slot_space = 5
 _ui_inventory = NodePath("../Label")
 ui_item_feedback = ExtResource("5_qgvgb")
+match_file = ExtResource("3_qptk4")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=725159180]
 scale = Vector2(3, 3)

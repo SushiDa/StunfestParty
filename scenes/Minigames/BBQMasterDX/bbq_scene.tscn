@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="10_2yqkm"]
 [ext_resource type="Texture2D" uid="uid://bhshythmnllur" path="res://scenes/Minigames/BBQMasterDX/Assets/bbq.png" id="10_dlp6f"]
 [ext_resource type="PackedScene" uid="uid://vb7y4c4jvnw7" path="res://scenes/Minigames/BBQMasterDX/ui_item_feedback.tscn" id="11_2hev0"]
+[ext_resource type="PackedScene" uid="uid://cp4gl0s5j1n67" path="res://scenes/Minigames/BBQMasterDX/coal.tscn" id="12_40h74"]
 
 [sub_resource type="Resource" id="Resource_wti3a"]
 script = ExtResource("2_e2ktv")
@@ -96,6 +97,7 @@ _ui_sausage_count = NodePath("SausageCount")
 _ui_sausage_count_zero = NodePath("SausageNOPE")
 _points_label = NodePath("Points")
 ui_item_feedback = ExtResource("11_2hev0")
+coal_file = ExtResource("12_40h74")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1443118496]
 position = Vector2(5, -51)
