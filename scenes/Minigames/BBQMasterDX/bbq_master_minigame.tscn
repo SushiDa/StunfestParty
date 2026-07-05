@@ -4,10 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://bkcqpqlhkwil5" path="res://scenes/Minigames/BBQMasterDX/bbq_master_player.tscn" id="2_gk4nu"]
 [ext_resource type="Script" uid="uid://tuv3lunn4mdk" path="res://scenes/Minigames/BBQMasterDX/Scripts/bbq_master_minigame.gd" id="3_o8c3j"]
 [ext_resource type="PackedScene" uid="uid://crl0odaruwhi2" path="res://scenes/Minigames/BBQMasterDX/bbq_scene.tscn" id="4_gk4nu"]
+[ext_resource type="PackedScene" uid="uid://53rkua7kpscu" path="res://scenes/Minigames/BBQMasterDX/small_fire.tscn" id="5_7gl4k"]
 [ext_resource type="Texture2D" uid="uid://8fhyeptkdvb8" path="res://assets/sprites/shapes/BGCircle.png" id="5_b6ciu"]
 [ext_resource type="Texture2D" uid="uid://bbpvjhh6h30d8" path="res://scenes/Minigames/BBQMasterDX/Assets/grass_tile.png" id="5_o8c3j"]
 [ext_resource type="Texture2D" uid="uid://bg18ywp05vq2r" path="res://scenes/Minigames/BBQMasterDX/Assets/match.png" id="7_kh2af"]
 [ext_resource type="Texture2D" uid="uid://cw0bflxg205ux" path="res://scenes/Minigames/BBQMasterDX/Sprites/cooked.png" id="11_8hx2t"]
+
+[sub_resource type="Curve" id="Curve_7gl4k"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.8530023, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_count = 34
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o8c3j"]
 texture = ExtResource("5_o8c3j")
@@ -17,6 +23,9 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_o8c3j"]
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_o8c3j")
+
+[sub_resource type="LabelSettings" id="LabelSettings_wmq7q"]
+font_size = 48
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmq7q"]
 radius = 75.0
@@ -30,10 +39,18 @@ player_prefab = ExtResource("2_gk4nu")
 player_spawns = [NodePath("BBQMasterMgr/Spawns/Spawn1"), NodePath("BBQMasterMgr/Spawns/Spawn2"), NodePath("BBQMasterMgr/Spawns/Spawn3"), NodePath("BBQMasterMgr/Spawns/Spawn4")]
 minigame_duration = 45
 
-[node name="BBQMasterMgr" type="Node" parent="." unique_id=1747680110 node_paths=PackedStringArray("minigame")]
+[node name="BBQMasterMgr" type="Node" parent="." unique_id=1747680110 node_paths=PackedStringArray("minigame", "origin_center", "debug_label")]
 script = ExtResource("3_o8c3j")
 minigame = NodePath("..")
 bbq_prefab = ExtResource("4_gk4nu")
+fire_prefab = ExtResource("5_7gl4k")
+origin_center = NodePath("../CollectZone")
+smokey_max_value = 50.0
+smokey_base_incr = 1.0
+smokey_fire_incr = SubResource("Curve_7gl4k")
+smokey_fire_incr_max = 50.0
+smokey_fire_max_count = 35.0
+debug_label = NodePath("../CollectZone/Label")
 
 [node name="Spawns" type="Node2D" parent="BBQMasterMgr" unique_id=77636162]
 
@@ -68,6 +85,19 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0
 
 [node name="CollectZone" type="StaticBody2D" parent="." unique_id=1871348944]
 position = Vector2(960, 615)
+
+[node name="Label" type="Label" parent="CollectZone" unique_id=1580262376]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.0
+offset_top = 200.0
+offset_right = 76.0
+offset_bottom = 223.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "SMOKEY : 25.25 / 50"
+label_settings = SubResource("LabelSettings_wmq7q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectZone" unique_id=1671829015]
 shape = SubResource("CircleShape2D_wmq7q")

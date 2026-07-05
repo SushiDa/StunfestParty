@@ -2,6 +2,23 @@ extends Node
 
 @export var minigame: MinigameBase
 @export var bbq_prefab: PackedScene
+@export var fire_prefab: PackedScene
+@export var origin_center: Node2D
+
+@export var smokey_max_value: float
+@export var smokey_base_incr: float
+@export var smokey_fire_incr: Curve
+@export var smokey_fire_incr_max: float
+@export var smokey_fire_max_count: float
+@export var debug_label: Label
+
+enum SmokeyStatus { SLEEP, AWAKE, ATTACKING }
+
+var _bbqs: Array[BBQMaster_BBQ] = []
+var _fires: Array[Fire] = []
+var _current_smokey_value: float = 0
+var _current_smokey_status: SmokeyStatus = SmokeyStatus.SLEEP
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,34 +36,58 @@ func _on_players_spawned() -> void:
 		var bbq_instance = bbq_prefab.instantiate() as BBQMaster_BBQ
 		bbq_instance.initialize(player, minigame);
 		bbq_spawn.add_child(bbq_instance);
-
+		_bbqs.append(bbq_instance)
 		
 		bbq_player.flame_spawn.connect(spawn_fire)
 	
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if minigame._minigame_running && _current_smokey_value < smokey_max_value:
+		var incr = (smokey_base_incr + smokey_fire_incr.sample_baked(_fires.size() / smokey_fire_max_count) * smokey_fire_incr_max)
+		if debug_label: debug_label.text = "SMOKEY : " + str(_current_smokey_value).pad_decimals(1) + "/50  (+" + str(incr).pad_decimals(1) + ")"
+		_current_smokey_value = min(smokey_max_value, _current_smokey_value + incr * delta)
+		if _current_smokey_value >= smokey_max_value: 
+			print("SMOKEY, WAZKE UP !!!")
+			pass
 
 func _on_game_timeout() -> void:
 	# minigame.show_finish_and_lock()
 	# await get_tree().create_timer(3).timeout
 	minigame.end_game(minigame.get_winners_from_score(true))
 
-func spawn_fire(size, position:Vector2):
-	#print("spawn_fire function called. Position of fire : ", position)
-	var uid : String = ""
-	match size:
-		1:uid = "uid://53rkua7kpscu" #small_fire.tscn
-		2:uid = "" #small_fire.tscn
-		3:uid = "" #small_fire.tscn
-		_:uid = "uid://53rkua7kpscu" #small_fire.tscn
-	var fire = load(uid).instantiate()
+func spawn_fire(position:Vector2):
+	var fire = fire_prefab.instantiate() as Fire
 	fire.position = position
-	#get_tree().get_root().get_node("game").add_child(fire)
+	fire.extinguished.connect(remove_fire)
+	_fires.append(fire)
+
+	var fire_index = bbq_index_from_position(fire.global_position)
+	for bbq in _bbqs: 
+		if bbq_index_from_position(bbq.global_position) == fire_index :
+			fire.player_index = bbq.get_player_index()
+
 	add_child(fire)
 	pass
 	
+func remove_fire(fire: Fire):
+	var index = _fires.find(fire)
+	if index >= 0 : _fires.remove_at(index)
 
 	
+func bbq_index_from_position(position: Vector2) -> int:
+	var relative = position - origin_center.global_position;
+	var result: int = 0;
+	if relative.x > 0 : result += 1
+	if relative.y > 0 : result += 2
+	return result
+
+func get_smokey_aggro() -> BBQMaster_BBQ:
+	var target_bbq: BBQMaster_BBQ = null;
+	var cur_max_fire = -1;
+	for bbq in _bbqs:
+		var count = _fires.filter(func(f): return f.player_index == bbq.get_player_index()).size()
+		if count > cur_max_fire :
+			target_bbq = bbq
+			cur_max_fire = count
+	return target_bbq

@@ -1,7 +1,118 @@
 [gd_scene format=3 uid="uid://53rkua7kpscu"]
 
 [ext_resource type="Texture2D" uid="uid://dp200mfg528rs" path="res://scenes/Minigames/BBQMasterDX/Assets/fire_small.png" id="1_vlgrh"]
+[ext_resource type="Texture2D" uid="uid://5o70vcj67wct" path="res://scenes/Minigames/BBQMasterDX/Assets/flame_small_v4.png" id="2_poyjf"]
 [ext_resource type="Script" uid="uid://bcg45e4w7v4gx" path="res://scenes/Minigames/BBQMasterDX/Scripts/fire.gd" id="2_qxhrf"]
+[ext_resource type="Texture2D" uid="uid://dyfx2smvtd18s" path="res://scenes/Minigames/BBQMasterDX/Assets/flame_medium_v4.png" id="3_ycf33"]
+[ext_resource type="Texture2D" uid="uid://cce8vn1soipda" path="res://scenes/Minigames/BBQMasterDX/Assets/flame_big_v4.png" id="4_dws8b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nskya"]
+atlas = ExtResource("2_poyjf")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf2sr"]
+atlas = ExtResource("2_poyjf")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt03w"]
+atlas = ExtResource("2_poyjf")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut2fh"]
+atlas = ExtResource("2_poyjf")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_poyjf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nskya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qf2sr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt03w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ut2fh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b41l2"]
+atlas = ExtResource("3_ycf33")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_335tx"]
+atlas = ExtResource("3_ycf33")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rmbg"]
+atlas = ExtResource("3_ycf33")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyym4"]
+atlas = ExtResource("3_ycf33")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ycf33"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b41l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_335tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rmbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyym4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvt7p"]
+atlas = ExtResource("4_dws8b")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f885"]
+atlas = ExtResource("4_dws8b")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ese5x"]
+atlas = ExtResource("4_dws8b")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejd73"]
+atlas = ExtResource("4_dws8b")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dws8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvt7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f885")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ese5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejd73")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nskya"]
 
@@ -111,9 +222,22 @@ animations = [{
 "speed": 13.0
 }]
 
-[node name="fire" type="CharacterBody2D" unique_id=1805464286]
+[sub_resource type="LabelSettings" id="LabelSettings_wmq7q"]
+font_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(1, 1, 1, 1)
+shadow_offset = Vector2(0, 0)
+
+[node name="fire" type="Node2D" unique_id=393010545 node_paths=PackedStringArray("main_sprite", "debug_label")]
 position = Vector2(0, -16)
 script = ExtResource("2_qxhrf")
+main_sprite = NodePath("AnimatedSprite2D")
+frames_list = Array[SpriteFrames]([SubResource("SpriteFrames_poyjf"), SubResource("SpriteFrames_ycf33"), SubResource("SpriteFrames_dws8b")])
+sprites_thresholds = Array[float]([0.0, 2.0, 5.0])
+pv_max = 7.5
+pv_per_second = 0.5
+start_pv = 1.2
+debug_label = NodePath("Label")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=169330567 groups=["fire"]]
 
@@ -126,7 +250,14 @@ sprite_frames = SubResource("SpriteFrames_707uw")
 autoplay = "default"
 frame_progress = 0.35249114
 
-[node name="Timer" type="Timer" parent="." unique_id=1627904769]
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Label" type="Label" parent="." unique_id=485126999]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 24.0
+grow_horizontal = 2
+text = "1"
+label_settings = SubResource("LabelSettings_wmq7q")
+horizontal_alignment = 1

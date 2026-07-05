@@ -1,24 +1,33 @@
-extends CharacterBody2D
+extends Node2D
 class_name Fire
 
-var pv = 1
+signal extinguished(fire: Fire)
+
+@export var main_sprite : AnimatedSprite2D
+@export var frames_list: Array[SpriteFrames]
+@export var sprites_thresholds: Array[float]
+@export var pv_max: float
+@export var pv_per_second: float
+@export var start_pv: float
+@export var debug_label: Label
+
+var pv:float = 0
+var player_index: int = -1
+
+func _ready() -> void:
+	pv = start_pv
 
 func _process(delta: float) -> void:
-	if pv==3:
-		$AnimatedSprite2D.scale=Vector2(2,2)
-	if pv==9:
-		$AnimatedSprite2D.scale=Vector2(3,3)
-	if pv==12:
-		$AnimatedSprite2D.scale=Vector2(4,4)
-		$Timer.stop()
-	pass
+	pv = min(pv_max, pv + delta * pv_per_second)
+	
+	var frames = frames_list[0]
+	for i in sprites_thresholds.size() :
+		if pv > sprites_thresholds[i] : frames = frames_list[i]
+	if frames != main_sprite.sprite_frames: main_sprite.sprite_frames = frames
+	if debug_label : debug_label.text = str(player_index)
 
 func take_damage(value):
-	$Timer.start()
-	pv=pv-value
+	pv -= value
 	if pv <= 0:
+		extinguished.emit(self)
 		queue_free()
-
-func _on_timer_timeout() -> void:
-	pv +=1
-	pass # Replace with function body.

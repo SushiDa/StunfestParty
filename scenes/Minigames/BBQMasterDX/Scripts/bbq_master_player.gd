@@ -17,7 +17,7 @@ var match_thrown_count = 0
 var last_movement = Vector2.ZERO
 var throw_force = 500
 
-signal flame_spawn(size, position)
+signal flame_spawn(position)
 signal flame_extincted(position)
 
 var _fires: Array[Fire] = []
@@ -136,7 +136,7 @@ func throw_match(start_pos:Vector2, end_pos:Vector2):
 	return bbq_match_instance
 	
 func start_fire(pos):
-	flame_spawn.emit(1, pos)
+	flame_spawn.emit(pos)
 	pass
 
 func try_to_extinct_fire(fire_to_extinguish):
