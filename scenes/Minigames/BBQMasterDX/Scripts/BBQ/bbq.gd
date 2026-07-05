@@ -7,7 +7,7 @@ class_name BBQMaster_BBQ
 @export var _sausage_states: Array[BBQMaster_SausageState]
 
 
-@export var _sprite: Sprite2D
+@export var _sprite: AnimatedSprite2D
 
 @export var _sausage_sprite: TextureRect
 
@@ -73,7 +73,7 @@ func compute_throw_force():
 
 func initialize(player: PlayerHub, minigame: MinigameBase) -> void:
 	_player = player;
-	_sprite.modulate = player.get_player_color()
+	#_sprite.modulate = player.get_player_color()
 	_minigame = minigame
 	pass
 
@@ -128,7 +128,7 @@ func _get_current_sausage_state() -> BBQMaster_SausageState:
 
 func _update_graphics() -> void:
 	_ui_sausage_count.text = "x" + str(_sausage_count)
-	_sprite.texture = _get_current_temp_state().sprite
+	_sprite.animation = _get_current_temp_state().animation_string
 	_sausage_sprite.texture = _get_current_sausage_state().sprite
 	if _player: _points_label.text = str(_player.score) + ""
 	else: _points_label.text = str(_debug_score) + ""

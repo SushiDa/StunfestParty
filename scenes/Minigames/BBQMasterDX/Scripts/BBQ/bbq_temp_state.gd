@@ -7,5 +7,4 @@ enum TempStateEnum { COLD, HOT, ON_FIRE }
 @export var status: TempStateEnum
 @export var fire_spawn_rate: float
 @export var cook_speed: float
-@export var sprite: Texture2D
-
+@export var animation_string:String
