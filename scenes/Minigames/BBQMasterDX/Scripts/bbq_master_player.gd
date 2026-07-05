@@ -10,6 +10,8 @@ class_name BBQMasterPlayer
 @export var _matches_per_slot: int = 3
 
 @export var _ui_inventory: Label
+@export var sfx_pickup: AudioStream
+@export var sfx_error: AudioStream
 
 var match_thrown_count = 0
 var last_movement = Vector2.ZERO
@@ -65,10 +67,12 @@ func on_fire_button_pressed() :
 			if _can_collect_stuff(): 
 				_match_count += _matches_per_slot
 				add_ui_feedback_anim("add_match")
+				SFXPlayer.play(sfx_pickup);
 				#_root.get_node("ui_feedback/AnimationPlayer").play("add_item")
 			else :
 				_match_count = ceil(_match_count * 1.0 / _matches_per_slot) * _matches_per_slot
 				add_ui_feedback_anim("no_item_added")
+				SFXPlayer.play(sfx_error);
 				# event can't collect ?
 				pass
 			update_ui()
@@ -110,8 +114,10 @@ func on_sausage_button_pressed() :
 			if _can_collect_stuff(): 
 				_sausage_count += 1
 				add_ui_feedback_anim("add_sausage")
+				SFXPlayer.play(sfx_pickup);
 			else : 
 				add_ui_feedback_anim("no_item_added")
+				SFXPlayer.play(sfx_error);
 			update_ui()
 
 

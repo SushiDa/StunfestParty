@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bagfxqurfa4bv" path="res://scenes/Minigames/player_hub.gd" id="1_xeycl"]
 [ext_resource type="Script" uid="uid://h37pmyvng5fc" path="res://scenes/Minigames/BBQMasterDX/Scripts/bbq_master_player.gd" id="2_44pq0"]
+[ext_resource type="AudioStream" uid="uid://dbk5y31o3g37g" path="res://scenes/Minigames/BBQMasterDX/sounds/665183__el_boss__item-or-material-pickup-pop-1-of-3.wav" id="3_mtuow"]
 [ext_resource type="PackedScene" uid="uid://ch13x2co2mh5j" path="res://scenes/Minigames/BBQMasterDX/match.tscn" id="3_qptk4"]
 [ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="3_wc6m0"]
+[ext_resource type="AudioStream" uid="uid://dhynlasfko7l8" path="res://scenes/Minigames/BBQMasterDX/sounds/error.wav" id="4_qhoag"]
 [ext_resource type="PackedScene" uid="uid://vb7y4c4jvnw7" path="res://scenes/Minigames/BBQMasterDX/ui_item_feedback.tscn" id="5_qgvgb"]
 
 [sub_resource type="Animation" id="Animation_n4s0s"]
@@ -103,6 +105,8 @@ _sprite = NodePath("../Sprite")
 _max_slot_space = 8
 _matches_per_slot = 2
 _ui_inventory = NodePath("../Label")
+sfx_pickup = ExtResource("3_mtuow")
+sfx_error = ExtResource("4_qhoag")
 ui_item_feedback = ExtResource("5_qgvgb")
 match_file = ExtResource("3_qptk4")
 
