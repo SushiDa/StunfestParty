@@ -2,21 +2,22 @@
 
 [ext_resource type="Script" uid="uid://bifn02d76j2s0" path="res://scenes/Minigames/BBQMasterDX/Scripts/BBQ/bbq.gd" id="1_th6b3"]
 [ext_resource type="Script" uid="uid://t6o2bs7osg3d" path="res://scenes/Minigames/BBQMasterDX/Scripts/BBQ/bbq_temp_state.gd" id="2_e2ktv"]
-[ext_resource type="Texture2D" uid="uid://d317o5k1glqbq" path="res://scenes/Minigames/BBQMasterDX/Assets/bbq_2.png" id="4_s6vqd"]
-[ext_resource type="Texture2D" uid="uid://f14clfsminc2" path="res://scenes/Minigames/BBQMasterDX/Assets/bbq_3.png" id="5_dlp6f"]
+[ext_resource type="Texture2D" uid="uid://dkq6dkqg2r50x" path="res://scenes/Minigames/BBQMasterDX/Assets/bbq_l1.png" id="3_emuft"]
+[ext_resource type="Texture2D" uid="uid://gfl2svxtt81c" path="res://scenes/Minigames/BBQMasterDX/Assets/bbq_l2.png" id="4_lr4dc"]
+[ext_resource type="Texture2D" uid="uid://baf7ehvxqmdgo" path="res://scenes/Minigames/BBQMasterDX/Assets/bbq_l3.png" id="5_cbfa6"]
 [ext_resource type="Script" uid="uid://d4elx5oqxh78u" path="res://scenes/Minigames/BBQMasterDX/Scripts/BBQ/bbq_sausage_state.gd" id="6_d5q6c"]
 [ext_resource type="Texture2D" uid="uid://cbegohd703i6y" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_raw.png" id="7_2hev0"]
 [ext_resource type="Texture2D" uid="uid://ymjlj7cg5any" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_overcooked.png" id="7_dlp6f"]
 [ext_resource type="Texture2D" uid="uid://bsbk6mnh6ejxx" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_cooked.png" id="8_2hev0"]
-[ext_resource type="Texture2D" uid="uid://cw0bflxg205ux" path="res://scenes/Minigames/BBQMasterDX/Sprites/cooked.png" id="8_2uwqr"]
 [ext_resource type="Texture2D" uid="uid://c55amif8hetf0" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_perfect.png" id="9_40h74"]
 [ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="10_2yqkm"]
-[ext_resource type="Texture2D" uid="uid://bhshythmnllur" path="res://scenes/Minigames/BBQMasterDX/Assets/bbq.png" id="10_dlp6f"]
+[ext_resource type="PackedScene" uid="uid://vb7y4c4jvnw7" path="res://scenes/Minigames/BBQMasterDX/ui_item_feedback.tscn" id="11_2hev0"]
+[ext_resource type="PackedScene" uid="uid://cp4gl0s5j1n67" path="res://scenes/Minigames/BBQMasterDX/coal.tscn" id="12_40h74"]
 
 [sub_resource type="Resource" id="Resource_wti3a"]
 script = ExtResource("2_e2ktv")
 cook_speed = 0.05
-sprite = ExtResource("10_dlp6f")
+animation_string = "bbq1"
 metadata/_custom_type_script = "uid://t6o2bs7osg3d"
 
 [sub_resource type="Resource" id="Resource_3gcot"]
@@ -25,7 +26,7 @@ threshold = 0.2
 status = 1
 fire_spawn_rate = 0.1
 cook_speed = 0.25
-sprite = ExtResource("4_s6vqd")
+animation_string = "bbq2"
 metadata/_custom_type_script = "uid://t6o2bs7osg3d"
 
 [sub_resource type="Resource" id="Resource_735yp"]
@@ -34,7 +35,7 @@ threshold = 0.6
 status = 2
 fire_spawn_rate = 0.65
 cook_speed = 0.75
-sprite = ExtResource("5_dlp6f")
+animation_string = "bbq3"
 metadata/_custom_type_script = "uid://t6o2bs7osg3d"
 
 [sub_resource type="Resource" id="Resource_mu2mt"]
@@ -66,6 +67,108 @@ score = 1
 sprite = ExtResource("7_dlp6f")
 metadata/_custom_type_script = "uid://d4elx5oqxh78u"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_40h74"]
+atlas = ExtResource("3_emuft")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emuft"]
+atlas = ExtResource("3_emuft")
+region = Rect2(256, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr4dc"]
+atlas = ExtResource("3_emuft")
+region = Rect2(512, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbfa6"]
+atlas = ExtResource("3_emuft")
+region = Rect2(768, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij6t5"]
+atlas = ExtResource("4_lr4dc")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hls1c"]
+atlas = ExtResource("4_lr4dc")
+region = Rect2(256, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va7u7"]
+atlas = ExtResource("4_lr4dc")
+region = Rect2(512, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2uth"]
+atlas = ExtResource("4_lr4dc")
+region = Rect2(768, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7ey5"]
+atlas = ExtResource("5_cbfa6")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxypr"]
+atlas = ExtResource("5_cbfa6")
+region = Rect2(256, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r76i4"]
+atlas = ExtResource("5_cbfa6")
+region = Rect2(512, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kkqu"]
+atlas = ExtResource("5_cbfa6")
+region = Rect2(768, 0, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d30vs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40h74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emuft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr4dc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbfa6")
+}],
+"loop": 1,
+"name": &"bbq1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij6t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hls1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_va7u7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2uth")
+}],
+"loop": 1,
+"name": &"bbq2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7ey5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxypr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r76i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kkqu")
+}],
+"loop": 1,
+"name": &"bbq3",
+"speed": 5.0
+}]
+
 [sub_resource type="LabelSettings" id="LabelSettings_wmq7q"]
 font = ExtResource("10_2yqkm")
 font_size = 48
@@ -95,11 +198,15 @@ _sausage_sprite = NodePath("CurrentSausage")
 _ui_sausage_count = NodePath("SausageCount")
 _ui_sausage_count_zero = NodePath("SausageNOPE")
 _points_label = NodePath("Points")
+ui_item_feedback = ExtResource("11_2hev0")
+coal_file = ExtResource("12_40h74")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=1443118496]
-position = Vector2(-3, 13)
-scale = Vector2(0.6171875, 0.6171875)
-texture = ExtResource("10_dlp6f")
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1183803297]
+position = Vector2(5, -51)
+scale = Vector2(1.3447266, 1.3447266)
+sprite_frames = SubResource("SpriteFrames_d30vs")
+animation = &"bbq1"
+autoplay = "bbq1"
 
 [node name="SausageCount" type="Label" parent="." unique_id=1042894304]
 offset_top = -207.0
@@ -114,8 +221,9 @@ offset_left = -104.0
 offset_top = -200.0
 offset_right = -7.8318787
 offset_bottom = -147.0
-texture = ExtResource("8_2uwqr")
+texture = ExtResource("8_2hev0")
 expand_mode = 1
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="CurrentSausage" type="TextureRect" parent="." unique_id=283372207]
@@ -123,8 +231,9 @@ offset_left = -97.0
 offset_top = -125.0
 offset_right = 104.40871
 offset_bottom = -14.0
-texture = ExtResource("8_2uwqr")
+texture = ExtResource("8_2hev0")
 expand_mode = 1
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="SausageNOPE" type="Label" parent="." unique_id=2015076410]

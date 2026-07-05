@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://53rkua7kpscu" path="res://scenes/Minigames/BBQMasterDX/small_fire.tscn" id="5_7gl4k"]
 [ext_resource type="Texture2D" uid="uid://8fhyeptkdvb8" path="res://assets/sprites/shapes/BGCircle.png" id="5_b6ciu"]
 [ext_resource type="Texture2D" uid="uid://bbpvjhh6h30d8" path="res://scenes/Minigames/BBQMasterDX/Assets/grass_tile.png" id="5_o8c3j"]
+[ext_resource type="Texture2D" uid="uid://cbegohd703i6y" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_raw.png" id="7_7gl4k"]
 [ext_resource type="Texture2D" uid="uid://bg18ywp05vq2r" path="res://scenes/Minigames/BBQMasterDX/Assets/match.png" id="7_kh2af"]
-[ext_resource type="Texture2D" uid="uid://cw0bflxg205ux" path="res://scenes/Minigames/BBQMasterDX/Sprites/cooked.png" id="11_8hx2t"]
+[ext_resource type="PackedScene" uid="uid://cv83arr5lvtwe" path="res://scenes/Minigames/BBQMasterDX/smoky.tscn" id="9_7gl4k"]
 
 [sub_resource type="Curve" id="Curve_7gl4k"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.8530023, 0.0, 0, 0]
@@ -117,9 +118,16 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_b6ciu")
 
 [node name="Sprite2D3" type="Sprite2D" parent="CollectZone" unique_id=254855612]
-position = Vector2(5, -20.999998)
-scale = Vector2(0.16231886, 0.16231884)
-texture = ExtResource("11_8hx2t")
+position = Vector2(-31.000004, -33.999985)
+rotation = 0.50693077
+scale = Vector2(2.135538, 2.135538)
+texture = ExtResource("7_7gl4k")
+
+[node name="Sprite2D6" type="Sprite2D" parent="CollectZone" unique_id=284080968]
+position = Vector2(21.00002, -37.99999)
+rotation = 1.16485
+scale = Vector2(2.0569422, 2.056942)
+texture = ExtResource("7_7gl4k")
 
 [node name="Sprite2D4" type="Sprite2D" parent="CollectZone" unique_id=746660447]
 position = Vector2(-14.000004, 27.000002)
@@ -132,3 +140,6 @@ position = Vector2(7.999996, 16)
 rotation = 0.4171337
 scale = Vector2(0.55555815, 0.5555581)
 texture = ExtResource("7_kh2af")
+
+[node name="smoky" parent="." unique_id=1254990002 instance=ExtResource("9_7gl4k")]
+position = Vector2(943, 952)

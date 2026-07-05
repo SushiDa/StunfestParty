@@ -6,8 +6,6 @@ class_name BBQMasterPlayer
 @export var _sprite: Sprite2D
 @export var speed = 500
 
-@export var match_file : PackedScene
-
 @export var _max_slot_space : int
 @export var _matches_per_slot: int = 3
 
@@ -19,6 +17,7 @@ var throw_force = 500
 
 signal flame_spawn(position)
 signal flame_extincted(position)
+signal throw_match(start_pos:Vector2, end_pos:Vector2, throw_force:int, item_to_throw:PackedScene)
 
 var _fires: Array[Fire] = []
 var _current_bbq: BBQMaster_BBQ = null
@@ -28,6 +27,9 @@ var _sausage_count: int = 0;
 var _match_count: int = 0;
 
 enum FieldStatusEnum {BBQ, FIELD, COLLECT}
+
+@export var ui_item_feedback : PackedScene
+@export var match_file : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -49,7 +51,7 @@ func on_fire_button_pressed() :
 		FieldStatusEnum.FIELD:
 			if _match_count > 0:
 				_match_count -= 1
-				var match_thrown = throw_match(_root.global_position, _root.global_position+last_movement * throw_force)
+				throw_match.emit(_root.global_position, _root.global_position+last_movement * throw_force, throw_force, match_file)
 				update_ui()
 		
 		FieldStatusEnum.BBQ:
@@ -57,14 +59,30 @@ func on_fire_button_pressed() :
 				_match_count -= 1
 				if _current_bbq && _current_bbq.get_player_index() == _hub.get_player_index():
 					_current_bbq.fire_up()
+					add_ui_feedback_anim("add_text", "Fire up !!")
 
 		FieldStatusEnum.COLLECT:
-			if _can_collect_stuff(): _match_count += _matches_per_slot
+			if _can_collect_stuff(): 
+				_match_count += _matches_per_slot
+				add_ui_feedback_anim("add_match")
+				#_root.get_node("ui_feedback/AnimationPlayer").play("add_item")
 			else :
 				_match_count = ceil(_match_count * 1.0 / _matches_per_slot) * _matches_per_slot
+				add_ui_feedback_anim("no_item_added")
 				# event can't collect ?
 				pass
 			update_ui()
+	pass
+	
+func add_ui_feedback_anim(anim:String, text:String = "+1"):
+	var ui_feedback = ui_item_feedback.instantiate()
+	ui_feedback.rotation_degrees = randf_range(-45.0, 45.0)
+	ui_feedback.position += Vector2(randf_range(-50, 50), randf_range(-25, 25))
+	if text != "+1": 
+		ui_feedback.get_node("HBoxContainer/Label").text = text
+	_root.add_child(ui_feedback)
+	ui_feedback.get_node("AnimationPlayer").play(anim)
+	pass
 
 func on_sausage_button_pressed() :
 	match get_player_state() :
@@ -89,8 +107,11 @@ func on_sausage_button_pressed() :
 				_current_bbq.stop_current_sausage()
 
 		FieldStatusEnum.COLLECT:
-			if _can_collect_stuff(): _sausage_count += 1
-			else : pass # event can't collect ?
+			if _can_collect_stuff(): 
+				_sausage_count += 1
+				add_ui_feedback_anim("add_sausage")
+			else : 
+				add_ui_feedback_anim("no_item_added")
 			update_ui()
 
 
@@ -114,29 +135,6 @@ func _physics_process(delta: float) -> void:
 	#else:
 		#if !_root.get_node("AnimationPlayer").is_playing():
 			#_root.get_node("AnimationPlayer").stop()
-	pass
-
-# Function that allows the player to throw a match
-func throw_match(start_pos:Vector2, end_pos:Vector2):
-	var bbq_match_instance = match_file.instantiate()
-	bbq_match_instance.global_position = start_pos
-	add_child(bbq_match_instance)
-	
-	bbq_match_instance.origin = start_pos
-	#bbq_match_instance.destination = end_pos
-	bbq_match_instance.dist_max = throw_force
-	bbq_match_instance.direction = bbq_match_instance.global_position.direction_to(end_pos)
-	bbq_match_instance.perpendicular = bbq_match_instance.direction.rotated(-PI / 2).normalized()
-	if bbq_match_instance.perpendicular.y > 0:
-		bbq_match_instance.perpendicular = -bbq_match_instance.perpendicular
-	#var dist = bbq_match_instance.global_position.distance_to(end_pos)
-	var dist = bbq_match_instance.origin.distance_to(bbq_match_instance.global_position)
-	bbq_match_instance.reached_destination.connect(start_fire)
-	
-	return bbq_match_instance
-	
-func start_fire(pos):
-	flame_spawn.emit(pos)
 	pass
 
 func try_to_extinct_fire(fire_to_extinguish):

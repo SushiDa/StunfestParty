@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://h37pmyvng5fc" path="res://scenes/Minigames/BBQMasterDX/Scripts/bbq_master_player.gd" id="2_44pq0"]
 [ext_resource type="PackedScene" uid="uid://ch13x2co2mh5j" path="res://scenes/Minigames/BBQMasterDX/match.tscn" id="3_qptk4"]
 [ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="3_wc6m0"]
+[ext_resource type="PackedScene" uid="uid://vb7y4c4jvnw7" path="res://scenes/Minigames/BBQMasterDX/ui_item_feedback.tscn" id="5_qgvgb"]
 
 [sub_resource type="Animation" id="Animation_n4s0s"]
 length = 0.001
@@ -99,9 +100,10 @@ script = ExtResource("2_44pq0")
 _hub = NodePath("..")
 _root = NodePath("..")
 _sprite = NodePath("../Sprite")
-match_file = ExtResource("3_qptk4")
-_max_slot_space = 10
+_max_slot_space = 5
 _ui_inventory = NodePath("../Label")
+ui_item_feedback = ExtResource("5_qgvgb")
+match_file = ExtResource("3_qptk4")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=725159180]
 scale = Vector2(3, 3)
