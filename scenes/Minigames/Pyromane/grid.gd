@@ -4,6 +4,7 @@ class_name PyromaneGrid
 @export var _tree_prefab: PackedScene
 @export var _fire_prefab: PackedScene
 @export var _soil_prefab: PackedScene
+@export var _ash_prefab: PackedScene
 @export var _fire_sfx: AudioStream
 
 var cells: Array[PyromaneCell]
@@ -102,6 +103,12 @@ func removeTree(x: int, y: int) -> bool:
 		cell._tree.queue_free()
 		cell._tree = null
 		playFireSFX()
+		for i in range(0,6):
+			var ash = _ash_prefab.instantiate() as PyromaneAsh
+			ash.position.x = cell._x * resolution
+			ash.position.y = cell._y * resolution
+			self.add_child(ash)
+		
 	return hasTree
 	
 

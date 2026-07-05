@@ -14,9 +14,10 @@ func spawn() -> void:
 	if (currentIndex >= get_child_count()):
 		currentIndex = 0
 	
-	var spawner = get_child(currentIndex)
+	var spawner = get_child(currentIndex) as Node2D
 	var ammo = ammoPrefab.instantiate() as PyromaneAmmo
 	spawner.add_child(ammo)
+	ammo.global_position = spawner.global_position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

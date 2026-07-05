@@ -14,8 +14,6 @@ func _process(delta: float) -> void:
 	timer += delta;
 	get_child(0).scale.x += delta * 20
 	get_child(0).scale.y += delta * 10
-	
-	print("counter ", timer)
 
 	if timer > lifeTime:
 		queue_free()

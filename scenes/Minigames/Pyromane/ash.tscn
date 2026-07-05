@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cdvm81q68hk8i"]
+
+[ext_resource type="Script" uid="uid://bp6nux42mxsb3" path="res://scenes/Minigames/Pyromane/ash.gd" id="1_5p6k8"]
+[ext_resource type="Texture2D" uid="uid://bq2ow0eb7sbin" path="res://scenes/Minigames/Pyromane/Sprites/spark.png" id="1_63b72"]
+
+[node name="Ash" type="Node2D" unique_id=1022521214]
+script = ExtResource("1_5p6k8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1861379097]
+modulate = Color(0.21, 0.21, 0.21, 1)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_63b72")

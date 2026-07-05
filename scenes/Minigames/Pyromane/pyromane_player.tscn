@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cj313a0us4wlp" path="res://scenes/Minigames/Pyromane/Sound/sfx counter success.wav" id="8_qc881"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n3vra"]
-radius = 50.0
+radius = 60.0
 
 [sub_resource type="Animation" id="Animation_7qgt7"]
 length = 0.001
@@ -28,6 +28,35 @@ tracks/0/keys = {
 "update": 1,
 "values": [-40.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:offset:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_75pq5"]
+resource_name = "action"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, -1.0, 1.0, 0.0]
+}
 
 [sub_resource type="Animation" id="Animation_ist1d"]
 resource_name = "idle"
@@ -35,7 +64,7 @@ loop_mode = 1
 
 [sub_resource type="Animation" id="Animation_wbesj"]
 resource_name = "move"
-length = 0.15
+length = 0.19999999999999998
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -44,15 +73,16 @@ tracks/0/path = NodePath("Sprite:offset:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667),
+"times": PackedFloat32Array(0, 0.099999994, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [-40.0, -42.0, -40.0]
+"update": 0,
+"values": [-40.0, -46.0, -40.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ist1d"]
 _data = {
 &"RESET": SubResource("Animation_7qgt7"),
+&"action": SubResource("Animation_75pq5"),
 &"idle": SubResource("Animation_ist1d"),
 &"move": SubResource("Animation_wbesj")
 }

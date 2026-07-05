@@ -4,26 +4,30 @@
 [ext_resource type="Texture2D" uid="uid://bo4bimyifhmj3" path="res://scenes/Minigames/Pyromane/Sprites/clope.png" id="1_cctoq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n3vra"]
-radius = 40.0
+radius = 25.0
 
 [node name="Ammo" type="Node2D" unique_id=1113898717]
 script = ExtResource("1_8ohlp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1875513147]
+z_index = 2048
 rotation = 1.2976668
 texture = ExtResource("1_cctoq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1672430603]
+z_index = 2048
 position = Vector2(-13, 4.0000005)
 rotation = 1.2976668
 texture = ExtResource("1_cctoq")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2037441748]
+z_index = 2048
 position = Vector2(-26, 8)
 rotation = 1.2976668
 texture = ExtResource("1_cctoq")
 
 [node name="Sprite2D4" type="Sprite2D" parent="." unique_id=330396286]
+z_index = 2048
 position = Vector2(-38, 13.000001)
 rotation = 1.2976668
 texture = ExtResource("1_cctoq")

@@ -22,13 +22,13 @@ var power: float
 var direction: float
 var powerNode: PyromanePower
 
-var basemovespeed = 220.0
-var slowFactor = 0.3
-var runFactor = 1.6
+var basemovespeed = 200.0
+var slowFactor = 0.2
+var runFactor = 1.8
 
-var basePower = 0.3
-var maxPower = 2
-var powerFactor = 1.2
+var basePower = 0.1
+var maxPower = 1.3
+var powerFactor = 1.8
 var counterCooldown = 0.25
 var counterTimer = 0
 
@@ -72,13 +72,18 @@ func _process(delta: float) -> void:
 				if is_instance_valid(clope):
 					counterThrow(clope)
 		movespeed = basemovespeed * slowFactor
+		colliderNode.position.x = 0 + cos(direction) * 20
+		colliderNode.position.y = 0 + sin(direction) * 20
+	else :
+		colliderNode.position.x = 0
+		colliderNode.position.y = 0
 
 
 	if (throwing && _hub.btn1_hold):
 		power += delta
 		if power > maxPower-basePower:
 			power = maxPower-basePower
-		powerNode.get_child(0).scale.x = power * 2
+		powerNode.get_child(0).scale.x = power * 5 / maxPower
 		powerNode.rotation = direction
 		movespeed = basemovespeed * slowFactor
 
@@ -108,6 +113,10 @@ func _process(delta: float) -> void:
 	else :
 		moving = false
 
+
+	var y = int(_root.global_position.y / _game.grid.resolution)
+	_root.z_index = int(y);
+	
 	updateAnim()
 
 		
@@ -137,7 +146,7 @@ func throw() -> void:
 	_game.add_child(newclope)
 	newclope.global_position.x = _root.global_position.x + cos(direction) * 20
 	newclope.global_position.y = -50 + _root.global_position.y - sin(direction) * 20
-	newclope.init(0.15*power*powerFactor, 150*power*powerFactor, 200+150*power*powerFactor, -750, direction)
+	newclope.init(0.05 + 0.10*power*powerFactor, 220*power*powerFactor, 400+100*power*powerFactor, -750, direction)
 	newclope.setPlayer(self)
 	newclope.power = power
 
@@ -149,6 +158,7 @@ func counter() -> void:
 	newcounter.position.x = 0 + cos(direction) * 20
 	newcounter.position.y = -50 + sin(direction) * 20
 	newcounter.rotation = direction
+
 	self.add_child(newcounter)
 	SFXPlayer.play(_counterSFX, 5)
 
@@ -163,7 +173,7 @@ func counterThrow(clope: PyromaneClope) -> void:
 		_game.add_child(newclope)
 		newclope.global_position.x = _root.global_position.x + cos(direction) * 20
 		newclope.global_position.y = -50 + _root.global_position.y - sin(direction) * 20
-		newclope.init(0.15*power*powerFactor, 150*power*powerFactor, 200+150*power*powerFactor, -750, direction)
+		newclope.init(0.05 + 0.10*power*powerFactor, 220*power*powerFactor, 400+100*power*powerFactor, -750, direction)
 		newclope.setPlayer(self)
 		SFXPlayer.play(_counterSuccessSFX, 5)
 	
@@ -208,7 +218,9 @@ func updateAmmoDisplay() -> void:
 		ammo.visible = playerAmmo > i
 
 func updateAnim() -> void:
-	if (moving):
+	if (throwing || countering):
+		animNode.play("action")
+	elif (moving):
 		animNode.play("move")
 	else:
 		animNode.play("idle")
