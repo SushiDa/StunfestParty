@@ -67,6 +67,12 @@ score = 1
 sprite = ExtResource("7_dlp6f")
 metadata/_custom_type_script = "uid://d4elx5oqxh78u"
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wmq7q"]
+radius = 193.09325
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s6vqd"]
+radius = 63.788715
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_40h74"]
 atlas = ExtResource("3_emuft")
 region = Rect2(0, 0, 256, 128)
@@ -174,18 +180,13 @@ font = ExtResource("10_2yqkm")
 font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_u2hb0"]
+resource_local_to_scene = true
 font = ExtResource("10_2yqkm")
-font_size = 180
+font_size = 100
 
 [sub_resource type="LabelSettings" id="LabelSettings_wti3a"]
 font = ExtResource("10_2yqkm")
 font_size = 48
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_wmq7q"]
-radius = 193.09325
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_s6vqd"]
-radius = 63.788715
 
 [node name="BBQ" type="Node2D" unique_id=1245635271 node_paths=PackedStringArray("_sprite", "_sausage_sprite", "_ui_sausage_count", "_ui_sausage_count_zero", "_points_label") groups=["bbq"]]
 script = ExtResource("1_th6b3")
@@ -201,60 +202,6 @@ _points_label = NodePath("Points")
 ui_item_feedback = ExtResource("11_2hev0")
 coal_file = ExtResource("12_40h74")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1183803297]
-position = Vector2(5, -51)
-scale = Vector2(1.3447266, 1.3447266)
-sprite_frames = SubResource("SpriteFrames_d30vs")
-animation = &"bbq1"
-autoplay = "bbq1"
-
-[node name="SausageCount" type="Label" parent="." unique_id=1042894304]
-offset_top = -207.0
-offset_right = 131.0
-offset_bottom = -140.0
-text = "x2"
-label_settings = SubResource("LabelSettings_wmq7q")
-metadata/_edit_use_anchors_ = true
-
-[node name="SausageCountImg" type="TextureRect" parent="." unique_id=54752318]
-offset_left = -104.0
-offset_top = -200.0
-offset_right = -7.8318787
-offset_bottom = -147.0
-texture = ExtResource("8_2hev0")
-expand_mode = 1
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
-
-[node name="CurrentSausage" type="TextureRect" parent="." unique_id=283372207]
-offset_left = -97.0
-offset_top = -125.0
-offset_right = 104.40871
-offset_bottom = -14.0
-texture = ExtResource("8_2hev0")
-expand_mode = 1
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
-
-[node name="SausageNOPE" type="Label" parent="." unique_id=2015076410]
-modulate = Color(1, 0, 0, 1)
-offset_left = -59.0
-offset_top = -179.0
-offset_right = 72.0
-offset_bottom = -6.0
-text = "X"
-label_settings = SubResource("LabelSettings_u2hb0")
-metadata/_edit_use_anchors_ = true
-
-[node name="Points" type="Label" parent="." unique_id=278130731]
-offset_left = -260.0
-offset_top = -16.0
-offset_right = -101.0
-offset_bottom = 51.0
-text = "25 pts"
-label_settings = SubResource("LabelSettings_wti3a")
-metadata/_edit_use_anchors_ = true
-
 [node name="Area2D" type="Area2D" parent="." unique_id=1328691022 groups=["bbq"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=342148960]
@@ -264,3 +211,60 @@ shape = SubResource("CircleShape2D_wmq7q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=339304674]
 shape = SubResource("CircleShape2D_s6vqd")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1183803297]
+position = Vector2(4, 1)
+scale = Vector2(0.9223633, 0.9223633)
+sprite_frames = SubResource("SpriteFrames_d30vs")
+animation = &"bbq1"
+autoplay = "bbq1"
+
+[node name="SausageCount" type="Label" parent="." unique_id=1042894304]
+offset_top = -118.0
+offset_right = 131.0
+offset_bottom = -51.0
+text = "x2"
+label_settings = SubResource("LabelSettings_wmq7q")
+metadata/_edit_use_anchors_ = true
+
+[node name="SausageCountImg" type="TextureRect" parent="." unique_id=54752318]
+offset_left = -104.0
+offset_top = -111.0
+offset_right = -7.8318787
+offset_bottom = -58.0
+texture = ExtResource("8_2hev0")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CurrentSausage" type="TextureRect" parent="." unique_id=283372207]
+offset_left = -100.0
+offset_top = -57.0
+offset_right = 101.409
+offset_bottom = 13.0
+rotation = 1.5707964
+pivot_offset = Vector2(101, 41)
+texture = ExtResource("8_2hev0")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="SausageNOPE" type="Label" parent="." unique_id=2015076410]
+modulate = Color(1, 0, 0, 1)
+offset_left = -59.0
+offset_top = -104.0
+offset_right = 66.0
+offset_bottom = 69.0
+text = "X"
+label_settings = SubResource("LabelSettings_u2hb0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Points" type="Label" parent="." unique_id=278130731]
+offset_left = -260.0
+offset_top = -16.0
+offset_right = -101.0
+offset_bottom = 51.0
+text = "25 pts"
+label_settings = SubResource("LabelSettings_wti3a")
+metadata/_edit_use_anchors_ = true

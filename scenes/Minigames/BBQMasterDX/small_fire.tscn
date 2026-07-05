@@ -248,7 +248,8 @@ shape = SubResource("CircleShape2D_nskya")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1910141429]
 sprite_frames = SubResource("SpriteFrames_707uw")
 autoplay = "default"
-frame_progress = 0.35249114
+frame = 7
+frame_progress = 0.52220815
 
 [node name="Label" type="Label" parent="." unique_id=485126999]
 anchors_preset = 5
