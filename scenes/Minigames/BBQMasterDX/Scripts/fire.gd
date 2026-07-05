@@ -23,7 +23,9 @@ func _process(delta: float) -> void:
 	var frames = frames_list[0]
 	for i in sprites_thresholds.size() :
 		if pv > sprites_thresholds[i] : frames = frames_list[i]
-	if frames != main_sprite.sprite_frames: main_sprite.sprite_frames = frames
+	if frames != main_sprite.sprite_frames: 
+		main_sprite.sprite_frames = frames
+		main_sprite.play("default")
 	if debug_label : debug_label.text = str(player_index)
 
 func take_damage(value):
