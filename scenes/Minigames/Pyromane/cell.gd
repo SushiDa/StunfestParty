@@ -9,16 +9,19 @@ var _fire: PyromaneFire
 var _soil: PyromaneSoil
 
 var rng = RandomNumberGenerator.new()
+var updateTimer: float
 
 var baseGrowth = 0.003
 var baseSpread = 0.5
-var baseReGrowth = 0.015
+var baseReGrowth = 0.018
+var cellTickRate = 0.5
 
 func _init(x: int, y: int, grid: PyromaneGrid) -> void:
 	self._x = x
 	self._y = y
 	self._grid = grid
 	self._tree = null
+	updateTimer = rng.randf_range(0, 1) * cellTickRate
 
 func setTree(tree :PyromaneTree) -> void:
 	#print("set tree ",_x,"/",_y)
@@ -40,10 +43,15 @@ func hasFire() -> bool:
 func hasSoil() -> bool:
 	return _soil != null   
 
-func update(delta: float, cooldown: float) -> void:
-	_updateGrowth(cooldown)
-	_updateFire(cooldown)
-	_updateSoil(cooldown)
+func update(delta: float) -> void:
+	updateTimer += delta
+
+	if (updateTimer > cellTickRate):
+		updateTimer -= cellTickRate
+		_updateGrowth(cellTickRate)
+		_updateFire(cellTickRate)
+		_updateSoil(cellTickRate)
+	
 
 		
 func _updateGrowth(cooldown: float) -> void:

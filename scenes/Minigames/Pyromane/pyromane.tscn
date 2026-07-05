@@ -6,8 +6,17 @@
 [ext_resource type="AudioStream" uid="uid://chd0fo20i3efx" path="res://scenes/Minigames/Pyromane/Sound/Barbecue blues v2.0.ogg" id="3_p8b85"]
 [ext_resource type="Script" uid="uid://63ad1s7bkb68" path="res://scenes/Minigames/Pyromane/grid.gd" id="4_4554j"]
 [ext_resource type="PackedScene" uid="uid://dv6lfbd8feos0" path="res://scenes/Minigames/Pyromane/tree.tscn" id="4_oeqmg"]
+[ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="5_2lwej"]
+[ext_resource type="Script" uid="uid://vxydscb342st" path="res://scenes/Minigames/Pyromane/ammo_spawners.gd" id="5_tr3e6"]
+[ext_resource type="PackedScene" uid="uid://dwx7d0omhl3h7" path="res://scenes/Minigames/Pyromane/ammo.tscn" id="6_n0avq"]
 [ext_resource type="PackedScene" uid="uid://d3lap17r77t67" path="res://scenes/Minigames/Pyromane/fire.tscn" id="6_rseo7"]
 [ext_resource type="PackedScene" uid="uid://bjpt5j1r6y2tr" path="res://scenes/Minigames/Pyromane/Soil.tscn" id="7_w4aim"]
+[ext_resource type="Script" uid="uid://cjorl4kso77l0" path="res://scenes/Minigames/Pyromane/score.gd" id="10_woge4"]
+[ext_resource type="AudioStream" uid="uid://caxtbiuu7487g" path="res://scenes/Minigames/Pyromane/Sound/sfx burn.wav" id="11_dpmyd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p8b85"]
+font = ExtResource("5_2lwej")
+font_size = 128
 
 [node name="Pyromane" type="Node" unique_id=1451640948 node_paths=PackedStringArray("player_spawns")]
 script = ExtResource("1_vxk1e")
@@ -36,11 +45,23 @@ position = Vector2(1178, -146)
 [node name="Spawn4" type="Node2D" parent="Spawners" unique_id=1373077357]
 position = Vector2(1178, 193)
 
+[node name="AmmoSpawners" type="Node2D" parent="." unique_id=1532719470]
+unique_name_in_owner = true
+script = ExtResource("5_tr3e6")
+ammoPrefab = ExtResource("6_n0avq")
+
+[node name="AmmoSpawner" type="Node2D" parent="AmmoSpawners" unique_id=680581150]
+position = Vector2(907, 183)
+
+[node name="AmmoSpawner2" type="Node2D" parent="AmmoSpawners" unique_id=1364461358]
+position = Vector2(973, 798)
+
 [node name="Grid" type="Node2D" parent="." unique_id=659412465]
 script = ExtResource("4_4554j")
 _tree_prefab = ExtResource("4_oeqmg")
 _fire_prefab = ExtResource("6_rseo7")
 _soil_prefab = ExtResource("7_w4aim")
+_fire_sfx = ExtResource("11_dpmyd")
 
 [node name="Tree" parent="Grid" unique_id=740608069 node_paths=PackedStringArray("_grid") instance=ExtResource("4_oeqmg")]
 position = Vector2(377, 831)
@@ -401,3 +422,69 @@ _grid = NodePath("..")
 [node name="Tree50" parent="Grid" unique_id=598367399 node_paths=PackedStringArray("_grid") instance=ExtResource("4_oeqmg")]
 position = Vector2(1564, 831)
 _grid = NodePath("..")
+
+[node name="Score" type="Control" parent="." unique_id=1572255135]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
+
+[node name="ColorRect" type="ColorRect" parent="Score" unique_id=1703858043]
+show_behind_parent = true
+z_index = 4096
+layout_mode = 0
+offset_left = -750.0
+offset_top = -100.0
+offset_right = 750.0
+offset_bottom = 100.0
+color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+
+[node name="Score1" type="Label" parent="Score/ColorRect" unique_id=536100079]
+z_index = 4096
+layout_mode = 0
+offset_left = 100.0
+offset_top = 64.0
+offset_right = 244.0
+offset_bottom = 192.0
+label_settings = SubResource("LabelSettings_p8b85")
+script = ExtResource("10_woge4")
+
+[node name="Score2" type="Label" parent="Score/ColorRect" unique_id=1101348586]
+z_index = 4096
+layout_mode = 0
+offset_left = 500.0
+offset_top = 64.0
+offset_right = 644.0
+offset_bottom = 192.0
+label_settings = SubResource("LabelSettings_p8b85")
+script = ExtResource("10_woge4")
+
+[node name="Score3" type="Label" parent="Score/ColorRect" unique_id=1283085950]
+z_index = 4096
+layout_mode = 0
+offset_left = 900.0
+offset_top = 64.0
+offset_right = 1044.0
+offset_bottom = 192.0
+label_settings = SubResource("LabelSettings_p8b85")
+script = ExtResource("10_woge4")
+
+[node name="Score4" type="Label" parent="Score/ColorRect" unique_id=486461460]
+z_index = 4096
+layout_mode = 0
+offset_left = 1300.0
+offset_top = 64.0
+offset_right = 1444.0
+offset_bottom = 192.0
+label_settings = SubResource("LabelSettings_p8b85")
+script = ExtResource("10_woge4")
+
+[node name="Ground" type="ColorRect" parent="." unique_id=1780286666]
+z_index = -4096
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.35999998, 0.45, 0.08999999, 1)

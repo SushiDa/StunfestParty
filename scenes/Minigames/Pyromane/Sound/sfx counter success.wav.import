@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cj313a0us4wlp"
+path="res://.godot/imported/sfx counter success.wav-f46d57511e9f4f66d0b2326e09cc13c6.sample"
+
+[deps]
+
+source_file="res://scenes/Minigames/Pyromane/Sound/sfx counter success.wav"
+dest_files=["res://.godot/imported/sfx counter success.wav-f46d57511e9f4f66d0b2326e09cc13c6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

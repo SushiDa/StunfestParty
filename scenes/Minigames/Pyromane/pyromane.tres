@@ -5,5 +5,8 @@
 
 [resource]
 script = ExtResource("1_p31v0")
+name = "Total Arson"
 prefab = ExtResource("1_ucvl0")
+action_btn1 = "Throw"
+action_btn2 = "Counter"
 metadata/_custom_type_script = "uid://dkhmc06h3n7cg"

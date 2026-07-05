@@ -25,7 +25,12 @@ func initTree(playerIndex: int) -> void:
 
 	_grid.getCell(x, y).setTree(self)
 
+	scale.x = 0
+	scale.y = 0
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if (scale.x < 1):
+		scale.x += delta
+		scale.y += delta

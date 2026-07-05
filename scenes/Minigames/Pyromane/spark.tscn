@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ci5tg736oqtxb"]
+
+[ext_resource type="Texture2D" uid="uid://bq2ow0eb7sbin" path="res://scenes/Minigames/Pyromane/Sprites/spark.png" id="1_0j3fb"]
+[ext_resource type="Script" uid="uid://c7o8l156j3ade" path="res://scenes/Minigames/Pyromane/spark.gd" id="1_xxf0v"]
+
+[node name="Spark" type="Node2D" unique_id=1510195710]
+script = ExtResource("1_xxf0v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1314898513]
+texture = ExtResource("1_0j3fb")

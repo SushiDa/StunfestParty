@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dwx7d0omhl3h7"]
+
+[ext_resource type="Script" uid="uid://dvx8rwhstcmpj" path="res://scenes/Minigames/Pyromane/ammo.gd" id="1_8ohlp"]
+[ext_resource type="Texture2D" uid="uid://bo4bimyifhmj3" path="res://scenes/Minigames/Pyromane/Sprites/clope.png" id="1_cctoq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n3vra"]
+radius = 40.0
+
+[node name="Ammo" type="Node2D" unique_id=1113898717]
+script = ExtResource("1_8ohlp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1875513147]
+rotation = 1.2976668
+texture = ExtResource("1_cctoq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1672430603]
+position = Vector2(-13, 4.0000005)
+rotation = 1.2976668
+texture = ExtResource("1_cctoq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2037441748]
+position = Vector2(-26, 8)
+rotation = 1.2976668
+texture = ExtResource("1_cctoq")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=330396286]
+position = Vector2(-38, 13.000001)
+rotation = 1.2976668
+texture = ExtResource("1_cctoq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2040865285]
+position = Vector2(-16, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1856519007]
+shape = SubResource("CircleShape2D_n3vra")
