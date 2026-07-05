@@ -8,10 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cbegohd703i6y" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_raw.png" id="7_2hev0"]
 [ext_resource type="Texture2D" uid="uid://ymjlj7cg5any" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_overcooked.png" id="7_dlp6f"]
 [ext_resource type="Texture2D" uid="uid://bsbk6mnh6ejxx" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_cooked.png" id="8_2hev0"]
-[ext_resource type="Texture2D" uid="uid://cw0bflxg205ux" path="res://scenes/Minigames/BBQMasterDX/Sprites/cooked.png" id="8_2uwqr"]
 [ext_resource type="Texture2D" uid="uid://c55amif8hetf0" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_perfect.png" id="9_40h74"]
 [ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="10_2yqkm"]
 [ext_resource type="Texture2D" uid="uid://bhshythmnllur" path="res://scenes/Minigames/BBQMasterDX/Assets/bbq.png" id="10_dlp6f"]
+[ext_resource type="PackedScene" uid="uid://vb7y4c4jvnw7" path="res://scenes/Minigames/BBQMasterDX/ui_item_feedback.tscn" id="11_2hev0"]
 
 [sub_resource type="Resource" id="Resource_wti3a"]
 script = ExtResource("2_e2ktv")
@@ -95,10 +95,11 @@ _sausage_sprite = NodePath("CurrentSausage")
 _ui_sausage_count = NodePath("SausageCount")
 _ui_sausage_count_zero = NodePath("SausageNOPE")
 _points_label = NodePath("Points")
+ui_item_feedback = ExtResource("11_2hev0")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1443118496]
-position = Vector2(-3, 13)
-scale = Vector2(0.6171875, 0.6171875)
+position = Vector2(5, -51)
+scale = Vector2(1.3447266, 1.3447266)
 texture = ExtResource("10_dlp6f")
 
 [node name="SausageCount" type="Label" parent="." unique_id=1042894304]
@@ -114,8 +115,9 @@ offset_left = -104.0
 offset_top = -200.0
 offset_right = -7.8318787
 offset_bottom = -147.0
-texture = ExtResource("8_2uwqr")
+texture = ExtResource("8_2hev0")
 expand_mode = 1
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="CurrentSausage" type="TextureRect" parent="." unique_id=283372207]
@@ -123,8 +125,9 @@ offset_left = -97.0
 offset_top = -125.0
 offset_right = 104.40871
 offset_bottom = -14.0
-texture = ExtResource("8_2uwqr")
+texture = ExtResource("8_2hev0")
 expand_mode = 1
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="SausageNOPE" type="Label" parent="." unique_id=2015076410]

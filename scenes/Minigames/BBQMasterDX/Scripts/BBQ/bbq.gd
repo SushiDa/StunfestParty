@@ -14,6 +14,7 @@ class_name BBQMaster_BBQ
 @export var _ui_sausage_count: Label
 @export var _ui_sausage_count_zero: Label
 @export var _points_label: Label
+@export var ui_item_feedback : PackedScene
 
 
 var _player: PlayerHub; 
@@ -22,7 +23,7 @@ var _minigame: MinigameBase;
 var _temperature:float = 0
 var _current_sausage_status: float = 0
 var _current_fire_spawn_timer: float = 1
-var _sausage_count: int = 10
+var _sausage_count: int = 0
 
 var _debug_score: int = 0;
 
@@ -78,9 +79,21 @@ func stop_current_sausage() -> void:
 	
 	_sausage_count -= 1
 	_current_sausage_status = 0;
-	if _player: _player.score += sausage_state.score
-	else: _debug_score += sausage_state.score
-	print("Score +" + str(sausage_state.score))
+	if _player: 
+		_player.score += sausage_state.score
+		add_ui_feedback_anim("add_text", sausage_state.score)
+	else: 
+		_debug_score += sausage_state.score
+		print("Score +" + str(sausage_state.score))
+	
+func add_ui_feedback_anim(anim:String, score):
+	var ui_feedback = ui_item_feedback.instantiate()
+	ui_feedback.rotation_degrees = randf_range(-45.0, 45.0)
+	ui_feedback.position += Vector2(randf_range(-50, 50), randf_range(-25, 25))
+	add_child(ui_feedback)
+	ui_feedback.get_node("HBoxContainer/Label").text = str("Score +") + str(score)
+	ui_feedback.get_node("AnimationPlayer").play(anim)
+	pass
 
 func _get_current_temp_state() -> BBQMaster_TemperatureState:
 	var result = _temp_states[0];

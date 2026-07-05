@@ -29,6 +29,8 @@ var _match_count: int = 0;
 
 enum FieldStatusEnum {BBQ, FIELD, COLLECT}
 
+@export var ui_item_feedback : PackedScene
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	initialize_display();
@@ -57,14 +59,30 @@ func on_fire_button_pressed() :
 				_match_count -= 1
 				if _current_bbq && _current_bbq.get_player_index() == _hub.get_player_index():
 					_current_bbq.fire_up()
+					add_ui_feedback_anim("add_text", "Fire up !!")
 
 		FieldStatusEnum.COLLECT:
-			if _can_collect_stuff(): _match_count += _matches_per_slot
+			if _can_collect_stuff(): 
+				_match_count += _matches_per_slot
+				add_ui_feedback_anim("add_match")
+				#_root.get_node("ui_feedback/AnimationPlayer").play("add_item")
 			else :
 				_match_count = ceil(_match_count * 1.0 / _matches_per_slot) * _matches_per_slot
+				add_ui_feedback_anim("no_item_added")
 				# event can't collect ?
 				pass
 			update_ui()
+	pass
+	
+func add_ui_feedback_anim(anim:String, text:String = "+1"):
+	var ui_feedback = ui_item_feedback.instantiate()
+	ui_feedback.rotation_degrees = randf_range(-45.0, 45.0)
+	ui_feedback.position += Vector2(randf_range(-50, 50), randf_range(-25, 25))
+	if text != "+1": 
+		ui_feedback.get_node("HBoxContainer/Label").text = text
+	_root.add_child(ui_feedback)
+	ui_feedback.get_node("AnimationPlayer").play(anim)
+	pass
 
 func on_sausage_button_pressed() :
 	match get_player_state() :
@@ -89,8 +107,11 @@ func on_sausage_button_pressed() :
 				_current_bbq.stop_current_sausage()
 
 		FieldStatusEnum.COLLECT:
-			if _can_collect_stuff(): _sausage_count += 1
-			else : pass # event can't collect ?
+			if _can_collect_stuff(): 
+				_sausage_count += 1
+				add_ui_feedback_anim("add_sausage")
+			else : 
+				add_ui_feedback_anim("no_item_added")
 			update_ui()
 
 
