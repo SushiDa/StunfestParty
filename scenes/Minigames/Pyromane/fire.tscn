@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d3lap17r77t67"]
+
+[ext_resource type="Script" uid="uid://b7oc1i8kr51lt" path="res://scenes/Minigames/Pyromane/fire.gd" id="1_ph8qk"]
+[ext_resource type="PackedScene" uid="uid://cigx6fksi73la" path="res://scenes/Minigames/Pyromane/fireSprite.tscn" id="2_hqpeu"]
+
+[node name="Fire" type="Node2D" unique_id=390624053]
+script = ExtResource("1_ph8qk")
+_fireSprite_prefab = ExtResource("2_hqpeu")

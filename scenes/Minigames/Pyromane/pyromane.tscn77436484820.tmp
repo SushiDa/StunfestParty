@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dto35rvpe4g7g"]
+
+[ext_resource type="Script" uid="uid://ff7sc7bijvlc" path="res://scenes/Minigames/minigame_base.gd" id="1_vxk1e"]
+[ext_resource type="PackedScene" uid="uid://cc6jsplln5tkr" path="res://scenes/Minigames/Pyromane/pyromane_player.tscn" id="2_2e3g8"]
+[ext_resource type="Script" uid="uid://b2cxb0plr2at2" path="res://scenes/Minigames/Pyromane/pyromane.gd" id="2_p5p15"]
+[ext_resource type="Script" uid="uid://63ad1s7bkb68" path="res://scenes/Minigames/Pyromane/grid.gd" id="4_4554j"]
+[ext_resource type="PackedScene" uid="uid://dv6lfbd8feos0" path="res://scenes/Minigames/Pyromane/tree.tscn" id="4_oeqmg"]
+[ext_resource type="PackedScene" uid="uid://d3lap17r77t67" path="res://scenes/Minigames/Pyromane/fire.tscn" id="6_rseo7"]
+
+[node name="Pyromane" type="Node" unique_id=1451640948 node_paths=PackedStringArray("player_spawns")]
+script = ExtResource("1_vxk1e")
+player_prefab = ExtResource("2_2e3g8")
+player_spawns = [NodePath("Spawners")]
+
+[node name="Manager" type="Node" parent="." unique_id=275435988 node_paths=PackedStringArray("minigame", "grid")]
+script = ExtResource("2_p5p15")
+minigame = NodePath("..")
+grid = NodePath("../Grid")
+
+[node name="Spawners" type="Node2D" parent="." unique_id=116175223]
+position = Vector2(200, 540)
+
+[node name="Spawn1" type="Node2D" parent="Spawners" unique_id=978146727]
+position = Vector2(0, 340)
+
+[node name="Spawn2" type="Node2D" parent="Spawners" unique_id=553013484]
+position = Vector2(0, 170)
+
+[node name="Spawn3" type="Node2D" parent="Spawners" unique_id=1262134749]
+
+[node name="Spawn4" type="Node2D" parent="Spawners" unique_id=1373077357]
+position = Vector2(0, -170)
+
+[node name="Grid" type="Node2D" parent="." unique_id=659412465]
+script = ExtResource("4_4554j")
+_tree_prefab = ExtResource("4_oeqmg")
+_fire_prefab = ExtResource("6_rseo7")
+
+[node name="Tree" parent="Grid" unique_id=740608069 node_paths=PackedStringArray("_grid") instance=ExtResource("4_oeqmg")]
+position = Vector2(712, 689)
+_grid = NodePath("..")
+
+[node name="Tree2" parent="Grid" unique_id=571309392 node_paths=PackedStringArray("_grid") instance=ExtResource("4_oeqmg")]
+position = Vector2(579, 671)
+_grid = NodePath("..")
+
+[node name="Tree3" parent="Grid" unique_id=736583704 node_paths=PackedStringArray("_grid") instance=ExtResource("4_oeqmg")]
+position = Vector2(748, 788)
+_grid = NodePath("..")
+
+[node name="Tree4" parent="Grid" unique_id=1486706523 node_paths=PackedStringArray("_grid") instance=ExtResource("4_oeqmg")]
+position = Vector2(676, 853)
+_grid = NodePath("..")
+
+[node name="Tree5" parent="Grid" unique_id=89776702 node_paths=PackedStringArray("_grid") instance=ExtResource("4_oeqmg")]
+position = Vector2(803, 803)
+_grid = NodePath("..")

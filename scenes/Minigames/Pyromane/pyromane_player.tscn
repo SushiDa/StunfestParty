@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cc6jsplln5tkr"]
+
+[ext_resource type="Script" uid="uid://bagfxqurfa4bv" path="res://scenes/Minigames/player_hub.gd" id="1_1usry"]
+[ext_resource type="Script" uid="uid://kgslxgn8t30y" path="res://scenes/Minigames/Pyromane/pyromane_player.gd" id="2_143o3"]
+[ext_resource type="PackedScene" uid="uid://kkchokc0fopf" path="res://scenes/Minigames/Pyromane/power.tscn" id="3_143o3"]
+[ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/Wuki Chan/wukichan-0.png" id="3_ovbqo"]
+[ext_resource type="PackedScene" uid="uid://xpbv2vy2y0bk" path="res://scenes/Minigames/Pyromane/clope.tscn" id="4_ovbqo"]
+[ext_resource type="PackedScene" uid="uid://be645yb1a4bgd" path="res://scenes/Minigames/Pyromane/counter.tscn" id="5_tgnj1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n3vra"]
+radius = 50.0
+
+[node name="PyromanePlayer" type="Node2D" unique_id=1370644701]
+script = ExtResource("1_1usry")
+
+[node name="Root" type="Node2D" parent="." unique_id=1221433038 node_paths=PackedStringArray("_hub", "_root", "_sprite")]
+unique_name_in_owner = true
+script = ExtResource("2_143o3")
+_hub = NodePath("..")
+_root = NodePath("..")
+_sprite = NodePath("../Sprite")
+_power_prefab = ExtResource("3_143o3")
+_clope_prefab = ExtResource("4_ovbqo")
+_counter_prefab = ExtResource("5_tgnj1")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=2012396836]
+rotation = -6.2831855
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_ovbqo")
+offset = Vector2(0, -40)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=638802018]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=476107088]
+shape = SubResource("CircleShape2D_n3vra")
+
+[connection signal="area_entered" from="Area2D" to="Root" method="_on_area_2d_area_entered"]

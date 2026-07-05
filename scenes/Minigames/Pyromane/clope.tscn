@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://xpbv2vy2y0bk"]
+
+[ext_resource type="Texture2D" uid="uid://bo4bimyifhmj3" path="res://scenes/Minigames/Pyromane/Sprites/clope.png" id="1_78ymn"]
+[ext_resource type="Script" uid="uid://d0ltgdpwhsqaw" path="res://scenes/Minigames/Pyromane/clope.gd" id="1_350hs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n3vra"]
+
+[node name="Clope" type="Node2D" unique_id=1736561287]
+script = ExtResource("1_350hs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=198377420]
+texture = ExtResource("1_78ymn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=668643223]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=692511292]
+shape = SubResource("CircleShape2D_n3vra")

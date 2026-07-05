@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dv6lfbd8feos0"]
+
+[ext_resource type="Script" uid="uid://e8d2cw4q8cif" path="res://scenes/Minigames/Pyromane/tree.gd" id="1_jvlti"]
+[ext_resource type="Texture2D" uid="uid://bpp0jbobwowqs" path="res://scenes/Minigames/Pyromane/Sprites/tree.png" id="2_qc53p"]
+[ext_resource type="Texture2D" uid="uid://b5wopo317vkna" path="res://scenes/Minigames/Pyromane/Sprites/tree_color.png" id="3_qc53p"]
+
+[node name="Tree" type="Node2D" unique_id=740608069]
+script = ExtResource("1_jvlti")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1937346162]
+rotation = -6.2831855
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_qc53p")
+offset = Vector2(0, -40)
+
+[node name="Sprite2" type="Sprite2D" parent="." unique_id=116802720]
+rotation = -6.2831855
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("3_qc53p")
+offset = Vector2(0, -40)

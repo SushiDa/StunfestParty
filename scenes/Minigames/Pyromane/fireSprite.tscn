@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cigx6fksi73la"]
+
+[ext_resource type="Script" uid="uid://blpsy0wlmr0a4" path="res://scenes/Minigames/Pyromane/fire_sprite.gd" id="1_mdk24"]
+[ext_resource type="Texture2D" uid="uid://dua1d0cxxq2pt" path="res://scenes/Minigames/Pyromane/Sprites/fire.png" id="2_b8lmm"]
+[ext_resource type="Texture2D" uid="uid://fqvpnlbk25ck" path="res://scenes/Minigames/Pyromane/Sprites/fire_color.png" id="3_434dv"]
+
+[node name="FireSprite" type="Node2D" unique_id=1171268875]
+script = ExtResource("1_mdk24")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=364433989]
+position = Vector2(1.0000004, 4)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_b8lmm")
+offset = Vector2(-0.5000005, -1.7499981)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1926830722]
+position = Vector2(1.0000004, 4)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_434dv")
+offset = Vector2(-0.5000005, -1.7499981)

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://be645yb1a4bgd"]
+
+[ext_resource type="Script" uid="uid://dey5lbby7moue" path="res://scenes/Minigames/Pyromane/counter.gd" id="1_t50st"]
+[ext_resource type="Texture2D" uid="uid://fauyaxtexc1c" path="res://scenes/Minigames/Pyromane/Sprites/counter.png" id="2_3jv2h"]
+
+[node name="Counter" type="Node2D" unique_id=819028788]
+script = ExtResource("1_t50st")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=161787690]
+texture = ExtResource("2_3jv2h")

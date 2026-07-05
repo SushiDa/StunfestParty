@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bjpt5j1r6y2tr"]
+
+[ext_resource type="Script" uid="uid://ctxcth1w77pwj" path="res://scenes/Minigames/Pyromane/soil.gd" id="1_7j803"]
+[ext_resource type="Texture2D" uid="uid://d3n6mrjn3qwob" path="res://scenes/Minigames/Pyromane/Sprites/soil.png" id="2_yedvk"]
+[ext_resource type="Texture2D" uid="uid://jkimwcmfoqkx" path="res://scenes/Minigames/Pyromane/Sprites/soil_color.png" id="3_iwb1o"]
+
+[node name="Soil" type="Node2D" unique_id=115572706]
+script = ExtResource("1_7j803")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1513756072]
+scale = Vector2(4, 4)
+texture = ExtResource("2_yedvk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1363092232]
+scale = Vector2(4, 4)
+texture = ExtResource("3_iwb1o")

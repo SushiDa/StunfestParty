@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MinigameInfo" format=3 uid="uid://b6hoj6atheccv"]
+
+[ext_resource type="Script" uid="uid://dkhmc06h3n7cg" path="res://scenes/Minigames/minigame_info.gd" id="1_p31v0"]
+[ext_resource type="PackedScene" uid="uid://dto35rvpe4g7g" path="res://scenes/Minigames/Pyromane/pyromane.tscn" id="1_ucvl0"]
+
+[resource]
+script = ExtResource("1_p31v0")
+prefab = ExtResource("1_ucvl0")
+metadata/_custom_type_script = "uid://dkhmc06h3n7cg"
