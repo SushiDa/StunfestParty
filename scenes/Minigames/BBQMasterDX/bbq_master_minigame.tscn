@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ff7sc7bijvlc" path="res://scenes/Minigames/minigame_base.gd" id="1_bd2v0"]
 [ext_resource type="PackedScene" uid="uid://bkcqpqlhkwil5" path="res://scenes/Minigames/BBQMasterDX/bbq_master_player.tscn" id="2_gk4nu"]
+[ext_resource type="AudioStream" uid="uid://btvlvhe1rtmtb" path="res://scenes/Minigames/BBQMasterDX/sounds/normal_boucle.ogg" id="3_nyxvb"]
 [ext_resource type="Script" uid="uid://tuv3lunn4mdk" path="res://scenes/Minigames/BBQMasterDX/Scripts/bbq_master_minigame.gd" id="3_o8c3j"]
 [ext_resource type="PackedScene" uid="uid://crl0odaruwhi2" path="res://scenes/Minigames/BBQMasterDX/bbq_scene.tscn" id="4_gk4nu"]
 [ext_resource type="PackedScene" uid="uid://53rkua7kpscu" path="res://scenes/Minigames/BBQMasterDX/small_fire.tscn" id="5_7gl4k"]
@@ -10,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cbegohd703i6y" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_raw.png" id="7_7gl4k"]
 [ext_resource type="Texture2D" uid="uid://bg18ywp05vq2r" path="res://scenes/Minigames/BBQMasterDX/Assets/match.png" id="7_kh2af"]
 [ext_resource type="PackedScene" uid="uid://cv83arr5lvtwe" path="res://scenes/Minigames/BBQMasterDX/smoky.tscn" id="9_7gl4k"]
+[ext_resource type="AudioStream" uid="uid://bpekte82du1w" path="res://scenes/Minigames/BBQMasterDX/sounds/Réveil.wav" id="12_v865p"]
+[ext_resource type="AudioStream" uid="uid://tlg3hemyjtgy" path="res://scenes/Minigames/BBQMasterDX/sounds/Colère boucle.ogg" id="13_nrktm"]
 
 [sub_resource type="Curve" id="Curve_7gl4k"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.8530023, 0.0, 0, 0]
@@ -38,6 +41,7 @@ radius = 150.0
 script = ExtResource("1_bd2v0")
 player_prefab = ExtResource("2_gk4nu")
 player_spawns = [NodePath("BBQMasterMgr/Spawns/Spawn1"), NodePath("BBQMasterMgr/Spawns/Spawn2"), NodePath("BBQMasterMgr/Spawns/Spawn3"), NodePath("BBQMasterMgr/Spawns/Spawn4")]
+music = ExtResource("3_nyxvb")
 minigame_duration = 45
 
 [node name="BBQMasterMgr" type="Node" parent="." unique_id=1747680110 node_paths=PackedStringArray("minigame", "origin_center", "debug_label", "smokey")]
@@ -148,3 +152,6 @@ base_speed = 300.0
 attack_speed = 1000.0
 bbq_min_distance = 50.0
 player_min_distance = 100.0
+music_delay = 5.0
+sfx_wake_up = ExtResource("12_v865p")
+wake_up_music = ExtResource("13_nrktm")
