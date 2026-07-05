@@ -166,3 +166,8 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 func update_ui() -> void:
 	_ui_inventory.text = str(_sausage_count) + "s / " + str(_match_count) + "m"
 	pass
+
+func oh_no_its_smokey() :
+	_hub.controls_enabled = false
+	 # Animation death
+	

@@ -10,14 +10,14 @@ extends Node
 @export var smokey_fire_incr: Curve
 @export var smokey_fire_incr_max: float
 @export var smokey_fire_max_count: float
+@export var smokey_aggro_fire_minimum: int
 @export var debug_label: Label
+@export var smokey: BBQMaster_Smokey
 
-enum SmokeyStatus { SLEEP, AWAKE, ATTACKING }
 
 var _bbqs: Array[BBQMaster_BBQ] = []
 var _fires: Array[Fire] = []
 var _current_smokey_value: float = 0
-var _current_smokey_status: SmokeyStatus = SmokeyStatus.SLEEP
 
 
 # Called when the node enters the scene tree for the first time.
@@ -43,13 +43,17 @@ func _on_players_spawned() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	smokey.target_bbq = get_smokey_aggro()
 	if minigame._minigame_running && _current_smokey_value < smokey_max_value:
 		var incr = (smokey_base_incr + smokey_fire_incr.sample_baked(_fires.size() / smokey_fire_max_count) * smokey_fire_incr_max)
-		if debug_label: debug_label.text = "SMOKEY : " + str(_current_smokey_value).pad_decimals(1) + "/50  (+" + str(incr).pad_decimals(1) + ")"
+		if debug_label: debug_label.text = "SMOKEY : " + str(_current_smokey_value).pad_decimals(1) + "/20  (+" + str(incr).pad_decimals(1) + ")"
 		_current_smokey_value = min(smokey_max_value, _current_smokey_value + incr * delta)
 		if _current_smokey_value >= smokey_max_value: 
-			print("SMOKEY, WAZKE UP !!!")
+			print("WAKE UP")
+			smokey.wake_up();
 			pass
+		
+	
 
 func _on_game_timeout() -> void:
 	# minigame.show_finish_and_lock()
@@ -86,7 +90,7 @@ func get_smokey_aggro() -> BBQMaster_BBQ:
 	var cur_max_fire = -1;
 	for bbq in _bbqs:
 		var count = _fires.filter(func(f): return f.player_index == bbq.get_player_index()).size()
-		if count > cur_max_fire :
+		if count > cur_max_fire && count > smokey_aggro_fire_minimum && !bbq.destroyed :
 			target_bbq = bbq
 			cur_max_fire = count
 	return target_bbq

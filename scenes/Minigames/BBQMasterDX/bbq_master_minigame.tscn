@@ -40,18 +40,19 @@ player_prefab = ExtResource("2_gk4nu")
 player_spawns = [NodePath("BBQMasterMgr/Spawns/Spawn1"), NodePath("BBQMasterMgr/Spawns/Spawn2"), NodePath("BBQMasterMgr/Spawns/Spawn3"), NodePath("BBQMasterMgr/Spawns/Spawn4")]
 minigame_duration = 45
 
-[node name="BBQMasterMgr" type="Node" parent="." unique_id=1747680110 node_paths=PackedStringArray("minigame", "origin_center", "debug_label")]
+[node name="BBQMasterMgr" type="Node" parent="." unique_id=1747680110 node_paths=PackedStringArray("minigame", "origin_center", "debug_label", "smokey")]
 script = ExtResource("3_o8c3j")
 minigame = NodePath("..")
 bbq_prefab = ExtResource("4_gk4nu")
 fire_prefab = ExtResource("5_7gl4k")
 origin_center = NodePath("../CollectZone")
-smokey_max_value = 50.0
+smokey_max_value = 20.0
 smokey_base_incr = 1.0
 smokey_fire_incr = SubResource("Curve_7gl4k")
 smokey_fire_incr_max = 50.0
 smokey_fire_max_count = 35.0
 debug_label = NodePath("../CollectZone/Label")
+smokey = NodePath("../smoky")
 
 [node name="Spawns" type="Node2D" parent="BBQMasterMgr" unique_id=77636162]
 
@@ -143,3 +144,7 @@ texture = ExtResource("7_kh2af")
 
 [node name="smoky" parent="." unique_id=1254990002 instance=ExtResource("9_7gl4k")]
 position = Vector2(943, 952)
+base_speed = 300.0
+attack_speed = 1000.0
+bbq_min_distance = 50.0
+player_min_distance = 100.0

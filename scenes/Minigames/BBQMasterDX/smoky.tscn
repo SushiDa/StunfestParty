@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cv83arr5lvtwe"]
 
 [ext_resource type="Texture2D" uid="uid://cno5t0x7kpnxf" path="res://scenes/Minigames/BBQMasterDX/Assets/bear_zzz.png" id="1_gct4d"]
+[ext_resource type="Script" uid="uid://bgif3ftk1gnav" path="res://scenes/Minigames/BBQMasterDX/Scripts/smoky_movement.gd" id="1_onflv"]
 [ext_resource type="Texture2D" uid="uid://bk0j2wpvbay8i" path="res://scenes/Minigames/BBQMasterDX/Assets/Sprite-0003.png" id="2_y7jqw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7jqw"]
@@ -79,7 +80,15 @@ _data = {
 &"sleeping": SubResource("Animation_onflv")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wmq7q"]
+radius = 50.0
+
 [node name="smoky" type="Node2D" unique_id=1254990002]
+script = ExtResource("1_onflv")
+base_speed = 50.0
+attack_speed = 200.0
+bbq_min_distance = 25.0
+player_min_distance = 25.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=561856247]
 position = Vector2(125, -47)
@@ -94,3 +103,8 @@ animation = &"sleep"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=907423891]
 libraries/ = SubResource("AnimationLibrary_oblnq")
 autoplay = &"sleeping"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1823782458]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1715985137]
+shape = SubResource("CircleShape2D_wmq7q")

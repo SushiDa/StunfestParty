@@ -24,6 +24,7 @@ var _temperature:float = 0
 var _current_sausage_status: float = 0
 var _current_fire_spawn_timer: float = 1
 var _sausage_count: int = 0
+var destroyed := false
 
 var _debug_score: int = 0;
 signal throw_coal(start_pos:Vector2, end_pos:Vector2, throw_force:int, item_to_throw:PackedScene)
@@ -36,7 +37,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var running = _minigame && _minigame._minigame_running
+	var running = _minigame && _minigame._minigame_running && !destroyed
 
 	if running :
 		_temperature = max(0, _temperature - _temp_decrease_rate * delta)
@@ -127,11 +128,22 @@ func _get_current_sausage_state() -> BBQMaster_SausageState:
 	return result;
 
 func _update_graphics() -> void:
-	_ui_sausage_count.text = "x" + str(_sausage_count)
-	_sprite.animation = _get_current_temp_state().animation_string
-	_sausage_sprite.texture = _get_current_sausage_state().sprite
+	if destroyed :
+		_ui_sausage_count.text = "RIP"
+		_sprite.animation = _get_current_temp_state().animation_string
+		_sausage_sprite.texture = null
+	else :
+		_ui_sausage_count.text = "x" + str(_sausage_count)
+		_sprite.animation = _get_current_temp_state().animation_string
+		_sausage_sprite.texture = _get_current_sausage_state().sprite
+
 	if _player: _points_label.text = str(_player.score) + ""
 	else: _points_label.text = str(_debug_score) + ""
 
 func get_player_index() -> int:
 	return _player.get_player_index()
+
+func destroy_bbq():
+	_sausage_count = 0
+	_temperature = 0
+	destroyed = true
