@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cv83arr5lvtwe"]
+
+[ext_resource type="Texture2D" uid="uid://cno5t0x7kpnxf" path="res://scenes/Minigames/BBQMasterDX/Assets/bear_zzz.png" id="1_gct4d"]
+[ext_resource type="Texture2D" uid="uid://bk0j2wpvbay8i" path="res://scenes/Minigames/BBQMasterDX/Assets/Sprite-0003.png" id="2_y7jqw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7jqw"]
+atlas = ExtResource("1_gct4d")
+region = Rect2(0, 0, 72, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d30vs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7jqw")
+}],
+"loop": 1,
+"name": &"sleep",
+"speed": 5.0
+}]
+
+[node name="smoky" type="Node2D" unique_id=1254990002]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1880118270]
+position = Vector2(8.000008, 11.000008)
+scale = Vector2(4.76, 4.76)
+sprite_frames = SubResource("SpriteFrames_d30vs")
+animation = &"sleep"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=907423891]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=561856247]
+position = Vector2(125, -47)
+texture = ExtResource("2_y7jqw")

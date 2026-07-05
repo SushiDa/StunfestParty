@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bbpvjhh6h30d8" path="res://scenes/Minigames/BBQMasterDX/Assets/grass_tile.png" id="5_o8c3j"]
 [ext_resource type="Texture2D" uid="uid://cbegohd703i6y" path="res://scenes/Minigames/BBQMasterDX/Assets/sausage_raw.png" id="7_7gl4k"]
 [ext_resource type="Texture2D" uid="uid://bg18ywp05vq2r" path="res://scenes/Minigames/BBQMasterDX/Assets/match.png" id="7_kh2af"]
+[ext_resource type="PackedScene" uid="uid://cv83arr5lvtwe" path="res://scenes/Minigames/BBQMasterDX/smoky.tscn" id="9_7gl4k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o8c3j"]
 texture = ExtResource("5_o8c3j")
@@ -109,3 +110,6 @@ position = Vector2(7.999996, 16)
 rotation = 0.4171337
 scale = Vector2(0.55555815, 0.5555581)
 texture = ExtResource("7_kh2af")
+
+[node name="smoky" parent="." unique_id=1254990002 instance=ExtResource("9_7gl4k")]
+position = Vector2(943, 952)
