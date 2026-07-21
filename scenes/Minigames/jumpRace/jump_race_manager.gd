@@ -5,7 +5,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	minigame.minigame_duration = 30
+	minigame.minigame_duration = 30000
 	minigame.players_spawned.connect(_on_players_spawned)
 	minigame.game_timer_timeout.connect(_on_game_timeout)
 	await get_tree().create_timer(2.5).timeout
