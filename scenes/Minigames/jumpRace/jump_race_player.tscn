@@ -24,7 +24,7 @@ _sprite = NodePath("../PlayerBody/Sprite")
 _score_label = NodePath("../PlayerBody/Score")
 
 [node name="PlayerBody" type="CharacterBody2D" parent="." unique_id=320220926]
-collision_layer = 2
+collision_layer = 10
 script = ExtResource("5_1bb48")
 
 [node name="Sprite" type="Sprite2D" parent="PlayerBody" unique_id=187330654]

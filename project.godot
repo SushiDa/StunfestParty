@@ -44,6 +44,10 @@ window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/reiva/Videos/Captures/demo.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/multiplayer_input/plugin.cfg")
