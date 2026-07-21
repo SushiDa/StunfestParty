@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dcd037gq6l6h4"]
+
+[ext_resource type="Script" uid="uid://ff7sc7bijvlc" path="res://scenes/Minigames/minigame_base.gd" id="1_3hxt8"]
+[ext_resource type="PackedScene" uid="uid://dmhosg5movicg" path="res://scenes/Minigames/Maze3D/Prefabs/maze_player.tscn" id="2_wxs55"]
+[ext_resource type="PackedScene" uid="uid://d1o31u5uqekqd" path="res://scenes/Minigames/Maze3D/Levels/TestMaze.tscn" id="3_5aafu"]
+[ext_resource type="Script" uid="uid://b2eefjdf8wvcb" path="res://scenes/Minigames/Maze3D/Scripts/maze_manager.gd" id="3_wxs55"]
+
+[node name="Maze3d" type="Node" unique_id=1402244751 node_paths=PackedStringArray("player_spawns")]
+script = ExtResource("1_3hxt8")
+player_prefab = ExtResource("2_wxs55")
+player_spawns = [NodePath("Spawners/Spawn1"), NodePath("Spawners/Spawn2"), NodePath("Spawners/Spawn3"), NodePath("Spawners/Spawn4")]
+start_countdown = false
+metadata/_custom_type_script = "uid://ff7sc7bijvlc"
+
+[node name="MazeManager" type="Node3D" parent="." unique_id=520634819 node_paths=PackedStringArray("minigame", "viewports")]
+script = ExtResource("3_wxs55")
+minigame = NodePath("..")
+viewports = [NodePath("../HBoxContainer/SubViewportContainer/SubViewport"), NodePath("../HBoxContainer2/SubViewportContainer2/SubViewport"), NodePath("../HBoxContainer/SubViewportContainer3/SubViewport"), NodePath("../HBoxContainer2/SubViewportContainer4/SubViewport")]
+
+[node name="Level" parent="." unique_id=497900438 instance=ExtResource("3_5aafu")]
+
+[node name="Spawners" type="Node3D" parent="." unique_id=232420180]
+
+[node name="Spawn1" type="Node3D" parent="Spawners" unique_id=470740070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.528, 1, 1.764)
+
+[node name="Spawn2" type="Node3D" parent="Spawners" unique_id=949442297]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.806, 1, 3.528)
+
+[node name="Spawn3" type="Node3D" parent="Spawners" unique_id=517751368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9413848, 1, 8.20746)
+
+[node name="Spawn4" type="Node3D" parent="Spawners" unique_id=125564717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7169552, 1, -8.829174)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=561238094]
+offset_right = 1920.0
+offset_bottom = 540.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer" unique_id=1459174802]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer" unique_id=1849854215]
+handle_input_locally = false
+size = Vector2i(960, 540)
+render_target_update_mode = 4
+
+[node name="SubViewportContainer3" type="SubViewportContainer" parent="HBoxContainer" unique_id=1903744493]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer3" unique_id=320681860]
+handle_input_locally = false
+size = Vector2i(960, 540)
+render_target_update_mode = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1574660357]
+offset_top = 540.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer2" unique_id=1544912940]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer2/SubViewportContainer2" unique_id=411197536]
+handle_input_locally = false
+size = Vector2i(960, 540)
+render_target_update_mode = 4
+
+[node name="SubViewportContainer4" type="SubViewportContainer" parent="HBoxContainer2" unique_id=1441495304]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer2/SubViewportContainer4" unique_id=1543983659]
+handle_input_locally = false
+size = Vector2i(960, 540)
+render_target_update_mode = 4
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=733962681]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 1.3990908, 8.116628, 0)
+light_bake_mode = 1
