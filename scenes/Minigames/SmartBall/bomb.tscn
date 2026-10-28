@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://wne10m67tmyi"]
+
+[ext_resource type="Script" uid="uid://0rjwvswwqo0g" path="res://scenes/Minigames/SmartBall/Scripts/bomb.gd" id="1_p6n7g"]
+[ext_resource type="Texture2D" uid="uid://dj8hac1p467qe" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/3-Explosion/2.png" id="2_4q5f6"]
+[ext_resource type="Texture2D" uid="uid://bloyay8oo0d5y" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/3-Explosion/3.png" id="3_xns0n"]
+[ext_resource type="Texture2D" uid="uid://kx35mghg7onr" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/3-Explosion/4.png" id="4_k3fcv"]
+[ext_resource type="Texture2D" uid="uid://dwcksl2ppxf1v" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/3-Explosion/5.png" id="5_mvlki"]
+[ext_resource type="Texture2D" uid="uid://b83nxcc7y4ryj" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/3-Explosion/6.png" id="6_o2iin"]
+[ext_resource type="Texture2D" uid="uid://cvgelejyv4eju" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/3-Explosion/7.png" id="7_1kbo8"]
+[ext_resource type="Texture2D" uid="uid://c6ifo0ffogaha" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/3-Explosion/8.png" id="8_nnmsb"]
+[ext_resource type="Texture2D" uid="uid://cyfsbuos4b8fe" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/3-Explosion/9.png" id="9_i56xc"]
+[ext_resource type="Texture2D" uid="uid://buekhrwiiarv2" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/1-Bomb Off/1.png" id="10_ts2b4"]
+[ext_resource type="Texture2D" uid="uid://b4ambu5vysp75" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/2-Bomb On/1.png" id="11_w6av0"]
+[ext_resource type="Texture2D" uid="uid://bkmwxonlibxei" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/2-Bomb On/2.png" id="12_no0ss"]
+[ext_resource type="Texture2D" uid="uid://dirlw7nqa3wrf" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/2-Bomb On/3.png" id="13_lfpfg"]
+[ext_resource type="Texture2D" uid="uid://c4jw6ng0etpjg" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/2-Bomb On/4.png" id="14_v075g"]
+[ext_resource type="Texture2D" uid="uid://dat41tncj7ovu" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/2-Bomb On/5.png" id="15_ibx2i"]
+[ext_resource type="Texture2D" uid="uid://bmo4pu762t8nb" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/2-Bomb On/6.png" id="16_xihoj"]
+[ext_resource type="Texture2D" uid="uid://cd4ld3b05ic2i" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/2-Bomb On/7.png" id="17_o2d8u"]
+[ext_resource type="Texture2D" uid="uid://bwuvsvqin74bf" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/2-Bomb On/8.png" id="18_5pgfk"]
+[ext_resource type="Texture2D" uid="uid://cx3wawg6sa7b0" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/2-Bomb On/9.png" id="19_3gjkn"]
+[ext_resource type="Texture2D" uid="uid://cccisr1wip4vg" path="res://scenes/Minigames/SmartBall/Sprites/Bomb/2-Bomb On/10.png" id="20_maogo"]
+[ext_resource type="Script" uid="uid://ct7ktae7jl2rj" path="res://scenes/Minigames/SmartBall/Scripts/confinement.gd" id="21_3tcms"]
+
+[sub_resource type="Gradient" id="Gradient_73csh"]
+offsets = PackedFloat32Array(0.24698795, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p6n7g"]
+gradient = SubResource("Gradient_73csh")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kq58d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4q5f6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xns0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k3fcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mvlki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o2iin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1kbo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nnmsb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_i56xc")
+}],
+"loop": false,
+"name": &"Explosion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ts2b4")
+}],
+"loop": true,
+"name": &"Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_w6av0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_no0ss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_lfpfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_v075g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ibx2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xihoj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_o2d8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5pgfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3gjkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_maogo")
+}],
+"loop": true,
+"name": &"On",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kq58d"]
+radius = 16.817142
+
+[node name="Bomb" type="Area2D" unique_id=1726562991]
+z_index = 2
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_p6n7g")
+max_arc_height = null
+arc_duration_min = null
+arc_duration_max = null
+carry_offset = null
+min_throw_force = null
+max_throw_force = null
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=531630846]
+position = Vector2(0, 30)
+scale = Vector2(0.7, 0.3)
+texture = SubResource("GradientTexture2D_p6n7g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=725527378]
+z_index = 1
+position = Vector2(-2, -9)
+sprite_frames = SubResource("SpriteFrames_kq58d")
+animation = &"Off"
+speed_scale = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1236471199]
+position = Vector2(-1, 11)
+shape = SubResource("CircleShape2D_kq58d")
+
+[node name="ConfinementComponent" type="Node2D" parent="." unique_id=721730156]
+position = Vector2(-5.9604645e-08, 10)
+script = ExtResource("21_3tcms")
+
+[node name="Chrono" type="Timer" parent="." unique_id=347863727]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Chrono" to="." method="_on_timer_timeout"]

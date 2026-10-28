@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="1_ooe52"]
 [ext_resource type="Script" uid="uid://cg0lo3a8qnd56" path="res://scenes/SceneManager/test_scene.gd" id="1_ukssr"]
-[ext_resource type="Resource" uid="uid://du5a45xk1wpqo" path="res://scenes/Minigames/123Voisins/123voisin_info.tres" id="2_psj6b"]
+[ext_resource type="Resource" uid="uid://c6r20p3c4q6kj" path="res://scenes/Minigames/SmartBall/smartball.tres" id="2_psj6b"]
 [ext_resource type="Script" uid="uid://5uenlwxv47aj" path="res://scenes/Party/shared_minigame_ui.gd" id="3_marmh"]
 [ext_resource type="PackedScene" uid="uid://bbkebvu0jfsh" path="res://scenes/Party/player_win_panel.tscn" id="4_psj6b"]
 [ext_resource type="AudioStream" uid="uid://dsxglxiph4m0y" path="res://assets/sfx/shared/Don.wav" id="5_hcjeq"]

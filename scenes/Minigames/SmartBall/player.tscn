@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://44af4kv63jtp"]
+
+[ext_resource type="Script" uid="uid://fp8sjd0imf4q" path="res://scenes/Minigames/SmartBall/Scripts/player.gd" id="1_1nr01"]
+[ext_resource type="Script" uid="uid://bagfxqurfa4bv" path="res://scenes/Minigames/player_hub.gd" id="1_i07qo"]
+[ext_resource type="Texture2D" uid="uid://c0q3fhahjl764" path="res://scenes/Minigames/SmartBall/Sprites/p1.png" id="2_i07qo"]
+[ext_resource type="Script" uid="uid://ct7ktae7jl2rj" path="res://scenes/Minigames/SmartBall/Scripts/confinement.gd" id="3_8ccnm"]
+[ext_resource type="SpriteFrames" uid="uid://bk1ihd4tfuvsr" path="res://scenes/Minigames/SmartBall/Sprites/skin_p1.tres" id="3_fo8uc"]
+[ext_resource type="SpriteFrames" uid="uid://d0qtf56mdagn5" path="res://scenes/Minigames/SmartBall/Sprites/skin_p2.tres" id="4_8mskm"]
+[ext_resource type="SpriteFrames" uid="uid://c6ed4l2iaasr3" path="res://scenes/Minigames/SmartBall/Sprites/skin_p3.tres" id="5_c2r4i"]
+[ext_resource type="SpriteFrames" uid="uid://dqeadpsfo3wx5" path="res://scenes/Minigames/SmartBall/Sprites/skin_p4.tres" id="6_xeswb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf5tv"]
+atlas = ExtResource("2_i07qo")
+region = Rect2(0, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aq8dg"]
+atlas = ExtResource("2_i07qo")
+region = Rect2(16, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd4qu"]
+atlas = ExtResource("2_i07qo")
+region = Rect2(32, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh5rv"]
+atlas = ExtResource("2_i07qo")
+region = Rect2(48, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74tdo"]
+atlas = ExtResource("2_i07qo")
+region = Rect2(0, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uhvu"]
+atlas = ExtResource("2_i07qo")
+region = Rect2(16, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlld1"]
+atlas = ExtResource("2_i07qo")
+region = Rect2(32, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7kec"]
+atlas = ExtResource("2_i07qo")
+region = Rect2(48, 48, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1m5r5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf5tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aq8dg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd4qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh5rv")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74tdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uhvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlld1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7kec")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2hxjc"]
+radius = 4.998871
+height = 15.912323
+
+[node name="SmartJoueur" type="Node2D" unique_id=1519788746]
+z_index = 1
+scale = Vector2(3, 3)
+script = ExtResource("1_i07qo")
+
+[node name="SmartJoueurMgr" type="CharacterBody2D" parent="." unique_id=1225053067 node_paths=PackedStringArray("_hub")]
+unique_name_in_owner = true
+up_direction = Vector2(0, 1)
+script = ExtResource("1_1nr01")
+_hub = NodePath("..")
+skins = Array[SpriteFrames]([ExtResource("3_fo8uc"), ExtResource("4_8mskm"), ExtResource("5_c2r4i"), ExtResource("6_xeswb")])
+speed = 300
+charge_duration = 0.5
+dash_speed = 1000.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SmartJoueurMgr" unique_id=1710785075]
+position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_1m5r5")
+animation = &"Run"
+frame = 1
+frame_progress = 0.5131207
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SmartJoueurMgr" unique_id=2029396794]
+position = Vector2(-1.1920929e-07, -7.000001)
+rotation = -0.021049034
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_2hxjc")
+
+[node name="ConfinementComponent" type="Node2D" parent="SmartJoueurMgr" unique_id=1651474946]
+position = Vector2(0, -8)
+script = ExtResource("3_8ccnm")

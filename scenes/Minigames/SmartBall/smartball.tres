@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MinigameInfo" format=3 uid="uid://c6r20p3c4q6kj"]
+
+[ext_resource type="Script" uid="uid://dkhmc06h3n7cg" path="res://scenes/Minigames/minigame_info.gd" id="1_h5qpl"]
+[ext_resource type="PackedScene" uid="uid://d3yo53f234nvb" path="res://scenes/Minigames/SmartBall/smartball.tscn" id="1_mjqex"]
+
+[resource]
+script = ExtResource("1_h5qpl")
+name = "SmartBall"
+subtitle = "Marquer des buts"
+prefab = ExtResource("1_mjqex")
+action_btn1 = "Dash"
+action_btn2 = "Tir (chargé)"
+action_movement = "Déplacement"

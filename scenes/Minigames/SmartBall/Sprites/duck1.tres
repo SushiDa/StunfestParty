@@ -1,0 +1,59 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://duiuqbd38jiae"]
+
+[ext_resource type="Texture2D" uid="uid://cpmiw5vlpm31q" path="res://scenes/Minigames/SmartBall/Sprites/Ducky Revamped/Spritesheets/Idle.png" id="1_k0ewo"]
+[ext_resource type="Texture2D" uid="uid://b7famklvi4q54" path="res://scenes/Minigames/SmartBall/Sprites/Ducky Revamped/Spritesheets/Walk.png" id="2_xqcxo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n04qi"]
+atlas = ExtResource("1_k0ewo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w8fq"]
+atlas = ExtResource("1_k0ewo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6e1h"]
+atlas = ExtResource("2_xqcxo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q86ud"]
+atlas = ExtResource("2_xqcxo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkqm7"]
+atlas = ExtResource("2_xqcxo")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co7ui"]
+atlas = ExtResource("2_xqcxo")
+region = Rect2(192, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n04qi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w8fq")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6e1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q86ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkqm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co7ui")
+}],
+"loop": 1,
+"name": &"Walk",
+"speed": 5.0
+}]

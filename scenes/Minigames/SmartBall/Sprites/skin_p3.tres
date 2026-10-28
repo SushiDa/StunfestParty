@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c6ed4l2iaasr3"]
+
+[ext_resource type="Texture2D" uid="uid://dxc5i8vfg2n3g" path="res://scenes/Minigames/SmartBall/Sprites/p3.png" id="1_crga3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm8gw"]
+atlas = ExtResource("1_crga3")
+region = Rect2(0, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ddih"]
+atlas = ExtResource("1_crga3")
+region = Rect2(16, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7qqa"]
+atlas = ExtResource("1_crga3")
+region = Rect2(32, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0e61"]
+atlas = ExtResource("1_crga3")
+region = Rect2(48, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jb4n"]
+atlas = ExtResource("1_crga3")
+region = Rect2(0, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt8gf"]
+atlas = ExtResource("1_crga3")
+region = Rect2(16, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a672p"]
+atlas = ExtResource("1_crga3")
+region = Rect2(32, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urfy8"]
+atlas = ExtResource("1_crga3")
+region = Rect2(48, 48, 16, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm8gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ddih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7qqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0e61")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jb4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt8gf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a672p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urfy8")
+}],
+"loop": 1,
+"name": &"Run",
+"speed": 7.0
+}]

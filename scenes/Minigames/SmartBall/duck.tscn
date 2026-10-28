@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://5e32ivm3povw"]
+
+[ext_resource type="Script" uid="uid://c7g51sx3vpcmn" path="res://scenes/Minigames/SmartBall/Scripts/duck.gd" id="1_tuy6w"]
+[ext_resource type="SpriteFrames" uid="uid://duiuqbd38jiae" path="res://scenes/Minigames/SmartBall/Sprites/duck1.tres" id="2_73csh"]
+[ext_resource type="Script" uid="uid://ct7ktae7jl2rj" path="res://scenes/Minigames/SmartBall/Scripts/confinement.gd" id="3_0prxn"]
+
+[sub_resource type="Gradient" id="Gradient_73csh"]
+offsets = PackedFloat32Array(0.24698795, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_plkyf"]
+gradient = SubResource("Gradient_73csh")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebxd8"]
+radius = 18.196459
+
+[node name="Duck" type="Area2D" unique_id=181307490]
+z_index = 2
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_tuy6w")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=937532690]
+position = Vector2(0, 15)
+scale = Vector2(0.5, 0.2)
+texture = SubResource("GradientTexture2D_plkyf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=20291430]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_73csh")
+animation = &"Walk"
+frame_progress = 0.8647085
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=660361561]
+position = Vector2(-0.6666667, 3.3333333)
+shape = SubResource("CircleShape2D_ebxd8")
+
+[node name="ConfinementComponent" type="Node2D" parent="." unique_id=771728268]
+position = Vector2(0, 5.3333335)
+script = ExtResource("3_0prxn")
