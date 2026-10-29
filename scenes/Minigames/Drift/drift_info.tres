@@ -9,6 +9,6 @@ name = "StunDrift"
 subtitle = "C'est l'heure de drifter"
 authors = "Sushi"
 prefab = ExtResource("1_xmwks")
-action_btn1 = "Accélérer"
 action_horizontal = "Tourner"
+action_btn1 = "Accélérer"
 metadata/_custom_type_script = "uid://dkhmc06h3n7cg"

@@ -5,3 +5,16 @@ res://scenes/Minigames/DodgeBall/DodgeBall_game.gd
 res://scenes/SceneManager/test_scene.tscn
 res://assets/move_animation/move.res
 res://scenes/Minigames/DodgeBall/DodgeBall_game.tscn
+res://scenes/Minigames/minigame_info.gd
+res://scenes/Minigames/123Voisins/123voisin_info.tres
+res://scenes/Minigames/DodgeBall/DodgeBall_info.tres
+res://scenes/Minigames/BtnMasher/btn_masher.tres
+res://scenes/Minigames/Drift/drift_info.tres
+res://scenes/Minigames/InterroSurprise/interro_info.tres
+res://scenes/Minigames/jumpRace/jump_race.tres
+res://scenes/Minigames/Maze3D/maze_3D_info.tres
+res://scenes/Minigames/PumpPumpPump/pump_info.tres
+res://scenes/Minigames/Pyromane/pyromane.tres
+res://scenes/Minigames/soapRace/soapRace_info.tres
+res://scenes/Party/game_roulette.gd
+res://scenes/Party/Party.tscn

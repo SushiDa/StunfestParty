@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://cp8b6tltt8epm" path="res://assets/sfx/shared/Finish.wav" id="15_mb05c"]
 [ext_resource type="AudioStream" uid="uid://dkmpelmacm1rk" path="res://assets/sfx/shared/MinigameVictory.tres" id="16_v5gsv"]
 [ext_resource type="AudioStream" uid="uid://cffyjucbcyacr" path="res://assets/sfx/shared/MinigameTie/Draw.ogg" id="17_x60e8"]
+[ext_resource type="Texture2D" uid="uid://b8ob5xrukn8s8" path="res://scenes/Minigames/DodgeBall/icon_arrow.png" id="20_82j7b"]
 [ext_resource type="FontFile" uid="uid://c1l872xkvd2up" path="res://assets/fonts/Stunfest2025.otf" id="21_82j7b"]
 [ext_resource type="Texture2D" uid="uid://d3ito577g5bl2" path="res://scenes/Minigames/123Voisins/assets/white1080.png" id="21_d83rp"]
 [ext_resource type="Script" uid="uid://dgsojmebkyaov" path="res://scenes/Shared/beat_pulse_control.gd" id="21_v5gsv"]
@@ -102,10 +103,262 @@ font_color = Color(1, 0.7931667, 0.26999998, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_0gjth"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Btn1Mash/BGA/MashA:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Btn1Mash/BGA/BtnA:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Btn1Hold/TextureRect/ArrowHold/Label:offset_transform_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kojx4"]
+resource_name = "input_loop"
+length = 0.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Btn1Mash/BGA/MashA:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Btn1Mash/BGA/BtnA:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(100, 0), Vector2(100, -10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Btn2Mash/BGB/MashB:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Btn2Mash/BGB/BtnB:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(100, 0), Vector2(100, -10)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BtnAnyMash/HBoxContainer/BGA/MashA:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BtnAnyMash/HBoxContainer/BGA/BtnA:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, -10)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BtnAnyMash/HBoxContainer/BGB/MashB:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BtnAnyMash/HBoxContainer/BGB/BtnB:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BtnAnyMashAlt/HBoxContainer/BGA/MashA:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BtnAnyMashAlt/HBoxContainer/BGA/BtnA:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, -10)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BtnAnyMashAlt/HBoxContainer/BGB/MashB:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BtnAnyMashAlt/HBoxContainer/BGB/BtnB:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Btn1Hold/TextureRect/ArrowHold/Label:offset_transform_position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(2.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 3.5)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Btn2Hold/TextureRect/ArrowHold/Label:offset_transform_position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(2.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 3.5)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("BtnAnyHold/HBoxContainer/TextureRect2/ArrowHold/Label:offset_transform_position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(2.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 3.5)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("BtnAnyHold/HBoxContainer/TextureRect/ArrowHold/Label:offset_transform_position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(2.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 3.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lo45b"]
+_data = {
+&"RESET": SubResource("Animation_0gjth"),
+&"input_loop": SubResource("Animation_kojx4")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_pp5ej"]
 font = ExtResource("3_xjrt0")
 font_size = 32
 outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3gcot"]
+font = ExtResource("3_xjrt0")
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_735yp"]
+font = ExtResource("3_xjrt0")
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cnbk5"]
@@ -828,7 +1081,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="GameRoulette" type="MarginContainer" parent="PartyUI/Panel" unique_id=1970322287 node_paths=PackedStringArray("roulette_root", "roulette_container", "game_name", "game_subtitle", "start_text", "anim", "panel_btn_hori", "panel_btn_vert", "panel_btn_move", "panel_btn_act1", "panel_btn_act2", "panel_txt_hori", "panel_txt_vert", "panel_txt_move", "panel_txt_act1", "panel_txt_act2")]
+[node name="GameRoulette" type="MarginContainer" parent="PartyUI/Panel" unique_id=1970322287 node_paths=PackedStringArray("roulette_root", "roulette_container", "game_name", "game_subtitle", "start_text", "anim", "panel_btn_hori", "panel_btn_vert", "panel_btn_move", "panel_btn_act1", "panel_btn_act2", "panel_btn_any", "panel_btn_act1_mash", "panel_btn_act2_mash", "panel_btn_any_mash", "panel_btn_alt_mash", "panel_btn_act1_hold", "panel_btn_act2_hold", "panel_btn_any_hold", "panel_txt_hori", "panel_txt_vert", "panel_txt_move", "panel_txt_act1", "panel_txt_act2", "panel_txt_any", "panel_txt_act1_mash", "panel_txt_act2_mash", "panel_txt_any_mash", "panel_txt_alt_mash", "panel_txt_act1_hold", "panel_txt_act2_hold", "panel_txt_any_hold")]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -855,11 +1108,27 @@ panel_btn_vert = NodePath("VBoxContainer/HBoxContainer/BtnVert")
 panel_btn_move = NodePath("VBoxContainer/HBoxContainer/BtnMove")
 panel_btn_act1 = NodePath("VBoxContainer/HBoxContainer/Btn1")
 panel_btn_act2 = NodePath("VBoxContainer/HBoxContainer/Btn2")
+panel_btn_any = NodePath("VBoxContainer/HBoxContainer/BtnAny")
+panel_btn_act1_mash = NodePath("VBoxContainer/HBoxContainer/Btn1Mash")
+panel_btn_act2_mash = NodePath("VBoxContainer/HBoxContainer/Btn2Mash")
+panel_btn_any_mash = NodePath("VBoxContainer/HBoxContainer/BtnAnyMash")
+panel_btn_alt_mash = NodePath("VBoxContainer/HBoxContainer/BtnAnyMashAlt")
+panel_btn_act1_hold = NodePath("VBoxContainer/HBoxContainer/Btn1Hold")
+panel_btn_act2_hold = NodePath("VBoxContainer/HBoxContainer/Btn2Hold")
+panel_btn_any_hold = NodePath("VBoxContainer/HBoxContainer/BtnAnyHold")
 panel_txt_hori = NodePath("VBoxContainer/HBoxContainer/BtnHori/Label")
 panel_txt_vert = NodePath("VBoxContainer/HBoxContainer/BtnVert/Label")
 panel_txt_move = NodePath("VBoxContainer/HBoxContainer/BtnMove/Label")
 panel_txt_act1 = NodePath("VBoxContainer/HBoxContainer/Btn1/Label")
 panel_txt_act2 = NodePath("VBoxContainer/HBoxContainer/Btn2/Label")
+panel_txt_any = NodePath("VBoxContainer/HBoxContainer/BtnAny/Label")
+panel_txt_act1_mash = NodePath("VBoxContainer/HBoxContainer/Btn1Mash/Label")
+panel_txt_act2_mash = NodePath("VBoxContainer/HBoxContainer/Btn2Mash/Label")
+panel_txt_any_mash = NodePath("VBoxContainer/HBoxContainer/BtnAnyMash/Label")
+panel_txt_alt_mash = NodePath("VBoxContainer/HBoxContainer/BtnAnyMashAlt/Label")
+panel_txt_act1_hold = NodePath("VBoxContainer/HBoxContainer/Btn1Hold/Label")
+panel_txt_act2_hold = NodePath("VBoxContainer/HBoxContainer/Btn2Hold/Label")
+panel_txt_any_hold = NodePath("VBoxContainer/HBoxContainer/BtnAnyHold/Label")
 _SFX_roulette = ExtResource("12_8m7t5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette" unique_id=1077487062]
@@ -922,6 +1191,10 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 alignment = 1
+
+[node name="InputAnimation" type="AnimationPlayer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=144896012]
+libraries/ = SubResource("AnimationLibrary_lo45b")
+autoplay = &"input_loop"
 
 [node name="BtnHori" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=1089419769]
 custom_minimum_size = Vector2(300, 0)
@@ -1007,6 +1280,141 @@ label_settings = SubResource("LabelSettings_pp5ej")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Btn1Mash" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=534031873]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BGA" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn1Mash" unique_id=1596117209]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("7_ggfcw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MashA" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn1Mash/BGA" unique_id=631593617]
+self_modulate = Color(0.6901961, 1, 0.6509804, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -55.0
+offset_right = 80.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("24_0gjth")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BtnA" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn1Mash/BGA" unique_id=1913794457]
+self_modulate = Color(0.6908334, 1, 0.65, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_ggfcw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn1Mash" unique_id=980978939]
+layout_mode = 2
+text = "Beweggen"
+label_settings = SubResource("LabelSettings_pp5ej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Btn1Hold" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=2140071260]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn1Hold" unique_id=1393270072]
+self_modulate = Color(0.6908334, 1, 0.65, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("7_ggfcw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ArrowHold" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn1Hold/TextureRect" unique_id=432793671]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = -13.0
+offset_right = 30.0
+offset_bottom = 47.0
+grow_horizontal = 2
+rotation = 1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("20_82j7b")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn1Hold/TextureRect/ArrowHold" unique_id=106312318]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("20_82j7b")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn1Hold/TextureRect/ArrowHold" unique_id=1339732272]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -13.0
+offset_right = 32.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_enabled = true
+text = "Maintenir"
+label_settings = SubResource("LabelSettings_3gcot")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn1Hold" unique_id=372389476]
+layout_mode = 2
+text = "Beweggen"
+label_settings = SubResource("LabelSettings_pp5ej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Btn2" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=2031468768]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -1022,6 +1430,548 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn2" unique_id=1698190596]
+layout_mode = 2
+text = "Beweggen"
+label_settings = SubResource("LabelSettings_pp5ej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Btn2Mash" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=1716199688]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BGB" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn2Mash" unique_id=297042816]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_1sccy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MashB" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn2Mash/BGB" unique_id=983490066]
+self_modulate = Color(1, 0.6509804, 0.6509804, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -55.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("24_0gjth")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BtnB" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn2Mash/BGB" unique_id=1260653012]
+self_modulate = Color(1, 0.6509804, 0.6509804, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_1sccy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn2Mash" unique_id=653041253]
+layout_mode = 2
+text = "Beweggen"
+label_settings = SubResource("LabelSettings_pp5ej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Btn2Hold" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=2027933893]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn2Hold" unique_id=1798853488]
+self_modulate = Color(1, 0.65, 0.65, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("8_1sccy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ArrowHold" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn2Hold/TextureRect" unique_id=440095859]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = -13.0
+offset_right = 30.0
+offset_bottom = 47.0
+grow_horizontal = 2
+rotation = 1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("20_82j7b")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn2Hold/TextureRect/ArrowHold" unique_id=962595778]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("20_82j7b")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn2Hold/TextureRect/ArrowHold" unique_id=1349904557]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -13.0
+offset_right = 32.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 0.58002335)
+text = "Maintenir"
+label_settings = SubResource("LabelSettings_3gcot")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/Btn2Hold" unique_id=717033342]
+layout_mode = 2
+text = "Beweggen"
+label_settings = SubResource("LabelSettings_pp5ej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnAny" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=1419871575]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAny" unique_id=1080030108]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAny/HBoxContainer" unique_id=993363146]
+self_modulate = Color(0.6908334, 1, 0.65, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("7_ggfcw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAny/HBoxContainer" unique_id=584262630]
+layout_mode = 2
+text = " Ou "
+label_settings = SubResource("LabelSettings_735yp")
+
+[node name="TextureRect" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAny/HBoxContainer" unique_id=580887027]
+self_modulate = Color(1, 0.65, 0.65, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_1sccy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAny" unique_id=1203129497]
+layout_mode = 2
+text = "Beweggen"
+label_settings = SubResource("LabelSettings_pp5ej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnAnyMash" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=1100262949]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMash" unique_id=1055333809]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="BGA" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMash/HBoxContainer" unique_id=1935176617]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("7_ggfcw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MashA" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMash/HBoxContainer/BGA" unique_id=1999790253]
+self_modulate = Color(0.6901961, 1, 0.6509804, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -55.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("24_0gjth")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BtnA" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMash/HBoxContainer/BGA" unique_id=1427258151]
+self_modulate = Color(0.6908334, 1, 0.65, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("7_ggfcw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMash/HBoxContainer" unique_id=724412208]
+layout_mode = 2
+text = " Ou "
+label_settings = SubResource("LabelSettings_735yp")
+
+[node name="BGB" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMash/HBoxContainer" unique_id=122092190]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_1sccy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MashB" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMash/HBoxContainer/BGB" unique_id=693823880]
+visible = false
+self_modulate = Color(1, 0.6509804, 0.6509804, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -55.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("24_0gjth")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BtnB" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMash/HBoxContainer/BGB" unique_id=1055112536]
+self_modulate = Color(1, 0.6509804, 0.6509804, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -60.0
+offset_right = 50.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_1sccy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMash" unique_id=1101380893]
+layout_mode = 2
+text = "Beweggen"
+label_settings = SubResource("LabelSettings_pp5ej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnAnyMashAlt" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=346528095]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMashAlt" unique_id=31405839]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="BGA" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMashAlt/HBoxContainer" unique_id=322887905]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("7_ggfcw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MashA" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMashAlt/HBoxContainer/BGA" unique_id=259812345]
+self_modulate = Color(0.6901961, 1, 0.6509804, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -55.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("24_0gjth")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BtnA" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMashAlt/HBoxContainer/BGA" unique_id=1921626234]
+self_modulate = Color(0.6908334, 1, 0.65, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("7_ggfcw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMashAlt/HBoxContainer" unique_id=208724925]
+layout_mode = 2
+text = "  ALT. "
+label_settings = SubResource("LabelSettings_735yp")
+
+[node name="BGB" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMashAlt/HBoxContainer" unique_id=529661268]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_1sccy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MashB" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMashAlt/HBoxContainer/BGB" unique_id=1445685972]
+visible = false
+self_modulate = Color(1, 0.6509804, 0.6509804, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -55.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("24_0gjth")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="BtnB" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMashAlt/HBoxContainer/BGB" unique_id=1635761635]
+self_modulate = Color(1, 0.6509804, 0.6509804, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -60.0
+offset_right = 50.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_1sccy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyMashAlt" unique_id=2130730051]
+layout_mode = 2
+text = "Beweggen"
+label_settings = SubResource("LabelSettings_pp5ej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnAnyHold" type="VBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer" unique_id=370789756]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyHold" unique_id=19000031]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyHold/HBoxContainer" unique_id=134147319]
+self_modulate = Color(0.6908334, 1, 0.65, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("7_ggfcw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ArrowHold" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyHold/HBoxContainer/TextureRect2" unique_id=402542045]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = -13.0
+offset_right = 30.0
+offset_bottom = 47.0
+grow_horizontal = 2
+rotation = 1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("20_82j7b")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyHold/HBoxContainer/TextureRect2/ArrowHold" unique_id=290477720]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("20_82j7b")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyHold/HBoxContainer/TextureRect2/ArrowHold" unique_id=1897069696]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -13.0
+offset_right = 32.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 0.58002335)
+text = "Maintenir"
+label_settings = SubResource("LabelSettings_3gcot")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyHold/HBoxContainer" unique_id=1520971242]
+layout_mode = 2
+text = " Ou "
+label_settings = SubResource("LabelSettings_735yp")
+
+[node name="TextureRect" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyHold/HBoxContainer" unique_id=8679206]
+self_modulate = Color(1, 0.65, 0.65, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("8_1sccy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ArrowHold" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyHold/HBoxContainer/TextureRect" unique_id=494039180]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = -13.0
+offset_right = 30.0
+offset_bottom = 47.0
+grow_horizontal = 2
+rotation = 1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("20_82j7b")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyHold/HBoxContainer/TextureRect/ArrowHold" unique_id=1258875656]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("20_82j7b")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyHold/HBoxContainer/TextureRect/ArrowHold" unique_id=782659746]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -13.0
+offset_right = 32.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 0.58002335)
+text = "Maintenir"
+label_settings = SubResource("LabelSettings_3gcot")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="PartyUI/Panel/GameRoulette/VBoxContainer/HBoxContainer/BtnAnyHold" unique_id=384691247]
 layout_mode = 2
 text = "Beweggen"
 label_settings = SubResource("LabelSettings_pp5ej")

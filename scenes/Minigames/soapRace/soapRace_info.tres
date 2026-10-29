@@ -11,6 +11,6 @@ authors = "game: Dreca
 Music: Alexis Lumière
 SFX: pixabay"
 prefab = ExtResource("1_t337n")
-action_btn1 = "Accélérer"
 action_horizontal = "Se déplacer"
+action_btn1_hold = "Accélérer"
 metadata/_custom_type_script = "uid://dkhmc06h3n7cg"

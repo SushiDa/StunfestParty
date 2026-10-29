@@ -15,12 +15,28 @@ signal roulette_ended(minigame:MinigameInfo)
 @export var panel_btn_move: Control
 @export var panel_btn_act1: Control
 @export var panel_btn_act2: Control
+@export var panel_btn_any: Control
+@export var panel_btn_act1_mash: Control
+@export var panel_btn_act2_mash: Control
+@export var panel_btn_any_mash: Control
+@export var panel_btn_alt_mash: Control
+@export var panel_btn_act1_hold: Control
+@export var panel_btn_act2_hold: Control
+@export var panel_btn_any_hold: Control
 
 @export var panel_txt_hori: Label
 @export var panel_txt_vert: Label
 @export var panel_txt_move: Label
 @export var panel_txt_act1: Label
 @export var panel_txt_act2: Label
+@export var panel_txt_any: Label
+@export var panel_txt_act1_mash: Label
+@export var panel_txt_act2_mash: Label
+@export var panel_txt_any_mash: Label
+@export var panel_txt_alt_mash: Label
+@export var panel_txt_act1_hold: Label
+@export var panel_txt_act2_hold: Label
+@export var panel_txt_any_hold: Label
 
 @export var _SFX_roulette: AudioStream
 
@@ -82,6 +98,14 @@ func _update_minigame_display() -> void:
 		game_subtitle.text = ""
 		panel_btn_act1.visible = false
 		panel_btn_act2.visible = false
+		panel_btn_any.visible = false
+		panel_btn_act1_mash.visible = false
+		panel_btn_act2_mash.visible = false
+		panel_btn_any_mash.visible = false
+		panel_btn_alt_mash.visible = false
+		panel_btn_act1_hold.visible = false
+		panel_btn_act2_hold.visible = false
+		panel_btn_any_hold.visible = false
 		panel_btn_hori.visible = false
 		panel_btn_vert.visible = false
 		panel_btn_move.visible = false
@@ -90,11 +114,28 @@ func _update_minigame_display() -> void:
 		game_subtitle.text = _selected_minigame.subtitle
 		panel_btn_act1.visible = _selected_minigame.action_btn1 != ""
 		panel_btn_act2.visible = _selected_minigame.action_btn2 != ""
+		panel_btn_any.visible = _selected_minigame.action_btn_any != ""
+		panel_btn_act1_mash.visible = _selected_minigame.action_btn1_mash != ""
+		panel_btn_act2_mash.visible = _selected_minigame.action_btn2_mash != ""
+		panel_btn_any_mash.visible = _selected_minigame.action_btn_any_mash != ""
+		panel_btn_alt_mash.visible = _selected_minigame.action_btn_alternate_mash != ""
+		panel_btn_act1_hold.visible = _selected_minigame.action_btn1_hold != ""
+		panel_btn_act2_hold.visible = _selected_minigame.action_btn2_hold != ""
+		panel_btn_any_hold.visible = _selected_minigame.action_btn_any_hold != ""
 		panel_btn_hori.visible = _selected_minigame.action_horizontal != ""
 		panel_btn_vert.visible = _selected_minigame.action_vertical != ""
 		panel_btn_move.visible = _selected_minigame.action_movement != ""
+
 		panel_txt_act1.text = _selected_minigame.action_btn1
 		panel_txt_act2.text = _selected_minigame.action_btn2
+		panel_txt_any.text = _selected_minigame.action_btn_any
+		panel_txt_act1_mash.text = _selected_minigame.action_btn1_mash
+		panel_txt_act2_mash.text = _selected_minigame.action_btn2_mash
+		panel_txt_any_mash.text = _selected_minigame.action_btn_any_mash
+		panel_txt_alt_mash.text = _selected_minigame.action_btn_alternate_mash
+		panel_txt_act1_hold.text = _selected_minigame.action_btn1_hold
+		panel_txt_act2_hold.text = _selected_minigame.action_btn2_hold
+		panel_txt_any_hold.text = _selected_minigame.action_btn_any_hold
 		panel_txt_hori.text = _selected_minigame.action_horizontal
 		panel_txt_vert.text = _selected_minigame.action_vertical
 		panel_txt_move.text = _selected_minigame.action_movement

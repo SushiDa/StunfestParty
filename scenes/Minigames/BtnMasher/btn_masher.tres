@@ -9,6 +9,5 @@ name = "Enduro Disco"
 subtitle = "Spammez vos move pour la piste de danse"
 authors = "Sushi"
 prefab = ExtResource("1_nve7n")
-action_btn1 = "S'echauffer"
-action_btn2 = "pour danser"
+action_btn_any_mash = "S'echauffer pour danser"
 metadata/_custom_type_script = "uid://dkhmc06h3n7cg"

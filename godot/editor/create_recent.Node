@@ -1,7 +1,9 @@
-BeatPulse2D
 AnimationPlayer
-Node2D
 Label
+HBoxContainer
+TextureRect
+BeatPulse2D
+Node2D
 Sprite2D
 CollisionShape2D
 Area2D
@@ -9,4 +11,3 @@ CharacterBody2D
 RigidBody2D
 ColorRect
 StaticBody2D
-TextureRect

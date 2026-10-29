@@ -8,6 +8,6 @@ script = ExtResource("1_88mkg")
 name = "Balle au prisonnier"
 authors = "Sushi"
 prefab = ExtResource("1_wm4qy")
-action_btn1 = "Frapper une balle"
 action_movement = "Se déplacer"
+action_btn_any = "Frapper une balle"
 metadata/_custom_type_script = "uid://dkhmc06h3n7cg"

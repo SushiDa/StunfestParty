@@ -9,6 +9,5 @@ name = "1 2 3 ... Voisin !"
 subtitle = "Avancez quand le voisin n'est pas la !"
 authors = "Sushi"
 prefab = ExtResource("1_t2qms")
-action_btn1 = "Courir"
-action_btn2 = "Courir"
+action_btn_any_mash = "Courir"
 metadata/_custom_type_script = "uid://dkhmc06h3n7cg"
