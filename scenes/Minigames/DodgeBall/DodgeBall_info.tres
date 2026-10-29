@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MinigameInfo" format=3 uid="uid://doqkrda3d6p50"]
+
+[ext_resource type="Script" uid="uid://dkhmc06h3n7cg" path="res://scenes/Minigames/minigame_info.gd" id="1_88mkg"]
+[ext_resource type="PackedScene" uid="uid://m8c8bmpfafgj" path="res://scenes/Minigames/DodgeBall/DodgeBall_game.tscn" id="1_wm4qy"]
+
+[resource]
+script = ExtResource("1_88mkg")
+name = "Balle au prisonnier"
+authors = "Sushi"
+prefab = ExtResource("1_wm4qy")
+action_btn1 = "Frapper une balle"
+action_movement = "Se déplacer"
+metadata/_custom_type_script = "uid://dkhmc06h3n7cg"

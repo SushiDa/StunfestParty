@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://m8c8bmpfafgj"]
+
+[ext_resource type="Script" uid="uid://ff7sc7bijvlc" path="res://scenes/Minigames/minigame_base.gd" id="1_2ctji"]
+[ext_resource type="PackedScene" uid="uid://c23bdcyhinccf" path="res://scenes/Minigames/DodgeBall/dodge_player.tscn" id="2_dpar5"]
+[ext_resource type="Texture2D" uid="uid://c03ihj78a2oha" path="res://assets/sprites/Oak-Stretcher-Architextures.jpg" id="2_t4yxn"]
+[ext_resource type="Texture2D" uid="uid://ecxjlqsxtpip" path="res://assets/sprites/shapes/BGSquare.png" id="3_6e2tu"]
+[ext_resource type="AudioStream" uid="uid://bvt3jndrvncvs" path="res://scenes/Minigames/DodgeBall/DodgeBall_Music.ogg" id="3_fctxn"]
+[ext_resource type="Script" uid="uid://c0r33lap7qesi" path="res://scenes/Minigames/DodgeBall/DodgeBall_game.gd" id="3_pdjui"]
+[ext_resource type="PackedScene" uid="uid://dnm2gvprjv8nu" path="res://scenes/Minigames/DodgeBall/ball.tscn" id="4_pdjui"]
+[ext_resource type="Texture2D" uid="uid://bwha6v1w0mujy" path="res://assets/sprites/Pilotage-Stretcher-Architextures.jpg" id="4_sv8dh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wmq7q"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmq7q"]
+size = Vector2(1920, 50)
+
+[node name="DodgeBall" type="Node2D" unique_id=1776088905 node_paths=PackedStringArray("player_spawns")]
+script = ExtResource("1_2ctji")
+player_prefab = ExtResource("2_dpar5")
+player_spawns = [NodePath("Spawns/Spawn1"), NodePath("Spawns/Spawn2"), NodePath("Spawns/Spawn3"), NodePath("Spawns/Spawn4")]
+music = ExtResource("3_fctxn")
+start_countdown_on_beat = true
+minigame_duration = 40
+
+[node name="DodgeBallMgr" type="Node2D" parent="." unique_id=865792564 node_paths=PackedStringArray("minigame", "ball_spawn_point")]
+script = ExtResource("3_pdjui")
+minigame = NodePath("..")
+spawn_interval = 6.0
+ball_max_count = 5
+ball_base_speed = 500.0
+ball_speed_increment = 125.0
+ball_prefab = ExtResource("4_pdjui")
+ball_spawn_point = NodePath("../BallSpawn")
+
+[node name="World" type="Node2D" parent="." unique_id=787073762]
+
+[node name="Floor" type="TextureRect" parent="World" unique_id=947173192]
+self_modulate = Color(0.9, 0.9, 0.9, 1)
+offset_top = 1080.0
+offset_right = 2160.0
+offset_bottom = 4920.0
+rotation = -1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_t4yxn")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="WallN" type="StaticBody2D" parent="World" unique_id=1646471244]
+position = Vector2(960, 125)
+physics_material_override = SubResource("PhysicsMaterial_wmq7q")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/WallN" unique_id=712469712]
+self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(3.7578125, 0.105468765)
+texture = ExtResource("3_6e2tu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WallN" unique_id=2021295189]
+shape = SubResource("RectangleShape2D_wmq7q")
+
+[node name="WallS" type="StaticBody2D" parent="World" unique_id=1269586469]
+position = Vector2(960, 1080)
+physics_material_override = SubResource("PhysicsMaterial_wmq7q")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/WallS" unique_id=464649506]
+self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(3.7578125, 0.105468765)
+texture = ExtResource("3_6e2tu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WallS" unique_id=1528204626]
+shape = SubResource("RectangleShape2D_wmq7q")
+
+[node name="WallW" type="StaticBody2D" parent="World" unique_id=215485149]
+position = Vector2(0, 589)
+rotation = 1.5707964
+physics_material_override = SubResource("PhysicsMaterial_wmq7q")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/WallW" unique_id=1970181340]
+self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(3.7578125, 0.105468765)
+texture = ExtResource("3_6e2tu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WallW" unique_id=652548758]
+shape = SubResource("RectangleShape2D_wmq7q")
+
+[node name="WallE" type="StaticBody2D" parent="World" unique_id=2014793152]
+position = Vector2(1920, 589)
+rotation = 1.5707964
+physics_material_override = SubResource("PhysicsMaterial_wmq7q")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/WallE" unique_id=150845319]
+self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(3.7578125, 0.105468765)
+texture = ExtResource("3_6e2tu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WallE" unique_id=1629263651]
+shape = SubResource("RectangleShape2D_wmq7q")
+
+[node name="Bricks" type="TextureRect" parent="World" unique_id=1883559168]
+self_modulate = Color(0.44, 0.44, 0.44, 1)
+offset_right = 3840.0
+offset_bottom = 250.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_sv8dh")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Spawns" type="Node2D" parent="." unique_id=625975698]
+
+[node name="Spawn1" type="Node2D" parent="Spawns" unique_id=1677514508]
+position = Vector2(1620, 780)
+
+[node name="Spawn2" type="Node2D" parent="Spawns" unique_id=828366048]
+position = Vector2(300, 780)
+
+[node name="Spawn3" type="Node2D" parent="Spawns" unique_id=959672985]
+position = Vector2(1620, 400)
+
+[node name="Spawn4" type="Node2D" parent="Spawns" unique_id=1306870204]
+position = Vector2(300, 400)
+
+[node name="BallSpawn" type="Node2D" parent="." unique_id=2094978541]
+position = Vector2(954, 615)

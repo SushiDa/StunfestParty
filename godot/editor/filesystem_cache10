@@ -1,5 +1,5 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1793031773
+::res://::1793292111
 default_bus_layout.tres::AudioBusLayout::215946697341912788::1777228076::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile::-1::1793031641::0::1::::<><><>0<>0<><>::
 icon.png::CompressedTexture2D::5573085375232918140::1793021598::1793031771::1::::<><><>0<>0<>7bfea685153eba57308016ae78894e7d<>res://godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
@@ -7,7 +7,7 @@ icon.svg::CompressedTexture2D::7912100758068201570::1770462363::1793031771::1:::
 README.md::TextFile::-1::1777724047::0::1::::<><><>0<>0<><>::
 StunfestParty.jpg::CompressedTexture2D::616726679874069460::1793022207::1793031773::1::::<><><>0<>0<>f02fccd7d7b81bd8b377d226f39357e8<>res://godot/imported/StunfestParty.jpg-ddabde5e04fc8dc954bf9715d38d4007.ctex::
 StunfestParty.png::CompressedTexture2D::4543234967720942729::1793022180::1793031773::1::::<><><>0<>0<>405d9e872c8c715c3bf8516ac066504b<>res://godot/imported/StunfestParty.png-9b7151af5001b16c9e3c70c1b28bf6cf.ctex::
-::res://addons/::1770674637
+::res://addons/::1793210440
 ::res://addons/multiplayer_input/::1772490383
 device_input.gd::GDScript::2998127571205591455::1752075037::0::1::::DeviceInput<>RefCounted<><>0<>0<><>::
 multiplayer_input.gd::GDScript::2968010693197494073::1772490383::0::1::::<>Node<><>0<>0<><>::
@@ -16,7 +16,20 @@ plugin.gd::GDScript::6298793430033086344::1752075037::0::1::::<>EditorPlugin<><>
 ::res://addons/rhythm_notifier/::1793031775
 icon.svg::CompressedTexture2D::915565551177489870::1770674637::1793031774::1::::<><><>0<>0<>33f91f8fd5b0d721ddf972c503fed532<>res://godot/imported/icon.svg-794c3cd667fc78a40612cbf98faccfbd.ctex::
 rhythm_notifier.gd::GDScript::8180793685723304702::1792629037::0::1::::RhythmNotifier<>Node<><>0<>1<><>::
-::res://assets/::1793031777
+::res://addons/sprite_mesh/::1793210440
+LICENSE.md::TextFile::-1::1793210440::0::1::::<><><>0<>0<><>::
+plugin.cfg::TextFile::-1::1793210440::0::1::::<><><>0<>0<><>::
+plugin.gd::GDScript::4499687116921633733::1793210440::0::1::::<>EditorPlugin<><>0<>1<><>::
+sprite_mesh.gd::GDScript::1010312285422752273::1793210440::0::1::::SpriteMesh<>Resource<><>0<>0<><>::
+sprite_mesh_instance.gd::GDScript::1621288257592793025::1793210440::0::1::::SpriteMeshInstance<>MeshInstance3D<><>0<>1<><>::
+::res://addons/sprite_mesh/icons/::1793210441
+sprite_mesh.svg::CompressedTexture2D::7330312637074670287::1793210440::1793210441::1::::<><><>0<>0<>4ee744b778a9a58296320db0ffb62600<>res://godot/imported/sprite_mesh.svg-416bb6e3c28734a3b7a19d034cfeb2a1.ctex::
+sprite_mesh_instance.svg::CompressedTexture2D::5327026287369498205::1793210440::1793210441::1::::<><><>0<>0<>62bbbcdb2487d3e3c6b75440d7ee958a<>res://godot/imported/sprite_mesh_instance.svg-b563614ecfdbbd53b0ed4297d607e0c2.ctex::
+::res://addons/sprite_mesh/scripts/::1793210440
+frame.gd::GDScript::5634102605278252608::1793210440::0::1::::<>RefCounted<><>0<>0<><>::
+greedy_algorithm.gd::GDScript::6369003692978773917::1793210440::0::1::::<>RefCounted<><>0<>0<><>::
+quad.gd::GDScript::4599975077961912718::1793210440::0::1::::<>RefCounted<><>0<>0<><>::
+::res://assets/::1793302425
 Checker.png::CompressedTexture2D::6821589633299727645::1772747141::1793031777::1::::<><><>0<>0<>556bf1b38ce2402ba45f6fbfa82ea462<>res://godot/imported/Checker.png-6cc22e5b268d4f0b0b67ab271af88162.ctex::
 ::res://assets/characters/::1793031773
 placeholder.png::CompressedTexture2D::8397187564927017218::1793026178::1793031773::1::::<><><>0<>0<>eeb5bd526998e3067c1c52319ab29a53<>res://godot/imported/placeholder.png-f6fa3e1a9825b1b47c7fe34ba31b5344.s3tc.ctex::
@@ -91,6 +104,8 @@ cheeseborger.ttf::FontFile::1452939551500507279::1792534021::1793031767::1::::<>
 Dish Out.ttf::FontFile::5865586804824302795::1771882832::1793031767::1::::<><><>0<>0<>1e9c87eae605559763d11358dcdfc98d<>res://godot/imported/Dish Out.ttf-e177d05ecaa18ad1e26c654490785cb7.fontdata::
 Mario-Party-Hudson-Font.ttf::FontFile::753804205530477458::1771882832::1793031767::1::::<><><>0<>0<>3a47f2d4595fc9423a665436cff16491<>res://godot/imported/Mario-Party-Hudson-Font.ttf-56c24422b66c77c83ed4755340624a10.fontdata::
 Stunfest2025.otf::FontFile::6622521717579474187::1772750198::1793031767::1::::<><><>0<>0<>63968e08d1bb00047684ba60aa06b54e<>res://godot/imported/Stunfest2025.otf-93021af5d8e93a7bfb0e6d9e9bb0db3a.fontdata::
+::res://assets/move_animation/::1793302582
+move.res::Animation::6345063292153686429::1793302582::0::1::::<><><>0<>0<><>::
 ::res://assets/music/::1793031769
 Default_Music.ogg::AudioStreamOggVorbis::8522821443328078507::1777219273::1793031769::1::::<><><>0<>0<>06d2996e5c0645f20c00e86b7ba634c6<>res://godot/imported/Default_Music.ogg-2672b7079f76bad028a0c20803d1d503.oggvorbisstr::
 EndMusic.ogg::AudioStreamOggVorbis::4743793245834139260::1792723180::1793031769::1::::<><><>0<>0<>29b8ef6acf229096b6af23a83748257b<>res://godot/imported/EndMusic.ogg-acf05c8b07b0a90217704340c5c576c9.oggvorbisstr::
@@ -129,7 +144,7 @@ hue_shift_shake.gdshader::Shader::3710828667035831444::1793023678::0::1::::<><><
 TextGradient.gdshader::Shader::5804433773086889439::1793023678::0::1::::<><><>0<>0<><>::
 texture_scroll.gdshader::Shader::8740171459345501622::1793023678::0::1::::<><><>0<>0<><>::
 transition.gdshader::Shader::7520459646533089168::1771695579::0::1::::<><><>0<>0<><>::
-::res://assets/sprites/::1793031777
+::res://assets/sprites/::1793211963
 btn1.png::CompressedTexture2D::3611909931240630614::1792966782::1793031777::1::::<><><>0<>0<>5dd7a6ee61664a2b7c4e5d2ba180a4fd<>res://godot/imported/btn1.png-52fa6903b78ba5eb7baaf886e7fa417e.ctex::
 btn2.png::CompressedTexture2D::673088413941852366::1792966782::1793031777::1::::<><><>0<>0<>cd3781f87b9207b649fe022f76bb9593<>res://godot/imported/btn2.png-df56bb2cf7b8e7d34de595e95faacad3.ctex::
 btnHor.png::CompressedTexture2D::2009220070558694776::1771889518::1793031777::1::::<><><>0<>0<>0f4c8f6044fc4716fe46251f58e76554<>res://godot/imported/btnHor.png-169312548547ec0816bf469d6a4b7f5a.ctex::
@@ -142,6 +157,8 @@ flameNoise2.png::CompressedTexture2D::8769659148229202405::1773178729::179303177
 flameNoise.png::CompressedTexture2D::7855674405171685862::1773178725::1793031777::1::::<><><>0<>0<>a7e4c57f68aa7f28d9b622a8a3fb22e2<>res://godot/imported/flameNoise.png-111b456114fb7ccbd39473f07e0cacb3.ctex::
 HexagonalMetal.jpg::CompressedTexture2D::3951243062725254922::1792713236::1793031777::1::::<><><>0<>0<>409b33c350bedd4bda6a74b068727ed3<>res://godot/imported/HexagonalMetal.jpg-a0c8bc299d894b6719b55575f0fefaba.ctex::
 hornet.png::CompressedTexture2D::1872561097796841572::1772748787::1793031777::1::::<><><>0<>0<>4f0eda65872db39a9df1bfcd0b395b3c<>res://godot/imported/hornet.png-86b4318c51e9e8b14a7183f08cb1ab00.ctex::
+Oak-Stretcher-Architextures.jpg::CompressedTexture2D::6585863795594490654::1793211962::1793211963::1::::<><><>0<>0<>5bd634ff4065c05afacf63aa646e3c57<>res://godot/imported/Oak-Stretcher-Architextures.jpg-d8a584fd60f8c7eceb211c0933aa82ae.ctex::
+Pilotage-Stretcher-Architextures.jpg::CompressedTexture2D::3945082391808034378::1793211962::1793211963::1::::<><><>0<>0<>c6fd2ee9887e479eaa48c3de7244de37<>res://godot/imported/Pilotage-Stretcher-Architextures.jpg-43f67e9063124a534ed0daa641facb94.ctex::
 seamlessNoise.png::CompressedTexture2D::6192057543812072735::1773178885::1793031777::1::::<><><>0<>0<>03e9c7d1d15d7875ee39819f2cc333cc<>res://godot/imported/seamlessNoise.png-8c276c6dc2082aeae93e56dd61fc428d.ctex::
 selector.png::CompressedTexture2D::5543940230060545392::1772789926::1793031777::1::::<><><>0<>0<>d6a76f5333fba7f1e2c5aa82faa8a0d3<>res://godot/imported/selector.png-d0018707617902c3e886c6fbf4977608.ctex::
 ::res://assets/sprites/bounce/::1793031774
@@ -170,7 +187,7 @@ BGStar.png::CompressedTexture2D::6340049950003995886::1772751387::1793031774::1:
 BGTriangle.png::CompressedTexture2D::3935580463521759683::1772751387::1793031773::1::::<><><>0<>0<>b32b19d761f32d30ac56195b0b9384dc<>res://godot/imported/BGTriangle.png-05743db862aaf2c939cae561587c8aac.ctex::
 ::res://build/::1793031912
 ::res://build/Linux/::1793032120
-::res://build/Web/::1793031830
+::res://build/Web/::1793033286
 index.apple-touch-icon.png::CompressedTexture2D::5954606056394198463::1793031830::1793033285::1::::<><><>0<>0<>4295ab15e91e3af9277b8ad9dd05fb3e<>res://godot/imported/index.apple-touch-icon.png-bc8772bd3da302217a05a7a2f7773223.ctex::
 index.icon.png::CompressedTexture2D::2286607049000023383::1793031830::1793033285::1::::<><><>0<>0<>ed4af24a25ff206f81ec6953091babe3<>res://godot/imported/index.icon.png-5e144dcb04c92de581c07e6d17af8c5d.ctex::
 index.png::CompressedTexture2D::6199888076320305272::1793031830::1793033286::1::::<><><>0<>0<>735ce50bf8f8a3add8d323065a6ca4a1<>res://godot/imported/index.png-2e2e99c075596644f2bbf2bfc2b2f77a.ctex::
@@ -186,10 +203,10 @@ lobby_grid_manager.gd::GDScript::716952402950648322::1777223031::0::1::::LobbyGr
 lobby_manager.gd::GDScript::4907104303636791028::1793028081::0::1::::LobbyManager<>Node<><>0<>0<><>::
 player_panel.gd::GDScript::5298495554708964579::1793027094::0::1::::PlayerPanel<>Node2D<><>0<>0<><>::
 player_panel.tscn::PackedScene::1968727823933344664::1793027591::0::1::::<><><>0<>0<><>::uid://chqvphrcofg7d::::res://scenes/Lobby/player_panel.gd<>uid://1xc2pxxnng1a::::res://assets/sprites/hornet.png<>uid://drvwpm6fpc3yc::::res://assets/characters/placeholder.png<>uid://bs4s2nyr0nfg3::::res://assets/shaders/hue_shift_shake.gdshader<>uid://b2hxjf8gc38xd::::res://scenes/Shared/beat_pulse.gd<>uid://8fhyeptkdvb8::::res://assets/sprites/shapes/BGCircle.png<>uid://k0fbsf50dhgc::::res://assets/fonts/Mario-Party-Hudson-Font.ttf<>uid://c1l872xkvd2up::::res://assets/fonts/Stunfest2025.otf
-::res://scenes/Minigames/::1792606319
+::res://scenes/Minigames/::1793212147
 minigame_base.gd::GDScript::363241349556221876::1792581192::0::1::::MinigameBase<>Node<><>0<>0<><>::
 minigame_info.gd::GDScript::7876334668567756690::1777235299::0::1::::MinigameInfo<>Resource<><>0<>0<><>::
-player_hub.gd::GDScript::2399152480489912731::1792575575::0::1::::PlayerHub<>Node<><>0<>0<><>::
+player_hub.gd::GDScript::2399152480489912731::1793230427::0::1::::PlayerHub<>Node<><>0<>0<><>::
 ::res://scenes/Minigames/123Voisins/::1793027591
 123voisin_banana.tscn::PackedScene::3710672128943188748::1792630075::0::1::::<><><>0<>0<><>::uid://dlxqbncbn1sgk::::res://scenes/Minigames/123Voisins/assets/Banane1.png<>uid://c845srdtndnx::::res://scenes/Minigames/123Voisins/LaserSpot.gd
 123voisin_game.gd::GDScript::3232364019635577080::1792720864::0::1::::<>Node<><>0<>0<><>::
@@ -344,6 +361,17 @@ step8.ogg::AudioStreamOggVorbis::9192606019371528405::1777222246::1793031769::1:
 step9.ogg::AudioStreamOggVorbis::8487622179631497227::1777222246::1793031769::1::::<><><>0<>0<>66f8493e7cb80f47731bbe42f93f3360<>res://godot/imported/step9.ogg-de919f455e151b7c8783ad5955bd29c6.oggvorbisstr::
 step10.ogg::AudioStreamOggVorbis::5664336766540542129::1777222246::1793031769::1::::<><><>0<>0<>6347dbcca774c43e17abb32825cb52ff<>res://godot/imported/step10.ogg-1f251100181955d08f3ce596d4fd64ce.oggvorbisstr::
 steps.tres::AudioStreamRandomizer::4744712469803844896::1777222405::0::1::::<><><>0<>0<><>::uid://bt1niiydolc4p::::res://scenes/Minigames/BtnMasher/steps/step1.ogg<>uid://y8jojctw3fen::::res://scenes/Minigames/BtnMasher/steps/step2.ogg<>uid://cpdadhisa86bh::::res://scenes/Minigames/BtnMasher/steps/step3.ogg<>uid://btomulywthmq3::::res://scenes/Minigames/BtnMasher/steps/step4.ogg<>uid://dxctw05rhmbdf::::res://scenes/Minigames/BtnMasher/steps/step5.ogg<>uid://cfm8m2ihj8prk::::res://scenes/Minigames/BtnMasher/steps/step6.ogg<>uid://cowidre7du4s2::::res://scenes/Minigames/BtnMasher/steps/step7.ogg<>uid://d37744cfi0uin::::res://scenes/Minigames/BtnMasher/steps/step8.ogg<>uid://ds6p5rhf866mp::::res://scenes/Minigames/BtnMasher/steps/step9.ogg<>uid://cmx32fu6ai2qf::::res://scenes/Minigames/BtnMasher/steps/step10.ogg
+::res://scenes/Minigames/DodgeBall/::1793302737
+ball.gd::GDScript::1439456083650603549::1793301610::0::1::::DodgeBall<>RigidBody2D<><>0<>0<><>::
+Ball.png::CompressedTexture2D::7861669266159813134::1793215575::1793215584::1::::<><><>0<>0<>82cee57ba817860cb6ea698eba4aa09a<>res://godot/imported/Ball.png-cca013f284b22730902e45550cae5586.ctex::
+ball.tscn::PackedScene::8098140751938277866::1793234513::0::1::::<><><>0<>0<><>::uid://urjvp5f61y0l::::res://scenes/Minigames/DodgeBall/ball.gd<>uid://dkaisrduuytd3::::res://scenes/Minigames/DodgeBall/Ball.png
+DodgeBall_game.gd::GDScript::6564407536664605788::1793301652::0::1::::<>Node<><>0<>0<><>::
+DodgeBall_game.tscn::PackedScene::910571026473977881::1793234238::0::1::::<><><>0<>0<><>::uid://ff7sc7bijvlc::::res://scenes/Minigames/minigame_base.gd<>uid://c23bdcyhinccf::::res://scenes/Minigames/DodgeBall/dodge_player.tscn<>uid://c03ihj78a2oha::::res://assets/sprites/Oak-Stretcher-Architextures.jpg<>uid://ecxjlqsxtpip::::res://assets/sprites/shapes/BGSquare.png<>uid://c0r33lap7qesi::::res://scenes/Minigames/DodgeBall/DodgeBall_game.gd<>uid://dnm2gvprjv8nu::::res://scenes/Minigames/DodgeBall/ball.tscn<>uid://bwha6v1w0mujy::::res://assets/sprites/Pilotage-Stretcher-Architextures.jpg
+DodgeBall_info.tres::Resource/MinigameInfo::8175573593348248953::1793219430::0::1::::<><><>0<>0<><>::uid://dkhmc06h3n7cg::::res://scenes/Minigames/minigame_info.gd<>uid://m8c8bmpfafgj::::res://scenes/Minigames/DodgeBall/DodgeBall_game.tscn
+DodgeBall_Music.ogg::AudioStreamOggVorbis::3901326413600466300::1793302737::1793302738::1::::<><><>0<>0<>233c2d73c4b92d41b9d83e2751bf11b1<>res://godot/imported/DodgeBall_Music.ogg-e14f4ccfe3c48ba0a643839fc46ad394.oggvorbisstr::
+DodgeBall_player.gd::GDScript::9107219106910741646::1793302199::0::1::::DodgePlayer<>Node2D<><>0<>0<><>::
+dodge_player.tscn::PackedScene::6725808939552489625::1793301037::0::1::::<><><>0<>0<><>::uid://bagfxqurfa4bv::::res://scenes/Minigames/player_hub.gd<>uid://d20utky8eawgk::::res://scenes/Minigames/DodgeBall/DodgeBall_player.gd<>uid://cmwiex0yx2w7i::::res://scenes/Minigames/jumpRace/jumps/jump3.mp3<>uid://e6v1cvcy1lh7::::res://scenes/Minigames/InterroSurprise/assets/SFX/punch/punch.tres<>uid://8fhyeptkdvb8::::res://assets/sprites/shapes/BGCircle.png<>uid://drvwpm6fpc3yc::::res://assets/characters/placeholder.png<>uid://b8ob5xrukn8s8::::res://scenes/Minigames/DodgeBall/icon_arrow.png<>uid://k0fbsf50dhgc::::res://assets/fonts/Mario-Party-Hudson-Font.ttf
+icon_arrow.png::CompressedTexture2D::4731669338336269905::1793224137::1793224137::1::::<><><>0<>0<>1092c8336ecb13ae7a6782486980ef6c<>res://godot/imported/icon_arrow.png-12cfbe5d6ab14ceb83c68b3bccc515f0.ctex::
 ::res://scenes/Minigames/Drift/::1793027591
 checkpoint.gd::GDScript::8858585397090065472::1792497861::0::1::::DriftCheckpoint<>Area2D<><>0<>0<><>::
 drift_game.gd::GDScript::8412170094517725912::1792538366::0::1::::<>Node<><>0<>0<><>::
@@ -406,11 +434,11 @@ hit_punch_h.wav::AudioStreamWAV::2348785722737450427::1792569203::1793031778::1:
 hit_punch_l.wav::AudioStreamWAV::1785837729272625851::1792569203::1793031778::1::::<><><>0<>0<>a199f9a75eb31380a057621e1393aca4<>res://godot/imported/hit_punch_l.wav-35a4e824ecc0b2eed9b30a969d3bac29.sample::
 hit_punch_m.wav::AudioStreamWAV::784395834330025884::1792569203::1793031778::1::::<><><>0<>0<>73e32a150e10417355299c971706d1d5<>res://godot/imported/hit_punch_m.wav-bbe1a8fd5e3f6dc53d8fad57fa656d01.sample::
 punch.tres::AudioStreamRandomizer::346072710029176458::1792570328::0::1::::<><><>0<>0<><>::uid://diy7bnk8xxt0r::::res://scenes/Minigames/InterroSurprise/assets/SFX/punch/hit_kick_h.wav<>uid://bftfmhxxc35jb::::res://scenes/Minigames/InterroSurprise/assets/SFX/punch/hit_kick_l.wav<>uid://2j87u46vsjun::::res://scenes/Minigames/InterroSurprise/assets/SFX/punch/hit_kick_m.wav<>uid://8p1fmj57tqkp::::res://scenes/Minigames/InterroSurprise/assets/SFX/punch/hit_punch_h.wav<>uid://0pcqsm5boc8r::::res://scenes/Minigames/InterroSurprise/assets/SFX/punch/hit_punch_l.wav<>uid://lf75c21no4ku::::res://scenes/Minigames/InterroSurprise/assets/SFX/punch/hit_punch_m.wav
-::res://scenes/Minigames/jumpRace/::1793031772
+::res://scenes/Minigames/jumpRace/::1793215583
 bounce.gd::GDScript::4908172209112388728::1792538379::0::1::::<>Node2D<><>0<>0<><>::
 bounce.tscn::PackedScene::5331532846562637852::1792140620::0::1::::<><><>0<>0<><>::uid://cb6s45ly1sgsm::::res://scenes/Minigames/jumpRace/bounce.gd<>uid://3tdmelqydtx1::::res://assets/sprites/bounce/ressort_anim_0.png<>uid://egqr2hfmhte::::res://assets/sprites/bounce/ressort_anim_1.png<>uid://dog0l0qo2kvru::::res://assets/sprites/bounce/ressort_anim_2.png<>uid://bf76xfmlwd30p::::res://assets/sprites/bounce/ressort_anim_3.png<>uid://dg1rckof63jg::::res://assets/sprites/bounce/ressort_anim_4.png<>uid://dhr7phmo2sng4::::res://assets/sprites/bounce/ressort_anim_5.png<>uid://cgmmhw0nj0hjw::::res://assets/sprites/bounce/ressort_anim_6.png<>uid://b5hji8iefluq5::::res://assets/sprites/bounce/ressort_anim_7.png
 JumpRaceMusic.ogg::AudioStreamOggVorbis::7763695896951940837::1792585223::1793031768::1::::<><><>0<>0<>711fafdb7174500938721367ba87e5cc<>res://godot/imported/JumpRaceMusic.ogg-71c848c5952f3c4f16b7509fb39e6300.oggvorbisstr::
-jump_race.tres::Resource/MinigameInfo::4401772804540032088::1792370264::0::1::::<><><>0<>0<><>::uid://dkhmc06h3n7cg::::res://scenes/Minigames/minigame_info.gd<>uid://cytiomcjt2ete::::res://scenes/Minigames/jumpRace/jump_race.tscn
+jump_race.tres::Resource/MinigameInfo::4401772804540032088::1793134620::0::1::::<><><>0<>0<><>::uid://dkhmc06h3n7cg::::res://scenes/Minigames/minigame_info.gd<>uid://cytiomcjt2ete::::res://scenes/Minigames/jumpRace/jump_race.tscn
 jump_race.tscn::PackedScene::6497108162888101570::1792585247::0::1::::<><><>0<>0<><>::uid://ff7sc7bijvlc::::res://scenes/Minigames/minigame_base.gd<>uid://bvreqr3w4ncve::::res://scenes/Minigames/jumpRace/jump_race_player.tscn<>uid://bbvkwjltx8wfk::::res://scenes/Minigames/jumpRace/jump_race_manager.gd<>uid://diu164lccqykr::::res://scenes/Minigames/jumpRace/JumpRaceMusic.ogg<>uid://ecxjlqsxtpip::::res://assets/sprites/shapes/BGSquare.png<>uid://dwr2l2dyndl8a::::res://assets/shaders/texture_scroll.gdshader<>uid://c4got42wmu0n6::::res://assets/Checker.png<>uid://qo6sg8xrlb3x::::res://scenes/Minigames/jumpRace/world_tileset.png<>uid://ch7vtjq14xf3i::::res://scenes/Minigames/jumpRace/bounce.tscn<>uid://ei56m8hmtq15::::res://scenes/Minigames/jumpRace/Sonic Spring.mp3
 jump_race_manager.gd::GDScript::2500608408158292388::1792327844::0::1::::<>Node<><>0<>0<><>::
 jump_race_player.gd::GDScript::8332460516286881462::1792335685::0::1::::PlayerJumpRace<>Node<><>0<>0<><>::
@@ -439,9 +467,9 @@ testMaze.glb::PackedScene::4462770302962449239::1792139625::1793031779::1::::<><
 TestMaze.tscn::PackedScene::9014820878405364843::1792139625::0::1::::<><><>0<>0<><>::uid://b4t2f7fejbq68::::res://scenes/Minigames/Maze3D/Levels/testMaze.glb
 testMaze_0.png::CompressedTexture2D::7281871787244538502::1792139625::1793031772::1::::<><><>0<>0<>647c3cf3c0aad057049cbdef1c06d049<>res://godot/imported/testMaze_0.png-ddf95ffddf9f988e44500d86518d1da3.s3tc.ctex::
 tmpTexture.png::CompressedTexture2D::6253081031553545916::1792139625::1793031772::1::::<><><>0<>0<>ebddced9428e85733c8956ea1c8cfb43<>res://godot/imported/tmpTexture.png-2a79297b64d8ec63fb040eebe9e8971d.ctex::
-::res://scenes/Minigames/Maze3D/Prefabs/::1793028181
+::res://scenes/Minigames/Maze3D/Prefabs/::1793134620
 maze_bullet.tscn::PackedScene::358810619612363965::1792281140::0::1::::<><><>0<>0<><>::uid://gi4giomhr1ll::::res://scenes/Minigames/Maze3D/Scripts/maze_bullet.gd<>uid://8fhyeptkdvb8::::res://assets/sprites/shapes/BGCircle.png
-maze_player.tscn::PackedScene::8016861363252130674::1793028181::0::1::::<><><>0<>0<><>::uid://bagfxqurfa4bv::::res://scenes/Minigames/player_hub.gd<>uid://cskot1f61nxaa::::res://scenes/Minigames/Maze3D/Scripts/maze_player.gd<>uid://drvwpm6fpc3yc::::res://assets/characters/placeholder.png<>uid://fd2s8ut1jwa4::::res://scenes/Minigames/Maze3D/Prefabs/maze_bullet.tscn<>uid://cgndsq1a60nn2::::res://scenes/Minigames/Maze3D/SFX/RandomShoot.tres<>uid://bmcyejja0rer4::::res://scenes/Minigames/Maze3D/SFX/RandomDeath.tres<>uid://k0fbsf50dhgc::::res://assets/fonts/Mario-Party-Hudson-Font.ttf
+maze_player.tscn::PackedScene::8016861363252130674::1793134620::0::1::::<><><>0<>0<><>::uid://bagfxqurfa4bv::::res://scenes/Minigames/player_hub.gd<>uid://cskot1f61nxaa::::res://scenes/Minigames/Maze3D/Scripts/maze_player.gd<>uid://drvwpm6fpc3yc::::res://assets/characters/placeholder.png<>uid://fd2s8ut1jwa4::::res://scenes/Minigames/Maze3D/Prefabs/maze_bullet.tscn<>uid://cgndsq1a60nn2::::res://scenes/Minigames/Maze3D/SFX/RandomShoot.tres<>uid://bmcyejja0rer4::::res://scenes/Minigames/Maze3D/SFX/RandomDeath.tres<>uid://k0fbsf50dhgc::::res://assets/fonts/Mario-Party-Hudson-Font.ttf
 ::res://scenes/Minigames/Maze3D/Scripts/::1792274883
 maze_bullet.gd::GDScript::439420033783670369::1792281217::0::1::::MazeBullet<>Node3D<><>0<>0<><>::
 maze_manager.gd::GDScript::4290029247493534649::1792967712::0::1::::<>Node<><>0<>0<><>::
@@ -591,13 +619,13 @@ damier.jpg::CompressedTexture2D::8136874380601820054::1792701195::1793031770::1:
 Palmoer.png::CompressedTexture2D::229504982670651281::1792701195::1793031771::1::::<><><>0<>0<>41ec6922dd25e87ea5a14b091aa4b9a9<>res://godot/imported/Palmoer.png-f61f420ad50da969162146974e79e888.ctex::
 route.png::CompressedTexture2D::7229639596869285550::1792701195::1793031771::1::::<><><>0<>0<>e6a970f8b213a9dec59d15e5078fb616<>res://godot/imported/route.png-2a5095c91a705074911226f657f268a5.ctex::
 SFX_Event.ogg::AudioStreamOggVorbis::4930420816278838472::1792715089::1793031769::1::::<><><>0<>0<>8497a76cf239e9688c550826694220a3<>res://godot/imported/SFX_Event.ogg-8378f2be4ac1e8d246f2adeafcaccc25.oggvorbisstr::
-::res://scenes/SceneManager/::1792970009
+::res://scenes/SceneManager/::1793302582
 empty.tscn::PackedScene::6392925848120300677::1772581033::0::1::::<><><>0<>0<><>::
 loading_screen.gd::GDScript::5589968595847190927::1771960839::0::1::::LoadingScreen<>Node<><>0<>0<><>::
 loading_screen.tscn::PackedScene::9043442816996412473::1771962182::0::1::::<><><>0<>0<><>::uid://clv2731m0jrk6::::res://scenes/SceneManager/loading_screen.gd
 scene_manager.gd::GDScript::1665163787050831036::1771961073::0::1::::<>Node<><>0<>0<><>::
 test_scene.gd::GDScript::5246278233276060335::1792581289::0::1::::<>Node<><>0<>0<><>::
-test_scene.tscn::PackedScene::3508544797955289178::1792970009::0::1::::<><><>0<>0<><>::uid://k0fbsf50dhgc::::res://assets/fonts/Mario-Party-Hudson-Font.ttf<>uid://cg0lo3a8qnd56::::res://scenes/SceneManager/test_scene.gd<>uid://du5a45xk1wpqo::::res://scenes/Minigames/123Voisins/123voisin_info.tres<>uid://5uenlwxv47aj::::res://scenes/Party/shared_minigame_ui.gd<>uid://bbkebvu0jfsh::::res://scenes/Party/player_win_panel.tscn<>uid://dsxglxiph4m0y::::res://assets/sfx/shared/Don.wav<>uid://dx8m6et5ov4jw::::res://assets/sfx/shared/Start.ogg<>uid://cp8b6tltt8epm::::res://assets/sfx/shared/Finish.wav<>uid://dkmpelmacm1rk::::res://assets/sfx/shared/MinigameVictory.tres<>uid://cffyjucbcyacr::::res://assets/sfx/shared/MinigameTie/Draw.ogg<>uid://b8lbiyexetigc::::res://scenes/Party/minigame_timer.gd<>uid://dgsojmebkyaov::::res://scenes/Shared/beat_pulse_control.gd
+test_scene.tscn::PackedScene::3508544797955289178::1793302582::0::1::::<><><>0<>0<><>::uid://k0fbsf50dhgc::::res://assets/fonts/Mario-Party-Hudson-Font.ttf<>uid://cg0lo3a8qnd56::::res://scenes/SceneManager/test_scene.gd<>uid://doqkrda3d6p50::::res://scenes/Minigames/DodgeBall/DodgeBall_info.tres<>uid://5uenlwxv47aj::::res://scenes/Party/shared_minigame_ui.gd<>uid://bbkebvu0jfsh::::res://scenes/Party/player_win_panel.tscn<>uid://dsxglxiph4m0y::::res://assets/sfx/shared/Don.wav<>uid://dx8m6et5ov4jw::::res://assets/sfx/shared/Start.ogg<>uid://cp8b6tltt8epm::::res://assets/sfx/shared/Finish.wav<>uid://dkmpelmacm1rk::::res://assets/sfx/shared/MinigameVictory.tres<>uid://cffyjucbcyacr::::res://assets/sfx/shared/MinigameTie/Draw.ogg<>uid://b8lbiyexetigc::::res://scenes/Party/minigame_timer.gd<>uid://dgsojmebkyaov::::res://scenes/Shared/beat_pulse_control.gd
 ::res://scenes/Shared/::1792710220
 beat_pulse.gd::GDScript::4297382983048887701::1792568117::0::1::::BeatPulse2D<>Node2D<><>0<>0<><>::
 beat_pulse_control.gd::GDScript::7618420659043609969::1792719480::0::1::::BeatPulseControl<>Control<><>0<>0<><>::

@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dnm2gvprjv8nu"]
+
+[ext_resource type="Script" uid="uid://urjvp5f61y0l" path="res://scenes/Minigames/DodgeBall/ball.gd" id="1_2qnte"]
+[ext_resource type="Texture2D" uid="uid://dkaisrduuytd3" path="res://scenes/Minigames/DodgeBall/Ball.png" id="2_kve1l"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vf7ct"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wmq7q"]
+radius = 69.00725
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wti3a"]
+radius = 90.0
+
+[sub_resource type="Animation" id="Animation_2qnte"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kve1l"]
+resource_name = "blink"
+length = 0.06670000000000001
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ywdy5"]
+_data = {
+&"RESET": SubResource("Animation_2qnte"),
+&"blink": SubResource("Animation_kve1l")
+}
+
+[node name="Ball" type="RigidBody2D" unique_id=1693108943 node_paths=PackedStringArray("_sprite_container", "_area", "_anim")]
+physics_material_override = SubResource("PhysicsMaterial_vf7ct")
+gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_2qnte")
+initial_speed = 500.0
+_sprite_container = NodePath("SpriteContainer")
+_area = NodePath("Area2D")
+_anim = NodePath("AnimationPlayer")
+_slap_speed_increment = 75.0
+metadata/is_ball_active = false
+
+[node name="SpriteContainer" type="Node2D" parent="." unique_id=571656246]
+
+[node name="Sprite2D" type="Sprite2D" parent="SpriteContainer" unique_id=912374924]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_kve1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=685013422]
+shape = SubResource("CircleShape2D_wmq7q")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=65478644]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=83457290]
+shape = SubResource("CircleShape2D_wti3a")
+debug_color = Color(0.18666665, 0.7, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=386036905]
+libraries/ = SubResource("AnimationLibrary_ywdy5")

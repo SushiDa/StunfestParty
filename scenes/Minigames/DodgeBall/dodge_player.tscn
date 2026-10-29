@@ -1,0 +1,462 @@
+[gd_scene format=3 uid="uid://c23bdcyhinccf"]
+
+[ext_resource type="Script" uid="uid://bagfxqurfa4bv" path="res://scenes/Minigames/player_hub.gd" id="1_xqhpi"]
+[ext_resource type="Script" uid="uid://d20utky8eawgk" path="res://scenes/Minigames/DodgeBall/DodgeBall_player.gd" id="2_v5onk"]
+[ext_resource type="AudioStream" uid="uid://cmwiex0yx2w7i" path="res://scenes/Minigames/jumpRace/jumps/jump3.mp3" id="3_c1gjx"]
+[ext_resource type="AudioStream" uid="uid://e6v1cvcy1lh7" path="res://scenes/Minigames/InterroSurprise/assets/SFX/punch/punch.tres" id="4_cc1gp"]
+[ext_resource type="Texture2D" uid="uid://8fhyeptkdvb8" path="res://assets/sprites/shapes/BGCircle.png" id="5_wbu1s"]
+[ext_resource type="Texture2D" uid="uid://drvwpm6fpc3yc" path="res://assets/characters/placeholder.png" id="6_10nyj"]
+[ext_resource type="Script" uid="uid://b2hxjf8gc38xd" path="res://scenes/Shared/beat_pulse.gd" id="6_c1gjx"]
+[ext_resource type="Animation" uid="uid://cwnuja2e18qhh" path="res://assets/move_animation/move.res" id="7_v5onk"]
+[ext_resource type="Texture2D" uid="uid://b8ob5xrukn8s8" path="res://scenes/Minigames/DodgeBall/icon_arrow.png" id="7_v766v"]
+[ext_resource type="FontFile" uid="uid://k0fbsf50dhgc" path="res://assets/fonts/Mario-Party-Hudson-Font.ttf" id="8_vtkq8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3gcot"]
+
+[sub_resource type="Animation" id="Animation_q166l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/Arrow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.75, 0.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/Arrow:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.34901962)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/Arrow:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(85, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BeatPulse2D/CharacterContainer/Character:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 10)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BeatPulse2D/CharacterContainer/Character:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BeatPulse2D/CharacterContainer/Character:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BeatPulse2D/CharacterContainer/Character:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wyoym"]
+resource_name = "slap"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/Arrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.25),
+"transitions": PackedFloat32Array(1, 4, 1),
+"update": 0,
+"values": [Vector2(85, 0), Vector2(111, 0), Vector2(85, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/Arrow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.25),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [Vector2(0.75, 0.75), Vector2(1.75, 1.75), Vector2(0.75, 0.75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/Arrow:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.19999999),
+"transitions": PackedFloat32Array(1, 1, 3, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.34901962), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.34901962)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BeatPulse2D/CharacterContainer/Character:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.5, 3.5), Vector2(3.5, 2.5), Vector2(4, 4), Vector2(3, 3)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BeatPulse2D/CharacterContainer/Character:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.99233335, 1, 0.53999996, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l6088"]
+_data = {
+&"RESET": SubResource("Animation_q166l"),
+&"move": ExtResource("7_v5onk"),
+&"slap": SubResource("Animation_wyoym")
+}
+
+[sub_resource type="Animation" id="Animation_6ywf1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeatPulse2D/CharacterContainer/Character:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l6088"]
+resource_name = "invincible"
+length = 0.06670000000000001
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeatPulse2D/CharacterContainer/Character:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7j1gr"]
+_data = {
+&"RESET": SubResource("Animation_6ywf1"),
+&"invincible": SubResource("Animation_l6088")
+}
+
+[sub_resource type="Animation" id="Animation_v5onk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeatPulse2D/CharacterContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeatPulse2D/CharacterContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BeatPulse2D/CharacterContainer/Character:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_c1gjx"]
+resource_name = "flip_L"
+length = 0.39999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeatPulse2D/CharacterContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 1), Vector2(1, 1), Vector2(0, 1), Vector2(1, 1), Vector2(0, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeatPulse2D/CharacterContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(0.4, 0.4, 0.4, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BeatPulse2D/CharacterContainer/Character:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_cc1gp"]
+resource_name = "flip_R"
+length = 0.39999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeatPulse2D/CharacterContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 1), Vector2(1, 1), Vector2(0, 1), Vector2(1, 1), Vector2(0, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeatPulse2D/CharacterContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(0.4, 0.4, 0.4, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BeatPulse2D/CharacterContainer/Character:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wbu1s"]
+_data = {
+&"RESET": SubResource("Animation_v5onk"),
+&"flip_L": SubResource("Animation_c1gjx"),
+&"flip_R": SubResource("Animation_cc1gp")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_735yp"]
+radius = 80.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_wmq7q"]
+font = ExtResource("8_vtkq8")
+font_size = 48
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DodgePlayer" type="CharacterBody2D" unique_id=227886256]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+motion_mode = 1
+script = ExtResource("1_xqhpi")
+debug_device = 0
+
+[node name="PlayerMgr" type="Node2D" parent="." unique_id=1110484019 node_paths=PackedStringArray("_hub", "_body", "_sprite", "_anim", "_anim_invincible", "_anim_flip", "_score_label", "_arrow", "_arrow_sprite")]
+unique_name_in_owner = true
+script = ExtResource("2_v5onk")
+_hub = NodePath("..")
+_body = NodePath("..")
+_sprite = NodePath("../BeatPulse2D/CharacterContainer/Character")
+_anim = NodePath("../AnimationPlayer")
+_anim_invincible = NodePath("../InvincibilityPlayer")
+_anim_flip = NodePath("../FlipPlayer")
+_slap_cooldown = 0.25
+_invincibility_duration = 2.0
+_speed = 500.0
+_score_label = NodePath("../Label")
+_arrow = NodePath("../Area2D")
+_arrow_sprite = NodePath("../Area2D/Arrow")
+_SFX_slap = ExtResource("3_c1gjx")
+_SFX_hit = ExtResource("4_cc1gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=282157417]
+shape = SubResource("CircleShape2D_3gcot")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=826925162]
+self_modulate = Color(0, 0, 0, 0.5019608)
+show_behind_parent = true
+scale = Vector2(0.19, 0.095)
+texture = ExtResource("5_wbu1s")
+
+[node name="BeatPulse2D" type="Node2D" parent="." unique_id=1571077409]
+script = ExtResource("6_c1gjx")
+pulse_scale = Vector2(1, 0.95)
+scale_duration_pct = 0.75
+metadata/_custom_type_script = "uid://b2hxjf8gc38xd"
+
+[node name="CharacterContainer" type="Node2D" parent="BeatPulse2D" unique_id=420392405]
+
+[node name="Character" type="Sprite2D" parent="BeatPulse2D/CharacterContainer" unique_id=2109406432]
+z_index = 1
+position = Vector2(0, 10)
+scale = Vector2(3, 3)
+texture = ExtResource("6_10nyj")
+offset = Vector2(0, -40)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=786785399]
+libraries/ = SubResource("AnimationLibrary_l6088")
+
+[node name="InvincibilityPlayer" type="AnimationPlayer" parent="." unique_id=1964812901]
+libraries/ = SubResource("AnimationLibrary_7j1gr")
+
+[node name="FlipPlayer" type="AnimationPlayer" parent="." unique_id=251913834]
+libraries/ = SubResource("AnimationLibrary_wbu1s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1890319957]
+show_behind_parent = true
+metadata/is_player = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1664335471]
+position = Vector2(106, 0)
+shape = SubResource("CircleShape2D_735yp")
+disabled = true
+debug_color = Color(0, 0.5950001, 0.7, 0)
+
+[node name="Arrow" type="Sprite2D" parent="Area2D" unique_id=739175254]
+self_modulate = Color(1, 1, 1, 0.34901962)
+position = Vector2(85, 0)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_v766v")
+
+[node name="Label" type="Label" parent="." unique_id=405833713]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "0"
+label_settings = SubResource("LabelSettings_wmq7q")
+horizontal_alignment = 1
+vertical_alignment = 1

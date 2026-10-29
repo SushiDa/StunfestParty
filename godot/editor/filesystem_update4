@@ -1,0 +1,7 @@
+res://scenes/Minigames/DodgeBall/dodge_player.tscn
+res://scenes/Minigames/DodgeBall/DodgeBall_player.gd
+res://scenes/Minigames/DodgeBall/ball.gd
+res://scenes/Minigames/DodgeBall/DodgeBall_game.gd
+res://scenes/SceneManager/test_scene.tscn
+res://assets/move_animation/move.res
+res://scenes/Minigames/DodgeBall/DodgeBall_game.tscn

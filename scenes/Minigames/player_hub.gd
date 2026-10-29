@@ -93,7 +93,6 @@ func _process(_delta: float) -> void:
 		btn1_hold = input_btn1
 		btn2_hold = input_btn2
 
-
 	else :
 		movement = Vector2.ZERO
 		btn1_hold = false

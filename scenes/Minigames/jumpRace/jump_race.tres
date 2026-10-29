@@ -7,6 +7,7 @@
 script = ExtResource("1_8xi7l")
 name = "Jump Race"
 subtitle = "Va le plus haut possible"
+authors = "Vibromaster"
 prefab = ExtResource("1_ebcwb")
 action_btn1 = "Sauter"
 action_movement = "Se déplacer"
